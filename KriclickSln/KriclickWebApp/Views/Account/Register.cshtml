@@ -1,0 +1,242 @@
+﻿@model KriclickWebApp.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_LayoutWithoutFooter.cshtml";
+}
+
+<style>
+    #Google {
+        background: #df4b38;
+        display: block;
+        /* font-size: 24px; */
+        text-transform: uppercase;
+        color: #ffffff;
+        padding: 10px;
+        /* font-weight: 400; */
+        width: 100%;
+        /* height: auto; */
+        border: none;
+        text-align: left;
+        margin-bottom: 10px;
+        vertical-align: middle;
+    }
+
+
+        #Google .fa {
+            font-size: 19px;
+            padding-right: 15px;
+            padding-left: 5px;
+        }
+
+        #Google span {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+        }
+
+    #Facebook {
+        background: #3c558d;
+        display: block;
+        /* font-size: 24px; */
+        text-transform: uppercase;
+        color: #ffffff;
+        padding: 10px;
+        /* font-weight: 400; */
+        width: 100%;
+        /* height: auto; */
+        border: none;
+        text-align: left;
+        margin-bottom: 10px;
+        vertical-align: middle;
+    }
+
+        #Facebook .fa {
+            font-size: 19px;
+            padding-right: 15px;
+            padding-left: 5px;
+        }
+
+        #Facebook span {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+        }
+
+    .fa fa-google-plus {
+        font-size: 50px;
+    }
+
+    /*.span1 {
+        margin-top: -33px;
+    }*/
+
+    .field-validation-error {
+        color: red;
+        font-size: 14px;
+    }
+
+    .validationMessagePadding {
+        text-align: center;
+        padding: 10px !important;
+    }
+    /*.validation-summary-errors {
+        color: red;
+        font-size: 20px;
+    }*/
+</style>
+<div id="body-panel" class="body-panel">
+
+
+
+
+
+
+    <!-- Start Body Panel -->
+    <div class="login-page-wrap">
+        <div class="title-text">
+            @if (ViewBag.UserAlreadyExists != null)
+            {
+                if (ViewBag.ProfileExistsOrNot == "-1")
+                {
+                    <div class="notifications coupon-expired validationMessagePadding">
+                        @*This email address has already been used.*@
+                        This email has been already registered <br /><a href="~/Account/CreateProfile?UserId=@ViewBag.UserID">please click this link to complete registration.</a>
+                    </div>
+                }
+                else
+                {
+                    <div class="notifications coupon-expired validationMessagePadding">
+                        This email has been already registered.
+                    </div>
+                }
+            }
+            <h3 class="u-case text-center">CREATE AN ACCOUNT</h3>
+            <span class="block text-center">Sign in with Facebook or Google</span>
+        </div>
+
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-12">
+                <section id="socialLoginForm">
+                    @Html.Partial("_ExternalLoginsListPartial", new KriclickWebApp.Models.ExternalLoginViewModel() { Action = "ExternalLogin", ReturnUrl = ViewBag.ReturnUrl })
+                </section>
+                <span class="block text-right span1">Already a member?</span>
+
+                <div class="text-right">
+                    @Html.ActionLink("Sign in", "Login", "Account")
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12">
+                @*<form class="ragistration-form">*@
+                @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "ragistration-form", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    @*@Html.ValidationSummary()*@
+                    @Html.TextBoxFor(m => m.UserName, new { @class = "", @placeholder = "Email Address" })
+                    @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "field" })
+
+                    @*@Html.PasswordFor(m => m.Password, new { @class = "", @placeholder = "Password" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "field" })
+
+                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "", @placeholder = "Confirm Password" })
+                        @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "field" })*@
+                    @*<div class="g-recaptcha" data-sitekey="6LfJmQ0TAAAAAAQZ7-YW96vZqJmDNVqxP6_TLmcm"></div>*@
+                    <span class="block">By joining you agree to our <a href="#">Terms & Conditions</a></span>
+                    <button type="submit">Register</button>
+                }
+                @*<input type="submit" value="SIGN IN" class="btn btn-default" />*@
+                @*</form>*@
+                <div class="forget">
+                    <a href="#">Forgot Password</a><a href="#">Forgot Username</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<h2>@ViewBag.Title.</h2>
+
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <h4>Create a new account.</h4>
+        <hr />
+        @Html.ValidationSummary()
+        <div class="form-group">
+            @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" class="btn btn-default" value="Register" />
+            </div>
+        </div>
+    }*@
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,234 @@
+﻿@model KriclickWebApp.Models.LoginViewModel
+@{
+
+    Layout = "~/Views/Shared/_LayoutWithoutFooter.cshtml";
+}
+@*@{
+        //ViewBag.Title = "Log in";
+    }*@
+@*<h2>@ViewBag.Title.</h2>*@
+<style>
+    #Google {
+        background: #df4b38;
+        display: block;
+        /* font-size: 24px; */
+        text-transform: uppercase;
+        color: #ffffff;
+        padding: 10px;
+        /* font-weight: 400; */
+        width: 100%;
+        /* height: auto; */
+        border: none;
+        text-align: left;
+        margin-bottom: 10px;
+        vertical-align: middle;
+    }
+
+        #Google .fa {
+            font-size: 19px;
+            padding-right: 15px;
+            padding-left: 5px;
+        }
+
+        #Google span {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+        }
+
+    #Facebook {
+        background: #3c558d;
+        display: block;
+        /* font-size: 24px; */
+        text-transform: uppercase;
+        color: #ffffff;
+        padding: 10px;
+        /* font-weight: 400; */
+        width: 100%;
+        /* height: auto; */
+        border: none;
+        text-align: left;
+        margin-bottom: 10px;
+        vertical-align: middle;
+    }
+
+        #Facebook .fa {
+            font-size: 19px;
+            padding-right: 15px;
+            padding-left: 5px;
+        }
+
+        #Facebook span {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+        }
+
+    .fa fa-google-plus {
+        font-size: 50px;
+    }
+
+    /*.span1 {
+        margin-top: -33px;
+    }*/
+
+    .field {
+        color: red;
+    }
+
+    .validation-summary-errors {
+        color: red;
+        font-size: 20px;
+    }
+    .textmargin{
+        margin-top:100px;
+    }
+</style>
+
+
+
+<div id="body-panel" class="body-panel">
+    @if (Request.IsAuthenticated)
+    {
+        <div class="home-wrapper text-center">
+            <h4 class="text-danger textmargin">You have already logged in!!!</h4>
+        </div>
+    }
+    else
+    {
+    <!-- Start Body Panel -->
+        <div class="login-page-wrap">
+            <div class="title-text">
+
+                @if (ViewBag.WrongUserNameandPwd != null)
+                {
+                    <div class="notifications coupon-expired">
+                        Invalid username or password.
+                    </div>
+                }
+                <h3 class="u-case text-center">Sign In</h3>
+                <span class="block text-center">Sign in with Facebook or Google</span>
+            </div>
+
+
+            @Html.ValidationSummary(true)
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+
+                    <section id="socialLoginForm">
+
+                        @Html.Partial("_ExternalLoginsListPartialSignIn", new KriclickWebApp.Models.ExternalLoginViewModel() { Action = "ExternalLogin", ReturnUrl = ViewBag.ReturnUrl })
+
+                    </section>
+                    <span class="block text-right span1">Not a member yet?</span>
+                    <div class="text-right">
+                        @Html.ActionLink("Register", "Register", "Account")
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12">
+
+                    @*<form class="ragistration-form">*@
+                    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "ragistration-form", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.TextBoxFor(m => m.UserName, new { @class = "", @placeholder = "Username or email" })
+                        @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "field" })
+                        @Html.PasswordFor(m => m.Password, new { @class = "", @placeholder = "Password" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "field" })
+                        @*<div class="g-recaptcha" data-sitekey="6LfJmQ0TAAAAAAQZ7-YW96vZqJmDNVqxP6_TLmcm"></div>*@
+                        <span class="block">By joining you agree to our <a href="#">Terms & Conditions</a></span>
+                        <button type="submit">sign in</button>
+                    }
+                    @*<input type="submit" value="SIGN IN" class="btn btn-default" />*@
+                    @*</form>*@
+                    <div class="forget">
+                        <a href="#">Forgot Password</a><a href="#">Forgot Username</a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    }
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<div class="row">
+        <div class="col-md-8">
+            <section id="loginForm">
+                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <h4>Use a local account to log in.</h4>
+                    <hr />
+                    @Html.ValidationSummary(true)
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.UserName)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Password)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <div class="checkbox">
+                                @Html.CheckBoxFor(m => m.RememberMe)
+                                @Html.LabelFor(m => m.RememberMe)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Log in" class="btn btn-default" />
+                        </div>
+                    </div>
+                    <p>
+                        @Html.ActionLink("Register", "Register") if you don't have a local account.
+                    </p>
+                }
+            </section>
+        </div>
+        <div class="col-md-4">
+            <section id="socialLoginForm">
+                @Html.Partial("_ExternalLoginsListPartial", new { Action = "ExternalLogin", ReturnUrl = ViewBag.ReturnUrl })
+            </section>
+        </div>
+    </div>*@
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

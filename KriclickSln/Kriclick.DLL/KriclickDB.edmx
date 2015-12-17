@@ -1,0 +1,733 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="KriclickDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Countries">
+          <Key>
+            <PropertyRef Name="CountryId" />
+          </Key>
+          <Property Name="CountryId" Type="smallint" Nullable="false" />
+          <Property Name="CountryName" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FAQ">
+          <Key>
+            <PropertyRef Name="FAQId" />
+          </Key>
+          <Property Name="FAQId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FAQCategoryId" Type="int" />
+          <Property Name="Question" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Answer" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="LastModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="FAQCategory">
+          <Key>
+            <PropertyRef Name="FAQCategoryId" />
+          </Key>
+          <Property Name="FAQCategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="LastModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="IndustryTypes">
+          <Key>
+            <PropertyRef Name="IndustryTypeId" />
+          </Key>
+          <Property Name="IndustryTypeId" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IndustryType" Type="nvarchar" MaxLength="64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="States">
+          <Key>
+            <PropertyRef Name="StateId" />
+          </Key>
+          <Property Name="StateId" Type="int" Nullable="false" />
+          <Property Name="StateName" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Abbreviation" Type="nvarchar" MaxLength="4" Nullable="false" />
+          <Property Name="CountryId" Type="smallint" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="UserProfileId" />
+          </Key>
+          <Property Name="UserProfileId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" />
+          <Property Name="UserTypeId" Type="tinyint" />
+          <Property Name="IndustryTypeId" Type="smallint" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="128" />
+          <Property Name="LogoURL" Type="nvarchar" MaxLength="128" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="128" />
+          <Property Name="PhoneNo" Type="varchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="256" />
+          <Property Name="StateId" Type="int" />
+          <Property Name="City" Type="nvarchar" MaxLength="64" />
+          <Property Name="ZipCode" Type="nvarchar" MaxLength="64" />
+          <Property Name="Website" Type="nvarchar" MaxLength="64" />
+          <Property Name="IsSpotFinder" Type="bit" />
+          <Property Name="IsVerified" Type="bit" />
+          <Property Name="OverallRating" Type="decimal" Precision="3" Scale="1" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="LastModifiedDate" Type="datetime" />
+          <Property Name="Location" Type="varchar" MaxLength="50" />
+          <Property Name="fb" Type="varchar" MaxLength="50" />
+          <Property Name="twitter" Type="varchar" MaxLength="50" />
+          <Property Name="Instagram" Type="varchar" MaxLength="50" />
+          <Property Name="googleplus" Type="varchar" MaxLength="50" />
+          <Property Name="pinterest" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="128" />
+          <Property Name="ProfileHeaderURL" Type="nvarchar" MaxLength="128" />
+          <Property Name="youtubeurl" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="UserReview">
+          <Key>
+            <PropertyRef Name="UserReviewId" />
+          </Key>
+          <Property Name="UserReviewId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserProfileId" Type="bigint" />
+          <Property Name="Rating" Type="decimal" Precision="3" Scale="1" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="Notes" Type="nvarchar" MaxLength="512" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserTypes">
+          <Key>
+            <PropertyRef Name="UserTypeId" />
+          </Key>
+          <Property Name="UserTypeId" Type="tinyint" Nullable="false" />
+          <Property Name="UserTypeName" Type="nvarchar" MaxLength="64" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FAQ_FAQCategory">
+          <End Role="FAQCategory" Type="Self.FAQCategory" Multiplicity="0..1" />
+          <End Role="FAQ" Type="Self.FAQ" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FAQCategory">
+              <PropertyRef Name="FAQCategoryId" />
+            </Principal>
+            <Dependent Role="FAQ">
+              <PropertyRef Name="FAQCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_States_Countries">
+          <End Role="Countries" Type="Self.Countries" Multiplicity="0..1" />
+          <End Role="States" Type="Self.States" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="CountryId" />
+            </Principal>
+            <Dependent Role="States">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProfile_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProfile_IndustryTypes">
+          <End Role="IndustryTypes" Type="Self.IndustryTypes" Multiplicity="0..1" />
+          <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IndustryTypes">
+              <PropertyRef Name="IndustryTypeId" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="IndustryTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProfile_States">
+          <End Role="States" Type="Self.States" Multiplicity="0..1" />
+          <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="States">
+              <PropertyRef Name="StateId" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="StateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProfile_UserTypes">
+          <End Role="UserTypes" Type="Self.UserTypes" Multiplicity="0..1" />
+          <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserTypes">
+              <PropertyRef Name="UserTypeId" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="UserTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserReview_UserProfile">
+          <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="0..1" />
+          <End Role="UserReview" Type="Self.UserReview" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="UserProfileId" />
+            </Principal>
+            <Dependent Role="UserReview">
+              <PropertyRef Name="UserProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KriclickDBModelStoreContainer">
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FAQ" EntityType="Self.FAQ" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FAQCategory" EntityType="Self.FAQCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IndustryTypes" EntityType="Self.IndustryTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="States" EntityType="Self.States" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserProfile" EntityType="Self.UserProfile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserReview" EntityType="Self.UserReview" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserTypes" EntityType="Self.UserTypes" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FAQ_FAQCategory" Association="Self.FK_FAQ_FAQCategory">
+            <End Role="FAQCategory" EntitySet="FAQCategory" />
+            <End Role="FAQ" EntitySet="FAQ" />
+          </AssociationSet>
+          <AssociationSet Name="FK_States_Countries" Association="Self.FK_States_Countries">
+            <End Role="Countries" EntitySet="Countries" />
+            <End Role="States" EntitySet="States" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProfile_AspNetUsers" Association="Self.FK_UserProfile_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="UserProfile" EntitySet="UserProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProfile_IndustryTypes" Association="Self.FK_UserProfile_IndustryTypes">
+            <End Role="IndustryTypes" EntitySet="IndustryTypes" />
+            <End Role="UserProfile" EntitySet="UserProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProfile_States" Association="Self.FK_UserProfile_States">
+            <End Role="States" EntitySet="States" />
+            <End Role="UserProfile" EntitySet="UserProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProfile_UserTypes" Association="Self.FK_UserProfile_UserTypes">
+            <End Role="UserTypes" EntitySet="UserTypes" />
+            <End Role="UserProfile" EntitySet="UserProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserReview_UserProfile" Association="Self.FK_UserReview_UserProfile">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="UserReview" EntitySet="UserReview" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KriclickDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="KriclickDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserLogins" EntityType="KriclickDBModel.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="KriclickDBModel.AspNetUser" />
+          <EntitySet Name="Countries" EntityType="KriclickDBModel.Country" />
+          <EntitySet Name="FAQs" EntityType="KriclickDBModel.FAQ" />
+          <EntitySet Name="FAQCategories" EntityType="KriclickDBModel.FAQCategory" />
+          <EntitySet Name="IndustryTypes" EntityType="KriclickDBModel.IndustryType" />
+          <EntitySet Name="States" EntityType="KriclickDBModel.State" />
+          <EntitySet Name="UserReviews" EntityType="KriclickDBModel.UserReview" />
+          <EntitySet Name="UserTypes" EntityType="KriclickDBModel.UserType" />
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="KriclickDBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_States_Countries" Association="KriclickDBModel.FK_States_Countries">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="State" EntitySet="States" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FAQ_FAQCategory" Association="KriclickDBModel.FK_FAQ_FAQCategory">
+            <End Role="FAQCategory" EntitySet="FAQCategories" />
+            <End Role="FAQ" EntitySet="FAQs" />
+          </AssociationSet>
+          <EntitySet Name="UserProfiles" EntityType="KriclickDBModel.UserProfile" />
+          <AssociationSet Name="FK_UserProfile_AspNetUsers" Association="KriclickDBModel.FK_UserProfile_AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="UserProfile" EntitySet="UserProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProfile_IndustryTypes" Association="KriclickDBModel.FK_UserProfile_IndustryTypes">
+            <End Role="IndustryType" EntitySet="IndustryTypes" />
+            <End Role="UserProfile" EntitySet="UserProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProfile_States" Association="KriclickDBModel.FK_UserProfile_States">
+            <End Role="State" EntitySet="States" />
+            <End Role="UserProfile" EntitySet="UserProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProfile_UserTypes" Association="KriclickDBModel.FK_UserProfile_UserTypes">
+            <End Role="UserType" EntitySet="UserTypes" />
+            <End Role="UserProfile" EntitySet="UserProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserReview_UserProfile" Association="KriclickDBModel.FK_UserReview_UserProfile">
+            <End Role="UserProfile" EntitySet="UserProfiles" />
+            <End Role="UserReview" EntitySet="UserReviews" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="KriclickDBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogin" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="KriclickDBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
+          <NavigationProperty Name="UserProfiles" Relationship="KriclickDBModel.FK_UserProfile_AspNetUsers" FromRole="AspNetUser" ToRole="UserProfile" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="CountryId" />
+          </Key>
+          <Property Name="CountryId" Type="Int16" Nullable="false" />
+          <Property Name="CountryName" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="States" Relationship="KriclickDBModel.FK_States_Countries" FromRole="Country" ToRole="State" />
+        </EntityType>
+        <EntityType Name="FAQ">
+          <Key>
+            <PropertyRef Name="FAQId" />
+          </Key>
+          <Property Name="FAQId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FAQCategoryId" Type="Int32" />
+          <Property Name="Question" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Answer" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastModifiedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="FAQCategory" Relationship="KriclickDBModel.FK_FAQ_FAQCategory" FromRole="FAQ" ToRole="FAQCategory" />
+        </EntityType>
+        <EntityType Name="FAQCategory">
+          <Key>
+            <PropertyRef Name="FAQCategoryId" />
+          </Key>
+          <Property Name="FAQCategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastModifiedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="FAQs" Relationship="KriclickDBModel.FK_FAQ_FAQCategory" FromRole="FAQCategory" ToRole="FAQ" />
+        </EntityType>
+        <EntityType Name="IndustryType">
+          <Key>
+            <PropertyRef Name="IndustryTypeId" />
+          </Key>
+          <Property Name="IndustryTypeId" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IndustryType1" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="UserProfiles" Relationship="KriclickDBModel.FK_UserProfile_IndustryTypes" FromRole="IndustryType" ToRole="UserProfile" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="StateId" />
+          </Key>
+          <Property Name="StateId" Type="Int32" Nullable="false" />
+          <Property Name="StateName" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Abbreviation" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="CountryId" Type="Int16" />
+          <NavigationProperty Name="Country" Relationship="KriclickDBModel.FK_States_Countries" FromRole="State" ToRole="Country" />
+          <NavigationProperty Name="UserProfiles" Relationship="KriclickDBModel.FK_UserProfile_States" FromRole="State" ToRole="UserProfile" />
+        </EntityType>
+        <EntityType Name="UserReview">
+          <Key>
+            <PropertyRef Name="UserReviewId" />
+          </Key>
+          <Property Name="UserReviewId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserProfileId" Type="Int64" />
+          <Property Name="Rating" Type="Decimal" Nullable="false" Precision="3" Scale="1" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="Notes" Type="String" Nullable="false" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="UserProfile" Relationship="KriclickDBModel.FK_UserReview_UserProfile" FromRole="UserReview" ToRole="UserProfile" />
+        </EntityType>
+        <EntityType Name="UserType">
+          <Key>
+            <PropertyRef Name="UserTypeId" />
+          </Key>
+          <Property Name="UserTypeId" Type="Byte" Nullable="false" />
+          <Property Name="UserTypeName" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="UserProfiles" Relationship="KriclickDBModel.FK_UserProfile_UserTypes" FromRole="UserType" ToRole="UserProfile" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Type="KriclickDBModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="KriclickDBModel.AspNetUserLogin" Role="AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogin">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_States_Countries">
+          <End Type="KriclickDBModel.Country" Role="Country" Multiplicity="0..1" />
+          <End Type="KriclickDBModel.State" Role="State" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="CountryId" />
+            </Principal>
+            <Dependent Role="State">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FAQ_FAQCategory">
+          <End Type="KriclickDBModel.FAQCategory" Role="FAQCategory" Multiplicity="0..1" />
+          <End Type="KriclickDBModel.FAQ" Role="FAQ" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FAQCategory">
+              <PropertyRef Name="FAQCategoryId" />
+            </Principal>
+            <Dependent Role="FAQ">
+              <PropertyRef Name="FAQCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="UserProfileId" />
+          </Key>
+          <Property Name="UserProfileId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UserTypeId" Type="Byte" />
+          <Property Name="IndustryTypeId" Type="Int16" />
+          <Property Name="FirstName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="LogoURL" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="StateId" Type="Int32" />
+          <Property Name="City" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="ZipCode" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="Website" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="IsSpotFinder" Type="Boolean" />
+          <Property Name="IsVerified" Type="Boolean" />
+          <Property Name="OverallRating" Type="Decimal" Precision="3" Scale="1" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fb" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="twitter" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Instagram" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="googleplus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pinterest" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="KriclickDBModel.FK_UserProfile_AspNetUsers" FromRole="UserProfile" ToRole="AspNetUser" />
+          <NavigationProperty Name="IndustryType" Relationship="KriclickDBModel.FK_UserProfile_IndustryTypes" FromRole="UserProfile" ToRole="IndustryType" />
+          <NavigationProperty Name="State" Relationship="KriclickDBModel.FK_UserProfile_States" FromRole="UserProfile" ToRole="State" />
+          <NavigationProperty Name="UserType" Relationship="KriclickDBModel.FK_UserProfile_UserTypes" FromRole="UserProfile" ToRole="UserType" />
+          <NavigationProperty Name="UserReviews" Relationship="KriclickDBModel.FK_UserReview_UserProfile" FromRole="UserProfile" ToRole="UserReview" />
+          <Property Name="ProfileHeaderURL" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="youtubeurl" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_UserProfile_AspNetUsers">
+          <End Type="KriclickDBModel.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
+          <End Type="KriclickDBModel.UserProfile" Role="UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProfile_IndustryTypes">
+          <End Type="KriclickDBModel.IndustryType" Role="IndustryType" Multiplicity="0..1" />
+          <End Type="KriclickDBModel.UserProfile" Role="UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IndustryType">
+              <PropertyRef Name="IndustryTypeId" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="IndustryTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProfile_States">
+          <End Type="KriclickDBModel.State" Role="State" Multiplicity="0..1" />
+          <End Type="KriclickDBModel.UserProfile" Role="UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="StateId" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="StateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProfile_UserTypes">
+          <End Type="KriclickDBModel.UserType" Role="UserType" Multiplicity="0..1" />
+          <End Type="KriclickDBModel.UserProfile" Role="UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserType">
+              <PropertyRef Name="UserTypeId" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="UserTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserReview_UserProfile">
+          <End Type="KriclickDBModel.UserProfile" Role="UserProfile" Multiplicity="0..1" />
+          <End Type="KriclickDBModel.UserReview" Role="UserReview" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="UserProfileId" />
+            </Principal>
+            <Dependent Role="UserReview">
+              <PropertyRef Name="UserProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="KriclickDBModelStoreContainer" CdmEntityContainer="KriclickDBEntities">
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="KriclickDBModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="KriclickDBModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="KriclickDBModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="KriclickDBModel.Country">
+              <MappingFragment StoreEntitySet="Countries">
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FAQs">
+            <EntityTypeMapping TypeName="KriclickDBModel.FAQ">
+              <MappingFragment StoreEntitySet="FAQ">
+                <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Answer" ColumnName="Answer" />
+                <ScalarProperty Name="Question" ColumnName="Question" />
+                <ScalarProperty Name="FAQCategoryId" ColumnName="FAQCategoryId" />
+                <ScalarProperty Name="FAQId" ColumnName="FAQId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FAQCategories">
+            <EntityTypeMapping TypeName="KriclickDBModel.FAQCategory">
+              <MappingFragment StoreEntitySet="FAQCategory">
+                <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="FAQCategoryId" ColumnName="FAQCategoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IndustryTypes">
+            <EntityTypeMapping TypeName="KriclickDBModel.IndustryType">
+              <MappingFragment StoreEntitySet="IndustryTypes">
+                <ScalarProperty Name="IndustryType1" ColumnName="IndustryType" />
+                <ScalarProperty Name="IndustryTypeId" ColumnName="IndustryTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="States">
+            <EntityTypeMapping TypeName="KriclickDBModel.State">
+              <MappingFragment StoreEntitySet="States">
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="Abbreviation" ColumnName="Abbreviation" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserReviews">
+            <EntityTypeMapping TypeName="KriclickDBModel.UserReview">
+              <MappingFragment StoreEntitySet="UserReview">
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="UserProfileId" ColumnName="UserProfileId" />
+                <ScalarProperty Name="UserReviewId" ColumnName="UserReviewId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserTypes">
+            <EntityTypeMapping TypeName="KriclickDBModel.UserType">
+              <MappingFragment StoreEntitySet="UserTypes">
+                <ScalarProperty Name="UserTypeName" ColumnName="UserTypeName" />
+                <ScalarProperty Name="UserTypeId" ColumnName="UserTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserProfiles">
+            <EntityTypeMapping TypeName="KriclickDBModel.UserProfile">
+              <MappingFragment StoreEntitySet="UserProfile">
+                <ScalarProperty Name="youtubeurl" ColumnName="youtubeurl" />
+                <ScalarProperty Name="ProfileHeaderURL" ColumnName="ProfileHeaderURL" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="pinterest" ColumnName="pinterest" />
+                <ScalarProperty Name="googleplus" ColumnName="googleplus" />
+                <ScalarProperty Name="Instagram" ColumnName="Instagram" />
+                <ScalarProperty Name="twitter" ColumnName="twitter" />
+                <ScalarProperty Name="fb" ColumnName="fb" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="OverallRating" ColumnName="OverallRating" />
+                <ScalarProperty Name="IsVerified" ColumnName="IsVerified" />
+                <ScalarProperty Name="IsSpotFinder" ColumnName="IsSpotFinder" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="LogoURL" ColumnName="LogoURL" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="IndustryTypeId" ColumnName="IndustryTypeId" />
+                <ScalarProperty Name="UserTypeId" ColumnName="UserTypeId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserProfileId" ColumnName="UserProfileId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

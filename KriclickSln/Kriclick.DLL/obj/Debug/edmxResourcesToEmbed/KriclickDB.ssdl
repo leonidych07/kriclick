@@ -1,0 +1,273 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="KriclickDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Countries">
+    <Key>
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Name="CountryId" Type="smallint" Nullable="false" />
+    <Property Name="CountryName" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FAQ">
+    <Key>
+      <PropertyRef Name="FAQId" />
+    </Key>
+    <Property Name="FAQId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FAQCategoryId" Type="int" />
+    <Property Name="Question" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="Answer" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastModifiedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="FAQCategory">
+    <Key>
+      <PropertyRef Name="FAQCategoryId" />
+    </Key>
+    <Property Name="FAQCategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryName" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastModifiedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="IndustryTypes">
+    <Key>
+      <PropertyRef Name="IndustryTypeId" />
+    </Key>
+    <Property Name="IndustryTypeId" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IndustryType" Type="nvarchar" MaxLength="64" Nullable="false" />
+  </EntityType>
+  <EntityType Name="States">
+    <Key>
+      <PropertyRef Name="StateId" />
+    </Key>
+    <Property Name="StateId" Type="int" Nullable="false" />
+    <Property Name="StateName" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Abbreviation" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="CountryId" Type="smallint" />
+  </EntityType>
+  <EntityType Name="UserProfile">
+    <Key>
+      <PropertyRef Name="UserProfileId" />
+    </Key>
+    <Property Name="UserProfileId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" />
+    <Property Name="UserTypeId" Type="tinyint" />
+    <Property Name="IndustryTypeId" Type="smallint" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="128" />
+    <Property Name="LogoURL" Type="nvarchar" MaxLength="128" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="128" />
+    <Property Name="PhoneNo" Type="varchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="256" />
+    <Property Name="StateId" Type="int" />
+    <Property Name="City" Type="nvarchar" MaxLength="64" />
+    <Property Name="ZipCode" Type="nvarchar" MaxLength="64" />
+    <Property Name="Website" Type="nvarchar" MaxLength="64" />
+    <Property Name="IsSpotFinder" Type="bit" />
+    <Property Name="IsVerified" Type="bit" />
+    <Property Name="OverallRating" Type="decimal" Precision="3" Scale="1" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastModifiedDate" Type="datetime" />
+    <Property Name="Location" Type="varchar" MaxLength="50" />
+    <Property Name="fb" Type="varchar" MaxLength="50" />
+    <Property Name="twitter" Type="varchar" MaxLength="50" />
+    <Property Name="Instagram" Type="varchar" MaxLength="50" />
+    <Property Name="googleplus" Type="varchar" MaxLength="50" />
+    <Property Name="pinterest" Type="varchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="128" />
+    <Property Name="ProfileHeaderURL" Type="nvarchar" MaxLength="128" />
+    <Property Name="youtubeurl" Type="nvarchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="UserReview">
+    <Key>
+      <PropertyRef Name="UserReviewId" />
+    </Key>
+    <Property Name="UserReviewId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserProfileId" Type="bigint" />
+    <Property Name="Rating" Type="decimal" Precision="3" Scale="1" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="Notes" Type="nvarchar" MaxLength="512" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserTypes">
+    <Key>
+      <PropertyRef Name="UserTypeId" />
+    </Key>
+    <Property Name="UserTypeId" Type="tinyint" Nullable="false" />
+    <Property Name="UserTypeName" Type="nvarchar" MaxLength="64" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FAQ_FAQCategory">
+    <End Role="FAQCategory" Type="Self.FAQCategory" Multiplicity="0..1" />
+    <End Role="FAQ" Type="Self.FAQ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FAQCategory">
+        <PropertyRef Name="FAQCategoryId" />
+      </Principal>
+      <Dependent Role="FAQ">
+        <PropertyRef Name="FAQCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_States_Countries">
+    <End Role="Countries" Type="Self.Countries" Multiplicity="0..1" />
+    <End Role="States" Type="Self.States" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="CountryId" />
+      </Principal>
+      <Dependent Role="States">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserProfile_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserProfile">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserProfile_IndustryTypes">
+    <End Role="IndustryTypes" Type="Self.IndustryTypes" Multiplicity="0..1" />
+    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IndustryTypes">
+        <PropertyRef Name="IndustryTypeId" />
+      </Principal>
+      <Dependent Role="UserProfile">
+        <PropertyRef Name="IndustryTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserProfile_States">
+    <End Role="States" Type="Self.States" Multiplicity="0..1" />
+    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="States">
+        <PropertyRef Name="StateId" />
+      </Principal>
+      <Dependent Role="UserProfile">
+        <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserProfile_UserTypes">
+    <End Role="UserTypes" Type="Self.UserTypes" Multiplicity="0..1" />
+    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserTypes">
+        <PropertyRef Name="UserTypeId" />
+      </Principal>
+      <Dependent Role="UserProfile">
+        <PropertyRef Name="UserTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserReview_UserProfile">
+    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="0..1" />
+    <End Role="UserReview" Type="Self.UserReview" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="UserProfileId" />
+      </Principal>
+      <Dependent Role="UserReview">
+        <PropertyRef Name="UserProfileId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="KriclickDBModelStoreContainer">
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FAQ" EntityType="Self.FAQ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FAQCategory" EntityType="Self.FAQCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IndustryTypes" EntityType="Self.IndustryTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="States" EntityType="Self.States" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserProfile" EntityType="Self.UserProfile" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserReview" EntityType="Self.UserReview" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserTypes" EntityType="Self.UserTypes" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FAQ_FAQCategory" Association="Self.FK_FAQ_FAQCategory">
+      <End Role="FAQCategory" EntitySet="FAQCategory" />
+      <End Role="FAQ" EntitySet="FAQ" />
+    </AssociationSet>
+    <AssociationSet Name="FK_States_Countries" Association="Self.FK_States_Countries">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="States" EntitySet="States" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserProfile_AspNetUsers" Association="Self.FK_UserProfile_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="UserProfile" EntitySet="UserProfile" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserProfile_IndustryTypes" Association="Self.FK_UserProfile_IndustryTypes">
+      <End Role="IndustryTypes" EntitySet="IndustryTypes" />
+      <End Role="UserProfile" EntitySet="UserProfile" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserProfile_States" Association="Self.FK_UserProfile_States">
+      <End Role="States" EntitySet="States" />
+      <End Role="UserProfile" EntitySet="UserProfile" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserProfile_UserTypes" Association="Self.FK_UserProfile_UserTypes">
+      <End Role="UserTypes" EntitySet="UserTypes" />
+      <End Role="UserProfile" EntitySet="UserProfile" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserReview_UserProfile" Association="Self.FK_UserReview_UserProfile">
+      <End Role="UserProfile" EntitySet="UserProfile" />
+      <End Role="UserReview" EntitySet="UserReview" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

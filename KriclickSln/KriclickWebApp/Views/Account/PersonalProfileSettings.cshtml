@@ -1,0 +1,538 @@
+﻿@model Kriclick.Common.Models.UserProfileViewModel
+@{
+    ViewBag.Title = "EditPersonalProfile";
+}
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/jquery.maskedinput.js"></script>
+
+    <style>
+        .imgboxwidthheight {
+            width: 200px !important;
+            height: 200px !important;
+        }
+    </style>
+    <script language="javascript">
+
+        function selectbusinessstate(stateid, statetext) {
+            $('#ststate').text(statetext);
+
+            $('#StateId').val(stateid);
+
+            //alert(statetext);
+        }
+        $(document).ready(function () {
+            $("#PhoneNo").mask("(999) 999-9999");
+
+            $('#ststate').text($('#StateId').val());
+            $('.notificationmsg').click(function () {
+                $(this).parent('div').parent('div').hide();
+            });
+            
+            var LogoURL = $('#LogoURL').val();
+
+            if (LogoURL != '') {
+                $('#mylogo').prop('src', LogoURL)
+                 .width(200)
+                 .height(200);
+                $('#personal .logo-avatar .upload-ad i').removeClass('fa-picture-o').css('top', '0').css('left', '0');
+            }
+
+        });
+
+        function checkext(fileid) {
+            //alert(fileid);
+            //$('#' + fileid).val();
+            var ext = $('#' + fileid).val().split('.').pop().toLowerCase();
+            if ($.inArray(ext, ['gif', 'png', 'jpg', 'jpeg', 'bmp']) == -1) {
+                alert('invalid extension!\n\nPlease upload only image file with extensions(gif, png, jpg, jpeg, bmp)');
+                $('#' + fileid).val('');
+            }
+            //else {
+            //    $('#PersonalImage').attr('src', $('#' + fileid).val());
+            //    $('#PersonalImage').addClass('imagePosition');
+            //}
+        }
+        function ShowImagePreview(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#mylogo').prop('src', e.target.result)
+                        .width(200)
+                        .height(200);
+                    $('#personal .logo-avatar .upload-ad i').removeClass('fa-picture-o').css('top', '0').css('left', '0');
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+    <script type="text/javascript">
+        function ChangePassword() {
+            var password = $('#txtpassword').val();
+            var confirmPassword = $('#txtconfirmpassword').val();
+
+            if (password == '') {
+                alert('Please enter password');
+                return;
+            }
+            if (confirmPassword == '') {
+                alert('Please enter confirm password');
+                return;
+            }
+            if (password != confirmPassword) {
+                alert('Password does not match the confirm password.');
+                return;
+            }
+            if ($('#txtpassword').val().length < 6) {
+                alert('Password length should be greater than six character.');
+                return;
+            }
+            var Formdata = { Password: password, ConfirmPassword: confirmPassword };
+            var ajaxRequest = $.ajax({
+                type: "POST",
+                url: "/Account/UpdatePassword",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(Formdata),
+                success: function (data) {
+                    alert('Password has been Changed Successfully.');
+                    //$('#benner-panel').css({ "background": "url(" + data + ") no-repeat scroll center center / cover", });
+                }
+            });
+
+        };
+    </script>
+    <script type="text/javascript">
+     
+        function fileupload() {
+
+            $('#uploadimgspan').show();
+            $('#btnupload').hide();
+
+            var data = new FormData();
+
+            var files = $("#personallogourl").get(0).files;
+
+            // Add the uploaded image content to the form data collection
+            if (files.length > 0) {
+                data.append("UploadedImage", files[0]);
+            }
+
+            // Make Ajax request with the contentType = false, and procesDate = false
+            var ajaxRequest = $.ajax({
+                type: "POST",
+                url: "/webapi/SiteFileUpload/UploadUserProfile",
+                contentType: false,
+                processData: false,
+                data: data,
+                success: function (data) {
+                    $('#uploadimgspan').hide();
+                    $('#btnupload').show();
+                    //alert(data);
+                    //$('#benner-panel').css({ "background": "url(" + data + ") no-repeat scroll center center / cover", });
+                    if (data != '') {
+                        $('#mylogo').prop('src', data)
+                                .width(200)
+                                .height(200);
+                        $('#personal .logo-avatar .upload-ad i').removeClass('fa-picture-o').css('top', '0').css('left', '0');
+                        //alert($('#profilelogoimg').attr('src'));
+                        $('#profilelogoimg').prop('src', data).width(37).height(37);
+                        $('#profilelogoimg2').prop('src', data).width(37).height(37);
+                        //alert($('#profilelogoimg').attr('src'));
+
+                    }
+                },
+                error: function () {
+                    $('#uploadimgspan').hide();
+                    $('#btnupload').show();
+                }
+            });
+
+            ajaxRequest.done(function (xhr, textStatus) {
+                //alert(textStatus);
+            });
+        };
+
+    </script>
+
+}
+@using (Html.BeginForm("PersonalProfileSettings", "Account", FormMethod.Post, new { @class = "form-horizontal comp-reg-form", role = "form", enctype = "multipart/form-data" }))
+{
+    if (ViewBag.ResultMessage != null)
+    {
+        if (ViewBag.ResultMessage == "1")
+        {
+            <div class="notifications-box">
+                <div class="notifications green">
+                    <a href="javascript:void();" class="notificationmsg"><i class="fa fa-times"></i></a>
+                    Your profile has been updated successfully.
+                </div>
+            </div>
+        }
+        else if (ViewBag.ResultMessage == "-1")
+        {
+            <div class="notifications-box">
+                <div class="notifications red">
+                    <a href="javascript:void();" class="notificationmsg"><i class="fa fa-times"></i></a>
+                    There is some error occurring while updating profile.
+                </div>
+            </div>
+        }
+        else if (ViewBag.ResultMessage == "-2")
+        {
+            <div class="notifications-box">
+                <div class="notifications red">
+                    <a href="javascript:void();" class="notificationmsg"><i class="fa fa-times"></i></a>
+                    This username has been already registered.
+                </div>
+            </div>
+        }
+        else if (ViewBag.ResultMessage == "-3")
+        {
+            <div class="notifications-box">
+                <div class="notifications red">
+                    <a href="javascript:void();" class="notificationmsg"><i class="fa fa-times"></i></a>
+                    This email has been already registered.
+                </div>
+            </div>
+        }
+        else if (ViewBag.ResultMessage == "-4")
+        {
+            <div class="notifications-box">
+                <div class="notifications red">
+                    <a href="javascript:void();" class="notificationmsg"><i class="fa fa-times"></i></a>
+                    Please enter your email address.
+                </div>
+            </div>
+        }
+    }
+
+    <div id="body-panel" class="body-panel">
+        <!-- Start Body Panel -->
+        <div class="container">
+            <div class="row">
+                <div class="secondary-menu col-md-24 col-sm-24 col-xs-24">
+                    <div class="row">
+                        <div class="secondary-menu-wrap col-md-24 col-sm-24 hidden-xs">
+                            <ul>
+                                <li><a href="messages.html">messages</a></li>
+                                <li><a href="listings.html">listings</a></li>
+                                <li><a href="coupons_board.html">Coupons</a></li>
+                                <li><a href="#">Spot Finder</a></li>
+                                <li><a href="billing.html">billing</a></li>
+                                <li class="active"><a href="profile-settings.html">Settings</a></li>
+                            </ul>
+                        </div>
+                        <div class="secondary-menu-mobile hidden-lg hidden-md hidden-sm col-xs-24">
+                            <div class="poperty-select-boxes">
+                                <div class="input-group-btn search-panel">
+                                    <button type="button" class="btn btn-default dropdown-toggle text-left" data-toggle="dropdown">
+                                        <span id="whants-for">Settings</span>
+                                        <span class="arrow-button"><i class="fa fa-angle-down"></i></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="messages.html">Messages</a></li>
+                                        <li><a href="listings.html">Listings</a></li>
+                                        <li><a href="coupons_board.html">Coupons</a></li>
+                                        <li><a href="#">Spot Finder</a></li>
+                                        <li><a href="billing.html">Billing</a></li>
+                                        <li><a href="profile-settings.html">Settings</a></li>
+                                    </ul>
+                                </div>
+                                <span class="input-group-btn"></span>
+                            </div>
+                            <button type="button" class="upgrade-btn" data-toggle="modal" data-target="#plans">upgrade</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-holder col-md-24 col-sm-24 col-xs-24">
+                    <div class="row">
+                        <div class="main-content col-md-18 col-sm-19 col-xs-24">
+                            <div class="row">
+                                <div class="mailbox-prop col-md-24 col-sm-24 col-xs-24">
+                                    <div class="free-account-title">Personal Account</div>
+                                    <div class="serch-biling-upgrade">
+                                        <button type="button" class="upgrade-btn hidden-xs" data-toggle="modal" data-target="#plans">upgrade</button>
+                                        <div id="plans" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridModalLabel">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header text-center">
+                                                        <div class="container-fluid">
+                                                            <div class="row">
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                <div class="modal-title u-case col-md-24">UPGRADE & ENJOY THE BENEFITS</div>
+                                                                <div class="modal-sub-title u-case col-md-24">All the accounts include optional features</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="container-fluid">
+                                                            <div class="row">
+                                                                <div class="plans-item col-md-8 text-center">
+                                                                    <div class="plan-name">Free</div>
+                                                                    <div class="plan-price">forever</div>
+                                                                    <button type="button" class="plan-upgrade-btn">upgrade</button>
+                                                                    <ul class="plan-list">
+                                                                        <li>Up to <strong>5</strong> active ads</li>
+                                                                        <li><strong>Free</strong> YouTube Video</li>
+                                                                        <li>Up to <strong>8</strong> free photos</li>
+                                                                        <li>Up to <strong>2</strong> weeks time</li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="plans-item col-md-8 text-center">
+                                                                    <div class="plan-name">Best</div>
+                                                                    <div class="plan-price"><span>$5</span> / month</div>
+                                                                    <button type="button" class="plan-upgrade-btn">upgrade</button>
+                                                                    <ul class="plan-list">
+                                                                        <li>Up to <strong>9</strong> active ads</li>
+                                                                        <li><strong>Free</strong> YouTube Video</li>
+                                                                        <li>Up to <strong>8</strong> free photos</li>
+                                                                        <li>Up to <strong>2</strong> weeks time</li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="plans-item col-md-8 text-center">
+                                                                    <div class="plan-name">Deal</div>
+                                                                    <div class="plan-price"><span>$9</span> / month</div>
+                                                                    <button type="button" class="plan-upgrade-btn">upgrade</button>
+                                                                    <ul class="plan-list">
+                                                                        <li>Up to <strong>16</strong> active ads</li>
+                                                                        <li><strong>Free</strong> YouTube Video</li>
+                                                                        <li>Up to <strong>8</strong> free photos</li>
+                                                                        <li>Up to <strong>3</strong> weeks time</li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- /.modal-content -->
+                                            </div><!-- /.modal-dialog -->
+                                        </div><!-- /.modal -->
+                                    </div>
+                                </div>
+                                <div class="pro-settings-wrap col-md-24 col-sm-24 col-xs-24" id="personal">
+                                    <div class="row">
+                                        <div class="col-md-15 col-sm-24 col-xs-24">
+                                            <div class="pro-sett-pic-details col-md-10 col-sm-10 col-xs-24 logo-avatar">
+
+                                                @*<img src="@ViewBag.Imageurl" alt="" class="img-responsive">*@
+                                                <div class="pro-sett-pic">
+                                                    <div class="upload-ad imgboxwidthheight">
+                                                        <i class="fa fa-picture-o userDefaultPic">
+                                                            <img id="mylogo" />
+                                                        </i>
+                                                        @*<input type="file" name="" class="" value="Attach your resume"  accept="image/*">*@
+                                                        @Html.HiddenFor(model => model.LogoURL);
+                                                        @Html.TextBoxFor(model => model.LogoURL, new { @class = "form-control attachment-box", type = "file", onchange = "checkext(this.id);ShowImagePreview(this);", @id = "personallogourl" })
+
+                                                    </div>
+                                                    <button type="button" class="update-picture-btn" onclick="fileupload();" id="btnupload">update picture</button>
+                                                    <span id="uploadimgspan" style="display:none;">Uploading...</span>
+                                                </div>
+
+                                                <div class="pro-sett-details hidden-xs">
+                                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci ttation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+                                                    <div class="delete-account">
+                                                        <div class="input-wrap input-wrap--small">
+                                                            <input type="checkbox" id="checkbox-2" />
+                                                            <i class="fa fa-fw fa-check"></i>
+                                                            <span class="morph-shape" data-morph-active="M273,273c0,0-55.8,24-123,24c-78.2,0-123-24-123-24S3,235.3,3,150C3,79.936,27,27,27,27S72,3,150,3c85,0,123,24,123,24s24,38.43,24,123C297,229.646,273,273,273,273z">
+                                                                <svg width="100%" height="100%" viewBox="0 0 300 300" preserveAspectRatio="none">
+                                                                    <path stroke="#333" stroke-width="5" d="M273,273c0,0-55.8,0-123,0c-78.2,0-123,0-123,0s0-37.7,0-123c0-70.064,0-123,0-123s45,0,123,0c85,0,123,0,123,0s0,38.43,0,123C273,229.646,273,273,273,273z" />
+                                                                </svg>
+                                                            </span>
+                                                        </div>
+                                                        <label>Yes, delete my account</label>
+                                                    </div>
+                                                    <button type="button" class="delete-account-btn">delete account</button>
+                                                </div>
+                                            </div>
+                                            <div class="pro-sett-form col-md-14 col-sm-14 col-xs-24">
+                                                <div class="pro-field-bar">
+                                                    <div class="row">
+                                                        <div class="col col-sm-24 col-xs-24">
+                                                            @*<input type="text" placeholder="Full Name">*@
+                                                            @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @placeholder = "First Name" } })
+                                                            @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger ValidationFontSize" })
+                                                        </div>
+                                                        <div class="col col-sm-24 col-xs-24">
+                                                            @*<input type="text" placeholder="Full Name">*@
+                                                            @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @placeholder = "Last Name" } })
+                                                            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger ValidationFontSize" })
+                                                        </div>
+                                                        <div class="col col-sm-24 col-xs-24">
+                                                            @*<input type="text" placeholder="Username">*@
+                                                            @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @placeholder = "Username" } })
+                                                            @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger ValidationFontSize" })
+                                                        </div>
+                                                        <div class="col col-sm-24 col-xs-24">
+                                                            @*<input type="text" placeholder="Email Address">*@
+                                                            @Html.EditorFor(model => model.EmailId, new { htmlAttributes = new { @placeholder = "Email Address" } })
+                                                            @Html.ValidationMessageFor(model => model.EmailId, "", new { @class = "text-danger ValidationFontSize" })
+                                                        </div>
+                                                        <div class="col col-sm-24 col-xs-24">
+                                                            @*<input type="text" placeholder="Phone Number">*@
+                                                            @Html.EditorFor(model => model.PhoneNo, new { htmlAttributes = new { @placeholder = "Phone Number" } })
+                                                            @Html.ValidationMessageFor(model => model.PhoneNo, "", new { @class = "text-danger ValidationFontSize" })
+                                                        </div>
+                                                        <div class="col col-sm-7 col-xs-8">
+                                                            <div class="input-group-btn search-panel">
+                                                                @*<button type="button" class="btn btn-default dropdown-toggle text-left" data-toggle="dropdown">
+                                                                        <span id="state">State</span>
+                                                                        <span class="arrow-button"><i class="fa fa-angle-down"></i></span>
+                                                                    </button>
+                                                                    <ul class="dropdown-menu" role="menu">
+                                                                        <li><a href="#state1">FL</a></li>
+                                                                        <li><a href="#state2">AL</a></li>
+                                                                    </ul>*@
+                                                                @Html.DropDownListFor(m => m.StateId, new SelectList(ViewBag.State, "StateId", "Abbreviation"), new { @class = "selectpicker" })
+                                                            </div>
+                                                        </div>
+                                                        <div class="col col-sm-10 col-xs-8">
+                                                            @*<input type="city" placeholder="City">*@
+                                                            @Html.EditorFor(model => model.City, new { htmlAttributes = new { @placeholder = "City" } })
+                                                            @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger ValidationFontSize" })
+                                                        </div>
+                                                        <div class="col col-sm-7 col-xs-8">
+                                                            @*<input type="zip-code" placeholder="Zip Code">*@
+                                                            @Html.EditorFor(model => model.ZipCode, new { htmlAttributes = new { @placeholder = "Zip Code" } })
+                                                            @Html.ValidationMessageFor(model => model.ZipCode, "", new { @class = "text-danger ValidationFontSize" })
+                                                        </div>
+                                                        <div class="col col-sm-12 col-xs-12">
+                                                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @placeholder = "* * * * * * * * *", @Id = "txtpassword", @data_val = "false" } })
+                                                            <div class="change-link"><a href="Javascript:void(0);" onclick="ChangePassword();">Change Password</a></div>
+                                                        </div>
+                                                        <div class="col col-sm-12 col-xs-12">
+                                                            @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @placeholder = "* * * * * * * * *", @Id = "txtconfirmpassword", @data_val = "false" } })
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="pro-field-bar hidden-lg hidden-md hidden-sm">
+                                                    @*<div class="row">
+                                                            <div class="col col-sm-24 col-xs-24">
+                                                                <input type="text" placeholder="Company Name">
+                                                            </div>
+                                                            <div class="col col-sm-24 col-xs-24">
+                                                                <input type="text" placeholder="Website">
+                                                            </div>
+                                                            <div class="col col-sm-24 col-xs-24">
+                                                                <input type="text" placeholder="Company Address">
+                                                            </div>
+                                                        </div>*@
+                                                </div>
+                                                <div class="form-title">social media</div>
+                                                <div class="social-field-bar">
+                                                    <div class="field-box">
+                                                        <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                                                        @*<input class="text-field" type="text" name="x" placeholder="Facebook" value="https://www.facebook.com">*@
+                                                        @Html.EditorFor(model => model.fb, new { htmlAttributes = new { @placeholder = "Facebook", @class = "text-field" } })
+                                                        @Html.ValidationMessageFor(model => model.fb, "", new { @class = "text-danger ValidationFontSize" })
+                                                    </div>
+                                                    <div class="field-box">
+                                                        <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                                                        @*<input class="text-field" type="text" name="x" placeholder="Twitter">*@
+                                                        @Html.EditorFor(model => model.twitter, new { htmlAttributes = new { @placeholder = "Twitter", @class = "text-field" } })
+                                                        @Html.ValidationMessageFor(model => model.twitter, "", new { @class = "text-danger ValidationFontSize" })
+                                                    </div>
+                                                    <div class="field-box">
+                                                        <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+                                                        @*<input class="text-field" type="text" name="x" placeholder="Instagram">*@
+                                                        @Html.EditorFor(model => model.Instagram, new { htmlAttributes = new { @placeholder = "Instagram", @class = "text-field" } })
+                                                        @Html.ValidationMessageFor(model => model.Instagram, "", new { @class = "text-danger ValidationFontSize" })
+                                                    </div>
+                                                    <div class="field-box">
+                                                        <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+                                                        @*<input class="text-field" type="text" name="x" placeholder="Google plus">*@
+                                                        @Html.EditorFor(model => model.googleplus, new { htmlAttributes = new { @placeholder = "Google plus", @class = "text-field" } })
+                                                        @Html.ValidationMessageFor(model => model.googleplus, "", new { @class = "text-danger ValidationFontSize" })
+                                                    </div>
+                                                    <div class="field-box">
+                                                        <a href="#" class="youtube"><i class="fa fa-youtube"></i></a>
+                                                        @*<input class="text-field" type="text" name="x" placeholder="">*@
+                                                        @Html.EditorFor(model => model.youtubeurl, new { htmlAttributes = new { @placeholder = "YouTube", @class = "text-field" } })
+                                                        @Html.ValidationMessageFor(model => model.youtubeurl, "", new { @class = "text-danger ValidationFontSize" })
+                                                    </div>
+                                                    <input type="submit" name="button" id="button" value="save updates">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="pro-sett-form account-details col-md-9 col-sm-24 col-xs-24">
+                                            <div class="pro-field-bar hidden-xs">
+                                                @*<div class="row">
+                                                        <div class="col col-sm-24 col-xs-24">
+                                                            <input type="text" placeholder="Company Name">
+                                                        </div>
+                                                        <div class="col col-sm-24 col-xs-24">
+                                                            <input type="text" placeholder="Website">
+                                                        </div>
+                                                        <div class="col col-sm-24 col-xs-24">
+                                                            <input type="text" placeholder="Company Address">
+                                                        </div>
+                                                    </div>*@
+                                            </div>
+                                            <div class="sidebar-widget">
+                                                <div class="sidebar-w-inner options">
+                                                    <h2>236 Points</h2>
+                                                    <span><a href="#">Earn more points</a></span>
+                                                    <span><a href="#">How to use your points</a></span>
+                                                </div>
+                                                <div class="sidebar-w-inner options">
+                                                    <h4>Manage Payments</h4>
+                                                    <span><a href="#">Manage payment options</a></span>
+                                                    <span><a href="#">Add a credit card</a></span>
+                                                </div>
+                                                <div class="sidebar-w-inner options">
+                                                    <h4>Manage Alerts</h4>
+                                                    <span><a href="#">Notification settings</a></span>
+                                                </div>
+                                                <div class="sidebar-w-inner options">
+                                                    <h4>Spot Finder Manager</h4>
+                                                    <span>List or unlist your business from the Spot Finder.</span>
+                                                    <div class="check-note">
+                                                        <div class="input-wrap input-wrap--small">
+                                                            <input type="checkbox" id="checkbox-2" />
+                                                            <i class="fa fa-fw fa-check"></i>
+                                                            <span class="morph-shape" data-morph-active="M273,273c0,0-55.8,24-123,24c-78.2,0-123-24-123-24S3,235.3,3,150C3,79.936,27,27,27,27S72,3,150,3c85,0,123,24,123,24s24,38.43,24,123C297,229.646,273,273,273,273z">
+                                                                <svg width="100%" height="100%" viewBox="0 0 300 300" preserveAspectRatio="none">
+                                                                    <path stroke="#333" stroke-width="5" d="M273,273c0,0-55.8,0-123,0c-78.2,0-123,0-123,0s0-37.7,0-123c0-70.064,0-123,0-123s45,0,123,0c85,0,123,0,123,0s0,38.43,0,123C273,229.646,273,273,273,273z" />
+                                                                </svg>
+                                                            </span>
+                                                        </div>
+                                                        <label>Your business will show on our spot finder</label>
+                                                    </div>
+                                                </div>
+                                                <div class="sidebar-w-inner options">
+                                                    <div class="red-note">
+                                                        Please allow our system up to 24 hours for your business to show back in our Spot Finder. If don’t see your business listed please <a href="#">contact</a> support.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="details-info hidden-lg hidden-md hidden-sm">
+                                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+                                                <div class="delete-account">
+                                                    <div class="input-wrap input-wrap--small">
+                                                        <input type="checkbox" id="checkbox-2" />
+                                                        <i class="fa fa-fw fa-check"></i>
+                                                        <span class="morph-shape" data-morph-active="M273,273c0,0-55.8,24-123,24c-78.2,0-123-24-123-24S3,235.3,3,150C3,79.936,27,27,27,27S72,3,150,3c85,0,123,24,123,24s24,38.43,24,123C297,229.646,273,273,273,273z">
+                                                            <svg width="100%" height="100%" viewBox="0 0 300 300" preserveAspectRatio="none">
+                                                                <path stroke="#333" stroke-width="5" d="M273,273c0,0-55.8,0-123,0c-78.2,0-123,0-123,0s0-37.7,0-123c0-70.064,0-123,0-123s45,0,123,0c85,0,123,0,123,0s0,38.43,0,123C273,229.646,273,273,273,273z" />
+                                                            </svg>
+                                                        </span>
+                                                    </div>
+                                                    <label>Yes, delete my account</label>
+                                                </div>
+                                                <button type="button" class="delete-account-btn">delete account</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 hidden-sm hidden-xs">
+                            &nbsp;
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- End Body Panel -->
+}
+

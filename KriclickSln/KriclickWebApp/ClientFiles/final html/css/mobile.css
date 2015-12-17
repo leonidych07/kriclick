@@ -1,0 +1,1061 @@
+.container {
+	width: 100%;
+	max-width: 1543px;
+}
+/*@media (min-width: 1200px){
+	.container {
+	    width: 1543px;
+	}
+}*/
+
+/*@media (min-width: 1100px){
+	.container {
+	    width: 1543px;
+	}
+}*/
+.header-panel .header-right .mobile-menu, .header-panel .mobile-menu-list { display: none; }
+
+@media only screen and (min-width: 1201px) and (max-width: 1366px){
+
+.home-wrapper { max-width: 1280px; }
+.l-listings-container { max-width: 1280px; }
+.search-category .search-panel				{ width: 200px; }
+.search-category .search-box				{ width: 286px; }
+.latestlistings .item .slide-details .btns	{ display: block; margin-right: 0px; margin-bottom: 7px; }
+
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1200px) {
+
+.search-category .search-panel				{ width: 235px; margin-bottom: 17px; margin-left: 10px; }
+.search-category span.or					{ clear: left; padding: 13px 27px 0px 0px; }
+.search-category .search-box				{ width: 943px; }
+.latestlistings .item .slide-details .btns	{ display: block; margin-right: 0px; margin-bottom: 7px; }
+.spot-finder-home .place-box .review .likes	{ float: left; clear: left; margin-top: 7px; }
+
+.body-before-footer .home-subscribe			{ width: 30%; }
+.body-before-footer .add					{ width: 100%; padding-top: 30px; }
+.country_list_wrapper .country_list:nth-child(2) { padding-left: 30px; }
+.country_list_wrapper .country_list:nth-child(3) { padding-left: 15px; }
+.country_list_wrapper .country_list:nth-child(4) { padding-left: 15px; }
+.country_list_wrapper .country_list:nth-child(5) { padding-left: 15px; }
+.country_list_wrapper .country_list:nth-child(6) { padding-left: 50px; }
+
+/*------------- how-it-works Page -------------*/
+.works-panel .check-messages .mess-info		{ min-height: 339px; padding: 37px 27px; }
+.for-business-panel .for-business .business-info { padding: 37px 23px 37px 0px; }
+
+/*------------- business-profile -------------*/
+.business-panel .main-content .left-sidebar .customer-review-box { padding: 27px 70px 0px 0px; }
+.profile-panel .product-container .active-product .reviews-item .reviews-info { width: 78%; }
+
+/*------------- messages -------------*/
+.body-panel .mailbox-prop .serch-biling-upgrade .upgrade-btn { min-width: 121px; }
+.inbox-header li:first-child				{ width: 7.4%; }
+.inbox-header li:nth-child(2)				{ width: 9.6%; }
+.mail-list li:last-child					{ width: 78%; }
+.mail-titles .pagination > li > a			{ padding: 6px 12px; }
+.avater-icon								{ width: 26%; }
+.massage-body								{ width: 74%; }
+.sidebar									{ width: 100%; }
+.sidebar-widget .listing-holder .title		{ width: 132px; padding-left: 7px; }
+
+/*------------- listings -------------*/
+.mypost-table-head ul						{ padding: 20px 0px; }
+.mypost-table-head ul li:nth-child(1)		{ width: 14%; padding-left: 15px; }
+.mypost-table-head ul li:nth-child(2)		{ width: 42%; }
+.mypost-table-head ul li:nth-child(3)		{ width: 16.5%; }
+.mypost-table-head ul li:nth-child(4)		{ width: 14.5%; }
+.posting-left i								{ width: 28px; height: 28px; padding-top: 5px; margin-top: -4px; }
+.mypost-table								{ width: 100%; }
+.table.mypost-table>tbody>tr>td:first-child { padding-left: 15px; }
+.table.mypost-table>tbody>tr>td:nth-child(2) { width: 38%; line-height: normal; }
+.table.mypost-table>tbody>tr>td:nth-child(4) { width: 18%; }
+.table.mypost-table>tbody>tr>td:nth-child(5) { width: 15.5%; }
+
+/*------------- coupons-board -------------*/
+.coupon-table-head ul						{ padding: 20px 0px; }
+.coupon-table-head ul li:nth-child(1)		{ width: 14%; padding-left: 15px; }
+.coupon-table-head ul li:nth-child(2)		{ width: 28%; }
+.coupon-table-head ul li:nth-child(3)		{ width: 16.5%; }
+.coupon-table-head ul li:nth-child(4)		{ width: 14.2%; }
+.coupon-table-head ul li:nth-child(5)		{ width: 14.2%; }
+.coupon-table-head ul li:nth-child(6)		{ width: 10.6%; }
+.coupon-table								{ width: 100%; }
+.table.coupon-table>tbody>tr>td:first-child { padding-left: 15px; }
+.table.coupon-table>tbody>tr>td:nth-child(2) { width: 22%; line-height: normal; }
+.table.coupon-table>tbody>tr>td:nth-child(4) { width: 17%; }
+.table.coupon-table>tbody>tr>td:nth-child(5) { width: 15.1%; }
+.table.coupon-table>tbody>tr>td:nth-child(6) { width: 14.1%; }
+.table.coupon-table>tbody>tr>td:nth-child(7) { width: 11.2%; }
+
+/*------------- standard-listing -------------*/
+.cart-message								{ display: none; }
+.regular-posting-panel .description iframe	{ width: 680px; height: 383px; }
+
+/*------------- great-deals -------------*/
+.great-deals-panel .search-bar .days-left-panel { margin: -27px 0px 0px 0px; }
+
+/*------------- coupon-detail -------------*/
+.coupon-detail-panel .coupon-detail-box .tag-box ul { width: 429px; }
+
+/*------------- posting-options -------------*/
+.vehicle-pan .vehicle-icon,
+.post-travel .travel-icon,
+.property-pan .property-icon,
+.job-info .job-icon,
+.pet-post .pet-icon { display: none; }
+
+/*------------- notifications -------------*/
+.notifications-sett .notifications-box		{ width: 45%; }
+
+
+
+}
+
+
+
+/* #Tablet (Portrait)
+================================================== */
+/* Note: Design for a width of 768px */
+
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+
+.header-panel .header-left a				{ padding-right: 2px; }
+.header-panel .header-right .ad-menu		{ padding: 0px; }
+.header-panel .header-right .ad-menu ul li a { padding: 11px 11px; }
+.header-panel .header-right .ad-menu ul li:last-child a { padding-right: 0; }
+.header-panel .header-right .user-singup-menu { padding: 0; }
+.header-panel .header-right .user-singup-menu ul li a { padding: 11px 11px; }
+
+.body-panel.home .main-title				{ font-size: 36px; }
+.body-panel.home .main-sub-title			{ width: 70%; margin: 3px auto 0px auto; font-size: 16px; line-height: 22px; }
+.panel-title								{ font-size: 36px; }
+.search-category label						{ margin: 13px 0px 0px 0px; font-size: 16px; }
+.search-category .search-panel				{ width: 172px; margin-bottom: 17px; margin-left: 10px; }
+.search-category span.or					{ clear: left; padding: 13px 27px 0px 0px; }
+.search-category .search-box				{ width: 687px; }
+.latestlistings .item						{ display: none; }
+.latestlistings .item:nth-child(-n+4)		{ display: block; }
+.deals-banner								{ padding: 0px 0px 0px 0px; }
+.deals-banner .home-wrapper					{ padding-left: 0px; padding-right: 0px; }
+.great-deals-home .deals-box				{ display: none; }
+.great-deals-home .deals-box:nth-child(-n+4) { display: block; }
+.spot-finder-home .place-box				{ display: none; }
+.spot-finder-home .place-box:nth-child(-n+4) { display: block; }
+
+.body-before-footer							{ padding-top: 0px; }
+.body-before-footer .add					{ margin-top: 30px; }
+.footer-inner h5							{ margin-bottom: 20px; padding-bottom: 0px; border-bottom: none; text-align: center; }
+.country_list_wrapper_mobile .input-group-btn,
+.country_list_wrapper_mobile button.btn.dropdown-toggle.btn-default { display: block; width: 100%; margin: 0px; }
+.country_list_wrapper_mobile button.btn.dropdown-toggle.btn-default .arrow-button i { margin: 0px; font-size: 15px; color: #aaaaaa; font-weight: 700; line-height: 32px; }
+.country_list_wrapper_mobile .search-panel .dropdown-menu { height: 185px; overflow-y: scroll; left: 0px !important; }
+.footer_middle_menu_area					{ margin-top: 27px; }
+.footer_middle_menu_area .social-icons a	{ margin: 0px 3px; }
+
+/*------------- how-it-works Page -------------*/
+.benner-panel								{ min-height: 398px; }
+.benner-panel .display-table				{ height: 398px; }
+.benner-panel .banner-content h1			{ font-size: 42px; }
+.benner-panel .banner-content p				{ font-size: 16px; }
+.works-panel .main-title					{ font-size: 36px; }
+.works-panel .works-box						{ padding: 0px 27px; }
+.works-panel .check-messages				{ padding-top: 17px; }
+.works-panel .check-messages .mess-info		{ min-height: 252px; padding: 27px 27px; }
+.works-panel .check-messages .mess-info h3	{ margin: 0px 0px 17px 0px; font-size: 18px; }
+.works-panel .check-messages .mess-info p	{ margin-bottom: 17px; font-size: 14px; line-height: 18px; }
+.for-business-panel .main-title				{ font-size: 36px; }
+.for-business-panel .for-business .business-info { padding: 27px 27px 27px 0px; }
+.for-business-panel .for-business .business-info h3 { margin: 0px 0px 17px 0px; font-size: 18px; }
+.for-business-panel .for-business .business-info p { margin-bottom: 17px; font-size: 14px; line-height: 18px; }
+.comparision-panel .main-title				{ font-size: 18px; }
+.comparision-panel .comparision .comp-info	{ padding: 0px 15px; }
+.comparision-panel .comparision .comp-info p { font-size: 22px; line-height: 34px; }
+
+/*------------- business-profile -------------*/
+.business-benner-panel						{ min-height: 212px; }
+.business-benner-panel .display-table		{ height: 212px; }
+.business-panel .main-content .left-sidebar .customer-review-box { padding: 27px 70px 0px 0px; }
+.business-panel .product-container .nav-tabs>li>a { padding: 10px 27px; }
+.profile-panel .product-container .active-product .product-item .item-holder { min-height: 317px; }
+.profile-panel .product-container .active-product .reviews-form-box { margin-bottom: 20px; }
+.profile-panel .product-container .active-product .reviews-item .reviews-info { width: 82%; }
+.profile-panel .product-container .active-product .deal-list li { padding-bottom: 15px; margin-bottom: 15px; border-bottom: 1px solid #d6d6d6; }
+.profile-panel .product-container .active-product .deal-list li:last-child { margin-bottom: 0px; border-bottom: none; }
+.profile-panel .product-container .active-product .deal-list li a.deal-img { width: 32%; margin-right: 0%; }
+.profile-panel .product-container .active-product .deal-list li .details { float: right; width: 65%; padding-top: 0px; }
+.profile-panel .product-container .active-product .deal-list li .details p { font-size: 15px; }
+.profile-panel .product-container .active-product .deal-list li .details .deal-price { font-size: 20px; }
+
+/*------------- messages -------------*/
+.body-panel .mailbox-prop .mail-search-area.serch-biling { margin: 0px 27px 0px 27px; }
+.hide-in-mobile								{ display:none; }
+.inbox-header li:first-child				{ width: 3.5%; }
+.inbox-header li:nth-child(2)				{ width: 4%; }
+.mail-list li:last-child					{ max-width: inherit; width: 87.5%; }
+.show-massage								{ text-align: right; }
+.avater-icon								{ width: 12%; }
+.massage-body								{ max-width: inherit; width: 88%; }
+
+/*------------- listings -------------*/
+.mypost-table-head ul						{ padding: 20px 0px; font-size: 13px; }
+.mypost-table-head ul li:nth-child(1)		{ width: 14%; padding-left: 15px; }
+.mypost-table-head ul li:nth-child(2)		{ width: 43%; }
+.mypost-table-head ul li:nth-child(3)		{ width: 16%; }
+.mypost-table-head ul li:nth-child(4)		{ width: 14.5%; }
+.posting-left i								{ width: 28px; height: 28px; padding-top: 5px; margin-top: -4px; }
+.mypost-table-scroll						{ font-size: 13px; }
+.mypost-table								{ width: 100%; }
+.table.mypost-table>tbody>tr>td:first-child { padding-left: 15px; }
+.table.mypost-table>tbody>tr>td:nth-child(2) { width: 38%; line-height: normal; }
+.table.mypost-table>tbody>tr>td:nth-child(5) { width: 15.5%; }
+
+/*------------- coupons-board -------------*/
+.coupon-table-head ul						{ padding: 20px 0px; font-size: 13px; }
+.coupon-table-head ul li:nth-child(1)		{ width: 14%; padding-left: 15px; }
+.coupon-table-head ul li:nth-child(2)		{ width: 28.7%; }
+.coupon-table-head ul li:nth-child(3)		{ width: 16%; }
+.coupon-table-head ul li:nth-child(4)		{ width: 14.5%; }
+.coupon-table-head ul li:nth-child(5)		{ width: 14.5%; }
+.coupon-table-head ul li:nth-child(6)		{ width: 10%; }
+.coupon-table-scroll						{ font-size: 13px; }
+.coupon-table								{ width: 100%; }
+.table.coupon-table>tbody>tr>td:first-child { padding-left: 15px; }
+.table.coupon-table>tbody>tr>td:nth-child(2) { width: 22.7%; line-height: normal; }
+.table.coupon-table>tbody>tr>td:nth-child(4) { width: 16.5%; }
+.table.coupon-table>tbody>tr>td:nth-child(5) { width: 15%; }
+.table.coupon-table>tbody>tr>td:nth-child(6) { width: 15%; }
+.table.coupon-table>tbody>tr>td:nth-child(7) { width: 10.9%; }
+
+/*------------- standard-listing -------------*/
+.cart-message								{ display: none; }
+.regular-posting-panel .search-bar			{ width: 288px; }
+.regular-posting-panel .search-bar .search-box { float: left; margin-bottom: 12px; }
+.regular-posting-panel .search-bar .search-panel { float: left; width: 245px; }
+.regular-posting-panel .search-bar .input-group-btn { float: left; }
+.regular-posting-panel.page-one .right-site { padding-right: 15px; margin-bottom: 20px; }
+.regular-posting-panel div.right-site .price { float: left; width: 28%; padding: 22px 13px; margin: 0px 2% 0px 0%; }
+.regular-posting-panel div.right-site .posted-by-box { float: left; width: 40%; min-height: 101px; margin: 0px 2% 0px 0%; position: relative; }
+.regular-posting-panel div.right-site .posted-by { float: left; width: 100%; padding: 10px 13px; position: absolute; z-index: 9; }
+.regular-posting-panel div.right-site .posted-by .company-info { padding-top: 14px; }
+.regular-posting-panel div.right-site .posted-by .rating { margin: 14px 0px 14px 0px; }
+.regular-posting-panel div.right-site .posted-by .info-btn { margin: 0px 0px 0px 0px; }
+.regular-posting-panel div.right-site .send-massage-box { float: left; width: 28%; }
+.regular-posting-panel div.right-site .share-social { float: left; width: 28%; padding: 20px 0px 0px 0px; }
+.regular-posting-panel div.right-site .share-social a { margin-right: 5px; }
+.regular-posting-panel.page-one .left-side	{ padding-right: 15px; }
+.regular-posting-panel .description iframe	{ width: 738px; height: 415px; }
+
+/*------------- edit-listing -------------*/
+.edit-listing-panel .right-site				{ padding-right: 15px; margin-bottom: 20px; }
+.edit-listing-panel .right-site .price_box { float: left; width: 28%; margin: 0px 2% 0px 0%; }
+.edit-listing-panel .right-site .search-panel { float: left; width: 100%; margin-top: 0px; margin-bottom: 7px; }
+.edit-listing-panel div.right-site .price	{ float: left; width: 100%; padding: 10px 13px; margin: 0px 0%; }
+.edit-listing-panel div.right-site .price p .editableform .form-control { width: 84px; }
+.edit-listing-panel div.right-site .posted-by-box { float: left; width: 40%; min-height: 101px; margin: 0px 2% 0px 0%; position: relative; }
+.edit-listing-panel div.right-site .posted-by { float: left; width: 100%; padding: 10px 13px; position: absolute; z-index: 9; }
+.edit-listing-panel div.right-site .posted-by .info-btn { margin: 0px 0px 0px 0px; }
+.widget-amenities-items						{ float: left; width: 28%; margin-top: 0px; margin-bottom: 0px; }
+.widget-amenities-items .amenities-items	{ margin-bottom: 0px; }
+.edit-listing-panel .left-side				{ padding-right: 15px; }
+.video iframe								{ width: 738px; height: 415px; }
+
+/*------------- search-results -------------*/
+.icons-area li								{ margin-right: 13px; }
+
+/*------------- spot-finder-listings -------------*/
+.spot-finder-panel .search-bar .search-box	{ width: 244px; }
+.spot-finder-panel .search-bar .search-panel:last-child { margin-right: 0px; }
+
+/*------------- great-deals -------------*/
+.great-deals-panel .search-bar .search-box	{ width: 244px; }
+.great-deals-panel .search-bar .search-panel:last-child { margin-right: 0px; }
+.great-deals-panel .search-bar .days-left-panel { margin: 20px 0px 0px 0px; }
+.great-deals-panel .great-deals-box .item-holder { margin: 0px 0px 30px 0px; }
+
+/*------------- coupon-detail -------------*/
+.coupon-detail-title h2						{ font-size: 24px; line-height: 30px; }
+.coupon-detail-panel .coupon-detail-box .coupon-dec { font-size: 14px; }
+.coupon-detail-panel .coupon-detail-box .coupon-promo-link { font-size: 14px; }
+.coupon-detail-panel .coupon-detail-box .thumbs { margin-right: 0px; margin-left: 15px; }
+.coupon-detail-panel .coupon-detail-box .thumbs:first-child { margin-left: 0px; }
+.coupon-detail-panel .coupon-detail-box .thumbs i { font-size: 30px; }
+.coupon-detail-panel .coupon-detail-box .tag-box ul { width: 301px; }
+.related-coupons-title h2					{ font-size: 18px; }
+.coupon-detail .great-deals-panel .great-deals-box .item-holder { margin: 0px 0px 20px 0px; }
+
+/*------------- coupon-builder -------------*/
+.coupon_builder .submit-listing				{ margin: 0px 0px 40px 0px; }
+.coupon_builder .m-category-title h1		{ font-size: 18px; }
+.coupon_builder .industry-select-boxes .industry-select .ps-box-title { margin-left: 0px; font-size: 16px; }
+.coupon_builder .li-name					{ margin-left: 0px; }
+.expire-date-inner .date input				{ margin-bottom: 13px; }
+.coupon_builder .upload-photo-view			{ margin-bottom: 37px; }
+.coupon_builder .notice-photo				{ display: inline-block; margin-top: 0px; margin-left: 27px; }
+.coupon_builder .total-box .m-category-title h1 { font-size: 30px; }
+
+/*------------- profile-settings -------------*/
+.body-panel .mailbox-prop .free-account-title { width: 573px; }
+.pro-settings-wrap .pro-sett-pic-details	{ padding-right: 0px; padding-bottom: 30px; }
+.pro-settings-wrap .pro-sett-pic			{ width: 70%; margin: 0 auto; }
+.pro-settings-wrap .pro-sett-pic-details + .pro-sett-form { padding-left: 0px; padding-right: 0px; }
+.pro-settings-wrap .sidebar-w-inner			{ padding: 13px; }
+
+/*------------- 404 Page -------------*/
+.info-404 .info-404-logo					{ margin-bottom: 68px; }
+.info-404 .info-404-title					{ font-size: 52px; }
+.info-404 .info-404-text					{ font-size: 20px; }
+.info-404 .info-404-btn						{ margin-top: 70px; }
+.info-404 .info-404-btn .start-over-btn		{ min-width: 230px; padding: 17px 10px; }
+
+/*------------- posting -------------*/
+.select-cat .poperty-select:nth-child(-n+2)	{ padding-bottom: 20px; }
+.the-condition .radio						{ width: 33.33%; }
+.creat-ad .notice-inner						{ padding-left: 0px; }
+.picture-upload .add-photo-left-head p		{ width: 60%; }
+.picture-upload .upload-photo-view ul		{ margin-right: 30px; }
+.picture-upload .upload-photo-view ul li	{ margin-bottom: 30px; }
+.picture-upload .more-photo					{ margin-top: 15px; }
+.feature-ad .li-name						{ font-size: 23px; }
+.feature-ad table td p						{ font-size: 15px; }
+.feature-ad table tr td span				{ font-size: 20px; }
+
+/*------------- posting-cars -------------*/
+.vehicle-pan .list-row .poperty-select:nth-child(-n+6) { padding-bottom: 0px; }
+.vehicle-pan .list-row .poperty-select:nth-child(-n+5) { padding-bottom: 17px; }
+
+/*------------- post-real-estate -------------*/
+.property-pan .list-row .poperty-select:nth-child(-n+5) { padding-bottom: 17px; }
+
+/*------------- posting-options -------------*/
+.vehicle-pan .vehicle-icon,
+.post-travel .travel-icon,
+.property-pan .property-icon,
+.job-info .job-icon,
+.pet-post .pet-icon { display: none; }
+
+/*------------- help -------------*/
+.help-panel .search-bar						{ width: 288px; }
+.help-panel .search-bar .search-box			{ float: left; margin-bottom: 12px; }
+.help-panel .search-bar .search-panel		{ float: left; width: 245px; }
+.help-panel .search-bar .input-group-btn	{ float: left; }
+.help-panel .left-part						{ padding-right: 15px; }
+.help-panel .right-part						{ padding: 0px 15px 0px 15px; }
+
+/*------------- blog -------------*/
+.blog-panel .left-part .blog				{ margin: 0px 0 53px 0; }
+.blog-panel .left-part .blog .blog-img		{ width: 40%; margin-right: 17px; }
+.blog-panel .left-part .blog h3				{ margin: 0px 0 0; font-size: 20px; line-height: 26px; }
+.blog-panel .left-part .blog p.details		{ display: inline-block; width: 100%; margin: 17px 0; }
+.blog-panel .left-part .blog .inner-contents span { width: 197px; }
+.blog-panel .right-part						{ padding: 0 15px 0 35px; }
+
+/*------------- blog-detail -------------*/
+.blog-panel .left-part .blog .blog-details h3 { margin: 0px 0 15px 0; }
+.blog-panel .left-part .blog .blog-details .blog-img { width: 100%; margin: 40px 0 23px 0; }
+.blog-panel .left-part .blog-details ul li	{ margin-bottom: 7px; }
+.blog-panel .left-part .replay-part			{ padding: 0px 0 0 0; }
+.blog-panel .left-part .replay-part h3		{ margin-top: 0px; }
+
+/*------------- notifications -------------*/
+.notifications-sett .notifications-box		{ width: 45%; }
+
+/*------------- feedbacks -------------*/
+.feedbacks-panel							{ margin-bottom: 20px; }
+.feedbacks-panel .left-part					{ padding-right: 15px; border-right: none; }
+.feedbacks-panel .right-part				{ padding: 20px 15px 0px 15px; border-top: 1px solid #dfe3e8; }
+.feedbacks-panel .right-part .feedbacks-form .hed { display: inline-block; position: relative; top: 0px; }
+.feedbacks-panel .right-part .feedbacks-form p { margin-top: 17px; }
+
+
+
+}
+
+
+
+/*  #Mobile (Portrait)
+================================================== */
+/* Note: Design for a width of 320px */
+
+@media only screen and (max-width: 767px) {
+
+body										{ padding: 0px; }
+.header-panel								{ padding: 0px; height: auto; position: relative; border-bottom: none; }
+.header-panel .row							{ margin: 0px; }
+.header-panel .header-left					{ padding: 14px 20px 10px 20px; }
+.header-panel .header-left a				{ padding-right: 0px; }
+.header-panel .header-left .location-text	{ display: none; }
+.header-panel .header-left .profile-box-mobile { display: inline-block; float: right; text-align: center; }
+.header-panel .header-left .profile-box-mobile figure { display: inline-block; }
+.header-panel .header-left .profile-box-mobile a { color: #282828; }
+.header-panel .header-left .user-profile .user-account-menu { right: 10px; }
+.mobile-option								{ display: inline-block; padding: 7px 10px; border-top: 1px solid #e2e2e2; line-height: 29px; text-align: center; }
+.mobile-option .location-text				{ display: inline-block; padding-right: 15px; border-right: 1px solid #d9d9d9; }
+.mobile-option .change						{ display: inline-block; padding-left: 15px; }
+.mobile-option .change a					{ font-size: 12px; color: #282828; text-transform: uppercase; }
+.mobile-option .change a:hover				{ color: #26B35A; }
+.mobile-ad-btn a							{ display: block; padding: 9px 10px; background-color: #26b35a; font-size: 14px; color: #ffffff; text-transform: uppercase; line-height: 29px; text-align: center; }
+
+.body-panel.home .main-title				{ font-size: 18px; }
+.body-panel.home .main-sub-title			{ display: none; }
+.l-listings-panel							{ padding-top: 30px; }
+.panel-title								{ font-size: 36px; text-align: center; }
+.search-category-filters					{ margin: 12px 0px 10px 0px; font-size: 16px; color: #545454; font-weight: 300; text-align: center; }
+.search-category-filters a					{ color: #545454; }
+.search-category-filters i					{ margin-right: 10px; font-size: 22px; color: #666666; }
+.search-category							{ margin-top: 0px; padding: 13px 7px; background-color: #ffffff; }
+.search-category .search-panel				{ width: 100%; margin-bottom: 7px; margin-left: 0px; }
+.search-category .search-panel button.btn.dropdown-toggle.btn-default { background: #ffffff; }
+.search-category .input-group-btn			{ width: 100%; margin-bottom: 7px; }
+.search-category span.input-group-btn button { width: 100%; margin-left: 0px; }
+.search-category span.or					{ clear: left; padding: 13px 10px 0px 0px; }
+.search-category .search-box				{ width: 242px; background-color: #ffffff; }
+.latestlistings								{ padding-top: 27px; }
+.latestlistings .item						{ display: none; }
+.latestlistings .item:nth-child(-n+4)		{ display: block; }
+.latestlistings .item .slide-details .btns	{ display: block; margin-right: 0px; margin-bottom: 7px; }
+.deals-banner								{ padding: 0px 0px 0px 0px; }
+.deals-banner .home-wrapper					{ padding-left: 0px; padding-right: 0px; }
+.great-deals-home							{ padding-bottom: 0px; }
+.great-deals-home .deals p.msg				{ margin-bottom: 10px; font-size: 14px; text-align: center; }
+.great-deals-home .deals a.viewall			{ margin-left: 0px; }
+.great-deals-home .deals-box				{ display: none; }
+.great-deals-home .deals-box:nth-child(-n+3) { display: block; }
+.great-deals-home .deals-box .details p		{ font-size: 14px; line-height: 18px; }
+.spot-finder-home							{ padding-bottom: 0px; }
+.spot-finder-home .finder p.msg				{ margin-bottom: 10px; font-size: 14px; text-align: center; }
+.spot-finder-home .finder a.viewall			{ margin-left: 0px; }
+.spot-finder-home .place-box				{ display: none; }
+.spot-finder-home .place-box:nth-child(-n+1) { display: block; }
+
+.footer-inner								{ padding: 20px 0px 0px 0px; }
+.footer-inner h5							{ margin-bottom: 20px; padding-bottom: 0px; border-bottom: none; text-align: center; }
+.country_list_wrapper_mobile .input-group-btn,
+.country_list_wrapper_mobile button.btn.dropdown-toggle.btn-default { display: block; width: 100%; margin: 0px; }
+.country_list_wrapper_mobile button.btn.dropdown-toggle.btn-default .arrow-button i { margin: 0px; font-size: 15px; color: #aaaaaa; font-weight: 700; line-height: 32px; }
+.country_list_wrapper_mobile .search-panel .dropdown-menu { max-height: 185px !important; overflow: auto; left: 0px; }
+.footer_middle_menu_area					{ margin-top: 30px; }
+.footer_middle_menu ul li a					{ padding: 4px 10px; }
+.footer_middle_menu_area .social-icons a	{ margin: 0px 3px; }
+.footer_bottom_menu ul li a					{ padding: 0px 7px; }
+
+/*------------- how-it-works Page -------------*/
+.benner-panel								{ min-height: 211px; }
+.benner-panel .display-table				{ height: 211px; }
+.benner-panel .banner-content h1			{ font-size: 22px; }
+.benner-panel .banner-content p				{ font-size: 13px; }
+.works-panel								{ padding-top: 0px; }
+.works-panel .main-title					{ font-size: 24px; }
+.works-panel .works-box						{ padding: 0px 37px; margin: 0px 0px 30px 0px; }
+.works-panel .works-box p					{ min-height: inherit; }
+.works-panel .check-messages				{ padding-top: 17px; }
+.works-panel .check-messages .mess-info		{ min-height: inherit; padding: 17px 17px; margin-top: 2px; }
+.works-panel .check-messages .mess-info h3	{ margin: 0px 0px 17px 0px; font-size: 16px; }
+.works-panel .check-messages .mess-info p	{ margin-bottom: 17px; font-size: 14px; line-height: 18px; }
+.for-business-panel .main-title				{ font-size: 24px; }
+.for-business-panel .for-business			{ padding-top: 27px; }
+.for-business-panel .for-business .business-img { float: left; }
+.for-business-panel .for-business .business-info { padding: 17px 10px 0px 10px; }
+.for-business-panel .for-business .business-info h3 { margin: 0px 0px 17px 0px; font-size: 16px; }
+.for-business-panel .for-business .business-info p { margin-bottom: 17px; font-size: 14px; line-height: 18px; }
+.comparision-panel .main-title				{ font-size: 16px; }
+.comparision-panel .comparision				{ padding-top: 0px; }
+.comparision-panel .comparision .comp-info	{ padding: 0px 15px; padding-top: 37px; }
+.comparision-panel .comparision .comp-info h4 { font-size: 18px; }
+.comparision-panel .comparision .comp-info ul { margin: 0px 0px 12px 0px; }
+.comparision-panel .comparision .comp-info ul li { font-size: 16px; }
+.comparision-panel .comparision .comp-info p { font-size: 18px; }
+.comparision-panel .comparision .comp-info p strong { font-size: 24px; }
+
+/*------------- business-profile -------------*/
+.business-benner-panel						{ min-height: 169px; }
+.business-benner-panel .display-table		{ height: 169px; }
+.business-benner-panel .banner-content h1	{ float: none; margin: 0px 0 70px 0; font-size: 24px; }
+.business-benner-panel .banner-content .content_right { float: none; }
+.business-benner-panel .banner-content p	{ margin-right: 17px; font-size: 12px; line-height: 17px; }
+.business-benner-panel .banner-content p span { font-size: 18px; }
+.business-benner-panel .banner-content .follow-btn { min-width: 108px; padding: 7px 7px; }
+.business-panel								{ padding: 20px 0 0px 0; }
+.business-panel .main-content .left-sidebar .profile-logo-user { display: inline-block; width: 50%; min-height: inherit; }
+.business-panel .main-content .left-sidebar .send-message-btn { float: right; padding: 8px 16px; margin-top: 0px; }
+.business-panel .main-content .left-sidebar .send-message-btn i { font-size: 17px; }
+.business-panel .main-content .left-sidebar .customer-review-box { padding: 27px 132px 27px 0px; }
+.business-panel .product-container .nav-tabs>li>a { padding: 10px 8px; font-size: 12px; }
+.business-panel .product-container .listings-count h5 { margin-bottom: 17px; font-size: 14px; }
+.profile-panel .product-container .active-product .product-item .item-holder { margin: 0px 0px 30px 0px; min-height: inherit; }
+.profile-panel .product-container .active-product .product-item .product-img img { width: 100%; }
+.profile-panel .product-container .active-product .reviews-form-box { margin-bottom: 20px; }
+.profile-panel .product-container .active-product .reviews-item .reviews-img { width: 47px; }
+.profile-panel .product-container .active-product .reviews-item .reviews-info { width: 82%; }
+.profile-panel .product-container .active-product .deal-list li { padding-bottom: 15px; margin-bottom: 15px; border-bottom: 1px solid #d6d6d6; }
+.profile-panel .product-container .active-product .deal-list li:last-child { margin-bottom: 0px; border-bottom: none; }
+.profile-panel .product-container .active-product .deal-list li a.deal-img { width: 46%; margin-right: 0%; }
+.profile-panel .product-container .active-product .deal-list li .details { float: right; width: 50%; padding-top: 0px; }
+.profile-panel .product-container .active-product .deal-list li .details p { font-size: 14px; line-height: 18px; }
+.profile-panel .product-container .active-product .deal-list li .details .deal-price { margin-bottom: 0px; font-size: 18px; }
+
+/*------------- messages -------------*/
+#plans .modal-content						{ height: auto; }
+.modal-title								{ font-size: 23px; }
+.modal-title + .modal-title					{ padding-bottom: 10px; }
+#plans .plans-item							{ border-right: none; }
+#plans .plans-form							{ padding-left: 15px; border-left: none; }
+.body-panel .secondary-menu					{ margin: 0px 0px 12px 0px; }
+.body-panel .mailbox-prop .mail-search-area.serch-biling { width: 100% !important; margin: 0px 0px 0px 0px; }
+.hide-in-mobile								{ display:none; }
+.mail-titles .select-all ul					{ padding-right: 0px; }
+.mail-titles .select-all a.mail-list-scroll { display: none; right: -13px; }
+.mail-titles .select-all .rollbar-path-vertical { opacity: 0; right: -12px; }
+.inbox-header li:first-child				{ width: 8.5%; margin-right: 3%; position: relative; }
+.inbox-header li:nth-child(2)				{ width: 11%; }
+.inbox-header li:last-child					{ float: right; margin-right: 0px; }
+.mail-list li:first-child i.fa-envelope		{ position: absolute; top: 3px; left: 7px; font-size: 11px; line-height: normal; }
+.mail-list li:nth-child(2)					{ display: none; }
+.mail-list li:last-child					{ float: left; max-width: inherit; width: 88.5%; padding: 10px 34px 10px 10px; font-size: 13px; color: #565656; line-height: 19px; position: relative; }
+.mail-list li:last-child .img-box			{ display: none; }
+.mail-body-text .select-all a.message-scroll { right: -1px; }
+.mail-body-text .select-all .rollbar-path-vertical { right: 0px; }
+.chat-body									{ height: 240px; }
+.chat-body ul								{ padding-right: 0px; margin-right: 20px; overflow: hidden; }
+.chat-body ul li							{ margin-bottom: 17px; }
+.avater-icon								{ width: auto; padding-right: 17px; }
+.chat-body ul li:nth-child(odd) .avater-icon { float: right; }
+.chat-body ul li:nth-child(even) .avater-icon { padding-right: 17px; padding-left: 0px; }
+.img-box									{ width: 43px; height: 43px; margin-bottom: -14px; background-size: 100% !important; position: relative; z-index: 9; }
+.massage-body								{ width: 100%; padding: 14px 17px; }
+.massage-body h4							{ margin-bottom: 13px; }
+.massage-body .date							{ display: inline-block; margin-right: 17px; }
+
+/*------------- listings -------------*/
+.biling-date								{ width: auto; }
+.posting-left								{ float: right; padding-top: 14px; padding-left: 0px; }
+.posting-left i								{ width: 28px; height: 28px; padding-top: 5px; margin-top: -4px; }
+.mypost-body-wrap							{ margin-top: 10px; }
+.mypost-table-head ul						{ padding: 10px 0px; font-size: 13px; }
+.mypost-table-head ul li					{ display: none; }
+.mypost-table-head ul li:nth-child(1)		{ display: inline-block; width: 23%; padding-left: 10px; padding-right: 10px; }
+.mypost-table-head ul li:nth-child(2)		{ display: inline-block; width: 75%; vertical-align: middle; }
+.mypost-table-scroll						{ font-size: 13px; }
+.mypost-table								{ width: 100%; }
+.table.mypost-table>tbody>tr>td				{ display: none; }
+.table.mypost-table>tbody>tr>td:first-child { padding-left: 10px; }
+.table.mypost-table>tbody>tr>td:nth-child(1) { display: inline-block; width: 12%; }
+.table.mypost-table>tbody>tr>td:nth-child(2) { display: inline-block; width: 77%; padding: 8px 8px 8px 35px; line-height: normal; }
+.table.mypost-table>tbody>tr>td:nth-child(3) { display: inline-block; width: 11%; padding: 8px 0px; }
+.table.mypost-table>tbody>tr>td:last-child	{ display: inline-block; width: 100%; padding: 0px; border-top: none; float: left; min-height: 0px; line-height: normal; }
+.table.mypost-table>tbody>tr>td:last-child .panel-collapse { padding: 8px; }
+.table.mypost-table>tbody>tr>td:last-child .text { padding-bottom: 10px; color: #565656; line-height: 18px; }
+.table.mypost-table>tbody>tr>td:last-child span { display: inline-block; padding-right: 10px; color: #a3a3a3; }
+.table.mypost-table>tbody>tr>td:last-child .post-cat { width: 42%; }
+.table.mypost-table>tbody>tr>td:last-child .post-date { width: 25%; }
+.table.mypost-table>tbody>tr>td:last-child .post-id { width: 30%; padding-right: 0px; text-align: right; }
+.table.mypost-table tbody tr td span.status	{ width: auto; }
+.table.mypost-table>tbody>tr>td:nth-child(2) .arrow-button { position: absolute; top: 8px; left: 0px; text-align: center; }
+.table.mypost-table>tbody>tr>td:nth-child(2) .arrow-button i { width: 24px; font-size: 15px; color: #a4a4a4; font-weight: 700; line-height: 32px; }
+.table.mypost-table tbody tr td span.option-cog { border: 1px solid transparent; }
+
+/*------------- coupons-board -------------*/
+.body-panel .create-coupon-main				{ padding-left: 0px; text-align: center; }
+.body-panel .create-coupon-main .active-coupon-text { display: block; padding-top: 10px; margin-left: 0px; }
+.coupon-table-head ul						{ padding: 10px 0px; font-size: 13px; }
+.coupon-table-head ul li					{ display: none; }
+.coupon-table-head ul li:nth-child(1)		{ display: inline-block; width: 23%; padding-left: 10px; padding-right: 10px; }
+.coupon-table-head ul li:nth-child(2)		{ display: inline-block; width: 75%; vertical-align: middle; }
+.coupon-table								{ width: 100%; }
+.table.coupon-table>tbody>tr>td				{ display: none; }
+.table.coupon-table>tbody>tr>td:first-child { padding-left: 10px; }
+.table.coupon-table>tbody>tr>td:nth-child(1) { display: inline-block; width: 12%; }
+.table.coupon-table>tbody>tr>td:nth-child(2) { display: inline-block; width: 77%; padding: 8px 8px 8px 35px; line-height: normal; }
+.table.coupon-table>tbody>tr>td:nth-child(3) { display: inline-block; width: 11%; padding: 8px 0px; }
+.table.coupon-table>tbody>tr>td:last-child	{ display: inline-block; width: 100%; padding: 0px; border-top: none; float: left; min-height: 0px; line-height: normal; }
+.table.coupon-table>tbody>tr>td:last-child .panel-collapse { padding: 8px; }
+.table.coupon-table>tbody>tr>td:last-child .text { padding-bottom: 10px; color: #565656; line-height: 18px; }
+.table.coupon-table>tbody>tr>td:last-child span { display: inline-block; padding-right: 10px; color: #a3a3a3; }
+.table.coupon-table>tbody>tr>td:last-child .post-cat { width: 49%; padding-bottom: 10px; }
+.table.coupon-table>tbody>tr>td:last-child .coupon-code { width: 49%; padding-right: 0px; padding-bottom: 10px; text-align: right; }
+.table.coupon-table>tbody>tr>td:last-child .impressions { width: 49%; }
+.table.coupon-table>tbody>tr>td:last-child .post-date { width: 49%; padding-right: 0px; text-align: right; }
+.table.coupon-table tbody tr td span.status	{ width: auto; }
+.table.coupon-table>tbody>tr>td:nth-child(2) .arrow-button { position: absolute; top: 8px; left: 0px; text-align: center; }
+.table.coupon-table>tbody>tr>td:nth-child(2) .arrow-button i { width: 24px; font-size: 15px; color: #a4a4a4; font-weight: 700; line-height: 32px; }
+.table.coupon-table tbody tr td span.option-cog { border: 1px solid transparent; }
+
+/*------------- billing -------------*/
+.body-panel .mailbox-prop .mailbox-prop-select { margin-right: 0px; }
+.body-panel .mailbox-prop .mail-search-area.s-biling { width: 84% !important; float: right; }
+.biling-table								{ margin-top: 17px; }
+.table.biling-table>thead>tr>th				{ font-size: 13px; }
+.table.biling-table>thead>tr>th span		{ display: none; }
+.table.biling-table>thead>tr>th:first-child { padding-left: 8px; }
+.table.biling-table>thead>tr>th:last-child	{ display: none; }
+.table.biling-table>tbody>tr>td				{ font-size: 13px; line-height: normal; }
+.table.biling-table>tbody>tr>td:first-child	{ padding-left: 8px; }
+.table.biling-table>tbody>tr>td:last-child	{ display: none; }
+
+/*------------- standard-listing -------------*/
+.cart-message								{ display: none; }
+.regular-posting-panel .search-bar			{ width: 290px; margin-bottom: 23px; }
+.regular-posting-panel .search-bar .search-box { float: left; width: 290px; margin-right: 0px; margin-bottom: 12px; }
+.regular-posting-panel .search-bar .search-panel { float: left; width: 247px; }
+.regular-posting-panel .search-bar .input-group-btn { float: left; }
+.regular-posting-panel .button-area a		{ padding: 7px 12px 7px 12px; }
+.regular-posting-panel .button-area a:first-child { margin-right: 0px; }
+.regular-posting-panel .post-status-area	{ margin-top: 17px; }
+.regular-posting-panel .post-status-area .breadcrumb { width: 100%; padding-right: 0px; }
+.regular-posting-panel .post-status-area .post-status { float: left; width: 100%; }
+.regular-posting-panel .post-status-area .post-status span.post-tag { float: right; margin-top: 4px; }
+.regular-posting-panel .middle-content h3.main-title { font-size: 18px; }
+.regular-posting-panel.page-one .left-side	{ padding-right: 15px; }
+.regular-posting-panel .description iframe	{ width: 290px; height: 163px; }
+.regular-posting-panel.page-one .right-site { padding-right: 15px; }
+.regular-posting-panel div.right-site .price { padding: 22px 13px; margin: 0px 0% 20px 0%; }
+.regular-posting-panel div.right-site .posted-by { padding: 16px 13px; }
+
+/*------------- edit-listing -------------*/
+.edit-listing-panel .button-area .save-changes-btn { padding: 11px 36px; }
+.edit-listing-panel .button-area .cancel-btn { padding: 11px 36px; margin-right: 0px; }
+.edit-listing-panel .post-status-area		{ margin-top: 17px; }
+.edit-listing-panel .post-status-area .post-status { float: left; width: 100%; }
+.edit-listing-panel .post-status-area .post-status span.post-tag { float: right; margin-top: 4px; }
+.edit-listing-panel h3.main-title			{ font-size: 18px; }
+.editableform .form-control					{ min-width: 191px; }
+.edit-listing-panel .left-side				{ padding-right: 15px; }
+.upload-gallery-view ul li					{ margin-right: 7px; margin-bottom: 37px; }
+.upload-gallery-view ul li:nth-child(4n+4)		{ margin-right: 0px; }
+.upload-gallery-view ul li div.upload-ad	{ width: 64px; height: 64px; }
+.upload-gallery-view ul li div.upload-ad i	{ top: 35%; left: 33%; }
+.video .remove_video a						{ margin-left: 10px; }
+.video iframe								{ width: 290px; height: 163px; }
+.edit-listing-panel .right-site				{ padding-right: 15px; margin-bottom: 20px; }
+.edit-listing-panel .right-site .search-panel { margin-top: 0px; margin-bottom: 7px; }
+.edit-listing-panel div.right-site .price	{ padding: 10px 13px; margin: 0px 0%; }
+.edit-listing-panel div.right-site .price p .editableform .form-control { width: 165px; }
+.edit-listing-panel div.right-site .posted-by { padding: 16px 13px; }
+
+/*------------- search-results -------------*/
+.search-result-body .search-bar				{ width: 290px; margin-bottom: 23px; }
+.search-result-body .search-bar .search-box	{ float: left; width: 290px; margin-right: 0px; margin-bottom: 12px; }
+.search-result-body .search-bar .search-panel { float: left; width: 247px; }
+.search-result-body .search-bar .input-group-btn { float: left; }
+.post-status-area .breadcrumb>li+li:before	{ padding: 0px 7px 0px 5px; }
+.icons-area li:last-child					{ display: none; }
+.filter_link								{ min-height: 32px; text-align: right; }
+.filter_link a								{ padding: 2px 11px; }
+.filters									{ margin-top: 20px; }
+#filters .widget-toggle-box .radio			{ display: block; width: inherit; }
+#filters .widget-ck-box li					{ display: block; width: inherit; margin-right: 0px; }
+#filters .widget-ck-box li .input-container { float: none; }
+#filters .widget-ck-box li span.li-name		{ float: none; }
+.search-result-body #filters .search-bar	{ width: 218px; margin-bottom: 0px; }
+.search-result-body #filters .search-bar .search-panel { width: 218px; }
+.sort_by									{ margin-top: 15px; }
+.sort_by .search-bar						{ width: 124px; margin-bottom: 0px; }
+.sort_by .search-bar .search-panel			{ float: left; width: 124px; }
+.search-result-box							{ padding-top: 28px; }
+.search-result-box .image-box img			{ width: 100%; }
+.search-result-box .slide-info				{ margin-bottom: 25px; min-height: inherit; }
+.search-result-list .image-box				{ width: 18.6%; }
+.search-result-list .slide-info				{ width: 77.3%; margin-bottom: 25px; min-height: inherit; }
+.search-result-box .search-result-list .slide-info .btns { float: none; margin-top: 10px; }
+
+/*------------- spot-finder-listings -------------*/
+.spot-finder-panel h3.spot-title			{ font-size: 26px; }
+.spot-finder-panel .search-bar .search-box	{ float: left; width: 245px; }
+.spot-finder-panel .search-bar .search-box + .input-group-btn { float: left; }
+.spot-finder-panel .search-bar .input-group-title { float: left; width: 100%; padding: 0px 0px 0px 0px; text-align: center; }
+.spot-finder-panel .search-bar .search-panel { width: 100%; margin-right: 0px; margin-bottom: 10px; }
+.spot-finder-panel .search-bar .search-panel:last-child { margin-bottom: 0px; }
+.spot-finder-panel .search-bar .search-panel button.btn.dropdown-toggle.btn-default { margin: 0px; }
+.spot-finder-panel .search-bar .search-panel + .search-panel .dropdown-menu { left: 0px; }
+
+/*------------- great-deals -------------*/
+.great-deals-panel h3.deals-title			{ font-size: 26px; }
+.great-deals-panel .search-bar .search-box	{ float: left; width: 245px; }
+.great-deals-panel .search-bar .search-box + .input-group-btn { float: left; }
+.great-deals-panel .search-bar .input-group-title { float: left; width: 100%; padding: 0px 0px 0px 0px; text-align: center; }
+.great-deals-panel .search-bar .search-panel { width: 100%; margin-right: 0px; margin-bottom: 10px; }
+.great-deals-panel .search-bar .search-panel:last-child { margin-bottom: 0px; }
+.great-deals-panel .search-bar .search-panel button.btn.dropdown-toggle.btn-default { margin: 0px; }
+.great-deals-panel .search-bar .search-panel + .search-panel .dropdown-menu { left: 0px; }
+.great-deals-panel .search-bar .days-left-panel { float: left; width: 100%; margin: 17px 0px 0px 0px; text-align: center; }
+.great-deals-panel .great-deals-box .item-holder { margin: 0px 0px 23px 0px; }
+.great-deals-panel .great-deals-box .deals-img img { width: 100%; }
+
+/*------------- coupon-detail -------------*/
+.coupon-detail-title h2						{ font-size: 18px; line-height: 24px; }
+.coupon-detail-panel .coupon-detail-box .coupon-price { font-size: 30px; }
+.coupon-detail-panel .coupon-detail-box .coupon-dec { font-size: 14px; }
+.coupon-detail-panel .coupon-detail-box .coupon-promo-link { font-size: 14px; }
+.coupon-detail-panel .coupon-detail-box .print-coupon-btn { padding: 10px 10px; font-size: 14px; font-weight: 500; }
+.coupon-detail-panel .coupon-detail-box .social-icons { width: 202%; margin-top: 27px; }
+.coupon-detail-panel .coupon-detail-box .thumbs { margin-right: 0px; margin-left: 15px; }
+.coupon-detail-panel .coupon-detail-box .thumbs:first-child { margin-left: 0px; }
+.coupon-detail-panel .coupon-detail-box .thumbs i { font-size: 27px; }
+.coupon-detail-panel .coupon-detail-box .thumbs span { font-size: 15px; }
+.coupon-detail-panel .coupon-detail-box .tag-box ul { width: 236px; }
+.coupon-detail-panel .coupon-detail-box .tag-box ul li { padding: 0px 11px; }
+.coupon-detail-panel .coupon-detail-box .map-box { padding-top: 28px; padding-bottom: 28px; }
+.coupon-detail-panel .coupon-detail-right .company-name { font-size: 18px; }
+.coupon-detail-panel .coupon-detail-right .company-address { margin-bottom: 17px; font-size: 14px; }
+.related-coupons-title h2					{ margin: 37px 0px 20px 0px; font-size: 18px; }
+.coupon-detail .great-deals-panel .great-deals-box .item-holder { margin: 0px 0px 23px 0px; }
+.coupon-detail .great-deals-panel .great-deals-box .deals-img img { width: 100%; }
+
+/*------------- coupon-builder -------------*/
+.coupon_builder .industry-select-boxes .industry-select .ps-box-title { margin-bottom: 7px; margin-left: 0px; font-size: 16px; }
+.coupon_builder .industry-select-boxes .url.industry-select .ps-box-title { margin-top: 13px; }
+.coupon_builder .li-name					{ margin-left: 0px; line-height: 22px; }
+.coupon_builder .add-title-coupon .title-input { margin-bottom: 20px; }
+.coupon_builder .tag-fields					{ padding: 10px 23px 23px 23px; }
+.coupon_builder .add-description .expire-ad	{ display: block; margin-left: 0px; }
+.coupon_builder .add-description .notice	{ float: left; margin-top: 20px; }
+.expire-date-inner .date input				{ margin-bottom: 13px; }
+.coupon_builder .print-field				{ padding: 10px 23px 0px 23px; }
+.coupon_builder .add-photo-left-head p		{ float: left; width: 100%; }
+.coupon_builder .upload-photo-view			{ margin-bottom: 0px; }
+.coupon_builder .upload-photo-view ul li	{ margin-right: 7px; margin-bottom: 30px; }
+.coupon_builder .upload-photo-view ul li div.upload-ad { width: 68px; height: 68px; }
+.coupon_builder .upload-photo-view ul li div.upload-ad i { top: 35%; left: 34%; }
+.coupon_builder .notice-photo				{ margin-top: 7px; }
+
+/*------------- profile-settings -------------*/
+.body-panel .mailbox-prop .free-account-title { width: 100%; margin-top: 12px; margin-right: 0px; }
+.pro-settings-wrap							{ margin-top: 27px; }
+.pro-settings-wrap .pro-sett-pic-details	{ padding-right: 0px; padding-bottom: 30px; }
+.pro-settings-wrap .pro-sett-pic-details + .pro-sett-form { padding-left: 0px; padding-right: 0px; }
+.pro-settings-wrap .pro-sett-form .social-field-bar input[type="submit"] { width: 100%; }
+.pro-settings-wrap .sidebar-w-inner			{ padding: 13px; }
+.pro-settings-wrap .account-details .check-note label { max-width: 85%; line-height: 17px; }
+
+/*------------- create-new-password , username & password-recovery Page -------------*/
+.recovery-page-wrap							{ padding-right: 15px; padding-left: 15px; }
+form.recovery-form .g-recaptcha				{ margin-left: -7px; }
+.title-text h3								{ font-size: 20px; }
+.title-text span							{ font-size: 13px; }
+
+/*------------- 404 Page -------------*/
+.info-404 .info-404-logo					{ margin-bottom: 68px; }
+.info-404 .info-404-title					{ font-size: 24px; }
+.info-404 .info-404-text					{ font-size: 17px; }
+.info-404 .info-404-btn						{ margin-top: 70px; }
+.info-404 .info-404-btn .start-over-btn		{ min-width: 230px; padding: 17px 10px; }
+
+/*------------- posting -------------*/
+.submit-listing								{ margin: 0px 0px 30px 0px; font-size: 30px; }
+.select-cat .property-basic-info			{ padding: 15px; }
+.select-cat .poperty-select					{ padding-bottom: 20px; }
+.select-cat .poperty-select:last-child		{ padding-bottom: 0px; }
+.the-condition h3 span						{ float: none; display: block; padding-top: 7px; }
+.the-condition .radio						{ width: 100%; }
+.the-condition .radio:first-child			{ margin-top: 0px; }
+.the-condition .radio:last-child			{ margin-bottom: 0px; }
+.m-category-title h1						{ font-size: 18px; }
+.m-category-title h1 span					{ font-size: 20px; }
+.breadcrumb>li+li:before					{ padding: 0px 7px 0px 5px; }
+.breadcrumb span							{ float: none; display: block; margin-top: 10px; }
+.creat-ad .add-title-price					{ padding-right: 15px; padding-left: 15px; }
+.creat-ad .add-title-price .li-name			{ margin-top: 0px; }
+.creat-ad .add-title-price .price			{ margin-top: 20px; }
+.creat-ad .add-description					{ padding-right: 15px; padding-left: 15px; }
+.creat-ad .add-description .li-name			{ line-height: normal; }
+.creat-ad .add-description .expire-ad		{ display: block; margin-left: 0px; }
+.creat-ad .notice-inner						{ padding-left: 0px; }
+.picture-upload .add-photo					{ padding-right: 15px; padding-left: 15px; }
+.picture-upload .add-photo-left-head p		{ float: left; width: 100%; }
+.picture-upload .upload-photo-view ul li	{ margin-right: 7px; margin-bottom: 30px; }
+.picture-upload .upload-photo-view ul li div.upload-ad { width: 68px; height: 68px; }
+.picture-upload .upload-photo-view ul li div.upload-ad i { top: 36%; left: 34%; }
+.picture-upload .more-photo .li-name		{ display: block; margin-left: 40px; line-height: normal; }
+.picture-upload .add-photo-right			{ margin-top: 30px; }
+.picture-upload .notice-photo				{ margin-top: 10px; }
+.picture-upload .notice-photo p				{ margin-bottom: 0px; }
+.picture-upload .youtube-free				{ padding-right: 15px; padding-left: 15px; }
+.picture-upload .youtube-free h4.li-name	{ font-size: 15px; }
+.picture-upload .youtube-free .youtube-box	{ width: 84%; }
+.feature-ad .upload-status					{ padding-right: 15px; padding-left: 15px; }
+.feature-ad .li-name						{ font-size: 18px; }
+.feature-ad table tr td:first-child			{ padding-left: 0px; }
+.feature-ad table tr td:last-child			{ padding-right: 0px; }
+.contact-detail-box h4						{ font-size: 20px; }
+.contact-detail-box h4 span					{ display: block; margin-left: 0px; margin-top: 4px; }
+.contact-detail-box .col					{ padding-bottom: 13px; }
+.contact-detail-box .col:last-child			{ padding-bottom: 0px; }
+.contact-detail-box .f-family-roboto span	{ display: block; margin-left: 0px; }
+.total-box-text-area						{ padding-top: 0px; margin-bottom: 0px; }
+
+/*------------- posting-cars -------------*/
+.vehicle-pan .property-basic-info			{ padding: 15px; }
+.vehicle-pan .list-row .poperty-select		{ padding-bottom: 17px; }
+.vehicle-pan .list-row .poperty-select:last-child { padding-bottom: 0px; }
+
+/*------------- post-travel -------------*/
+.post-travel .basic-info					{ padding: 15px; }
+
+/*------------- post-real-estate -------------*/
+.property-pan .property-basic-info			{ padding: 15px; }
+.property-pan .list-row .poperty-select		{ padding-bottom: 17px; }
+.property-pan .list-row .poperty-select:last-child { padding-bottom: 0px; }
+
+/*------------- post-a-job -------------*/
+.job-info .job-basic-info					{ padding: 15px; }
+.job-basic-info span.upload-title a			{ margin-left: 0px; display: block; }
+.job-basic-info .upload-ad-box				{ width: 73px; margin-right: 10px; }
+.job-basic-info .input-wraper:last-child	{ margin-bottom: 17px; }
+
+/*------------- pet-post -------------*/
+.pet-post .pet-info							{ padding: 15px; }
+.pet-post .list-row .poperty-select			{ padding-bottom: 17px; }
+.pet-post .list-row .poperty-select:last-child { padding-bottom: 0px; }
+
+/*------------- posting-options -------------*/
+.vehicle-pan .vehicle-icon,
+.post-travel .travel-icon,
+.property-pan .property-icon,
+.job-info .job-icon,
+.pet-post .pet-icon { display: none; }
+
+/*------------- posting-with-edits -------------*/
+.posting-with-edits .edits-cont				{ width: 85%; }
+.posting-with-edits .edits-cont > li + li:before { padding: 0px 13px; }
+
+/*------------- help -------------*/
+.help-panel .search-bar						{ width: 290px; margin-bottom: 23px; }
+.help-panel .search-bar .search-box			{ float: left; width: 290px; margin-right: 0px; margin-bottom: 12px; }
+.help-panel .search-bar .search-panel		{ float: left; width: 247px; }
+.help-panel .search-bar .input-group-btn	{ float: left; }
+.help-panel .button-area					{ margin-bottom: 17px; }
+.help-panel .button-area a					{ padding: 7px 12px 7px 12px; }
+.help-panel .button-area a:first-child		{ margin-right: 0px; }
+.help-panel .left-part						{ padding-right: 15px; }
+.help-panel .left-part .panel-default>.panel-heading .panel-title { font-size: 17px; }
+.help-panel .left-part .panel-default>.panel-heading .panel-title i { line-height: 23px; }
+.help-panel .left-part .panel-default .panel-body h4 { font-size: 15px; }
+.help-panel .left-part .panel-default .panel-body p	{ font-size: 13px; }
+.help-panel .right-part						{ padding: 0px 15px 0px 15px; }
+.help-panel .right-part .contact-question .g-recaptcha { margin-left: -7px; }
+
+/*------------- complete-registration-personal & business -------------*/
+.comp-reg-page-wrap							{ padding: 0px 15px; }
+.title-text h3								{ font-size: 18px; }
+form.comp-reg-form .col .row .col			{ padding-bottom: 20px; }
+form.comp-reg-form .col .row .col:last-child { padding-bottom: 0px; }
+form.comp-reg-form .col .row .col.logo-avatar { padding-bottom: 0px; }
+form.comp-reg-form .col.address				{ padding-bottom: 20px; }
+form.comp-reg-form .col .row .col.pass-prog-bar { padding-bottom: 0px; }
+form.comp-reg-form .note-mess2				{ padding-left: 0px; }
+
+/*------------- login & register -------------*/
+.login-page-wrap							{ padding: 0px 15px 20px 15px; }
+.title-text									{ margin-bottom: 30px; }
+.login-page-wrap .right-part				{ padding-top: 20px; }
+form.ragistration-form input				{ max-width: inherit; }
+form.ragistration-form .g-recaptcha			{ margin-left: -7px; }
+
+/*------------- cart -------------*/
+.cart-panel .main-content .cart-table table tr td:nth-child(1) { padding-right: 0px; padding-left: 0px; }
+.cart-panel .main-content .cart-table table tr td:nth-child(2) { width: 66%; }
+.cart-panel .main-content .cart-table table tr th:nth-child(5),
+.cart-panel .main-content .cart-table table tr td:nth-child(5) { padding-right: 0px; }
+.cart-panel .main-content .cart-table table tr td ul { float: left; width: 70%; padding-top: 10px; }
+.cart-panel .main-content .cart-table table tr td ul + ul { width: 30%; text-align: right; }
+.cart-panel .main-content .cart-table table tr td ul li { font-size: 13px; }
+.cart-panel .proccdcheck-coupon .navbar-form { padding-right: 0px; }
+.navbar-form .form-group					{ display: inline-block; margin-bottom: 0px; vertical-align: middle; }
+.cart-panel .proccdcheck-coupon .navbar-form .btn-default { padding: 6px 9px; }
+.cart-panel .proccdcheck-coupon .proccd-checkout { padding: 0px 0px; }
+.cart-panel .proccdcheck-coupon .proccd-checkout a { float: left; width: 100%; }
+.cart-panel .total-checkout-cart			{ padding: 0px 0px; margin: 0px 0px; }
+.cart-panel .total-checkout-cart .tetal-checkout-holder { width: 100%; padding: 0px 0px 0px 0px; }
+
+/*------------- blog -------------*/
+.blog-panel .search-bar						{ width: 290px; margin-bottom: 23px;}
+.blog-panel .search-bar .search-box			{ float: left; width: 290px; margin-right: 0px; margin-bottom: 12px; }
+.blog-panel .search-bar .search-panel		{ float: left; width: 247px; }
+.blog-panel .search-bar .input-group-btn	{ float: left; }
+.blog-panel .left-part						{ padding-right: 15px; }
+.blog-panel .left-part .blog				{ margin: 0px 0 53px 0; }
+.blog-panel .left-part .blog .blog-img		{ width: 100%; margin-right: 0px; }
+.blog-panel .left-part .blog .blog-img img	{ width: 100%; }
+.blog-panel .left-part .blog h3				{ clear: left; padding-top: 10px; margin: 0px 0 0; font-size: 17px; line-height: 23px; }
+.blog-panel .left-part .blog p.details		{ margin: 17px 0; }
+.blog-panel .left-part .blog .inner-contents span { width: 100%; padding-bottom: 7px; }
+.blog-panel .left-part .blog .inner-contents span + span { width: 70%; padding-bottom: 0px; }
+.blog-panel .right-part						{ padding: 37px 15px 0px 15px; }
+.blog-panel .right-part .notifications		{ margin-top: 0px; }
+
+/*------------- blog-detail -------------*/
+.blog-panel .left-part .blog .blog-details h3 { clear: none; padding-top: 0px; margin: 0px 0 15px 0; }
+.blog-panel .left-part .blog .blog-details .blog-img { margin: 30px 0 30px 0; }
+.blog-panel .left-part .blog-details ul li	{ margin-top: 7px; }
+.blog-panel .left-part .replay-part			{ padding: 0px 0 0 0; }
+.blog-panel .left-part .replay-part h3		{ margin-top: 0px; }
+
+/*------------- notifications -------------*/
+.notifications-sett .m-category-title h1	{ margin-top: 0px; margin-bottom: 17px; font-size: 22px; }
+.notifications-sett .notifications-box		{ float: none; display: block; width: 100%; }
+.notifications-info							{ padding: 15px; margin-top: 17px; }
+.notifications-info .notify-list			{ margin-bottom: 10px; }
+.notifications-info .notify-list .col		{ margin-bottom: 10px; }
+.notifications-info .notify-list .widget-ck-box .input-container { float: left; }
+.notifications-info .notify-list .widget-ck-box span.li-name { display: block; margin-left: 37px; }
+
+/*------------- feedbacks -------------*/
+.feedbacks-panel							{ margin-bottom: 0px; }
+.feedbacks-panel .search-bar				{ width: 290px; margin-bottom: 23px;}
+.feedbacks-panel .search-bar .search-box	{ float: left; width: 290px; margin-right: 0px; margin-bottom: 12px; }
+.feedbacks-panel .search-bar .search-panel	{ float: left; width: 247px; }
+.feedbacks-panel .search-bar .input-group-btn { float: left; }
+.feedbacks-panel .left-part					{ padding-right: 15px; border-right: none; }
+.feedbacks-panel .left-part .feedbacks_group { padding: 20px 15px; }
+.feedbacks-panel .left-part .next_previous	{ margin: 20px 0px 20px 0px; }
+.feedbacks-panel .right-part				{ padding: 20px 15px 0px 15px; border-top: 1px solid #dfe3e8; }
+.feedbacks-panel .right-part .feedbacks-form { margin-bottom: 20px; }
+.feedbacks-panel .right-part .feedbacks-form .hed { display: inline-block; position: relative; top: 0px; }
+.feedbacks-panel .right-part .feedbacks-form p { margin-top: 17px; }
+
+/*------------- verified -------------*/
+.email-verified .m-category-title h1		{ font-size: 22px; }
+.email-verified .verified-info				{ padding: 30px 0px 0px 0px; }
+.email-verified .verified-info .verified-icon { margin-bottom: 17px; }
+.email-verified .verified-info .verified-icon i { width: 92px; height: 92px; font-size: 50px; }
+.email-verified .verified-info .verified-title { font-size: 22px; }
+.email-verified .verified-info .verified-text { margin-bottom: 17px; font-size: 14px; }
+
+
+
+}
+
+
+
+/* #Mobile (Landscape)
+================================================== */
+/* Note: Design for a width of 480px */
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+
+.mobile-option .location-text				{ float: left; width: 50%; padding-right: 10px; }
+.mobile-option .change						{ float: left; width: 50%; padding-left: 10px; }
+
+.search-category .search-box				{ width: 402px; }
+.latestlistings .item .slide-details .btns	{ display: inline-block; margin-right: 7px; margin-bottom: 0px; }
+
+/*------------- how-it-works Page -------------*/
+.works-panel .works-box						{ padding: 0px 97px; margin: 0px 0px 50px 0px; }
+.comparision-panel .comparision .comp-info	{ padding: 0px 70px; padding-top: 37px; }
+
+/*------------- business-profile -------------*/
+.business-benner-panel .banner-content .content_right { text-align: right; }
+.business-panel .main-content .left-sidebar .profile-logo-user { float: left; width: 37%; }
+.business-panel .main-content .left-sidebar .customer-contuct { float: left; width: 50%; clear: both; }
+.business-panel .main-content .left-sidebar .customer-social-holder { float: left; width: 50%; clear: right; margin-top: 23px; margin-bottom: 0px; }
+.business-panel .main-content .left-sidebar .varified-user { float: left; width: 50%; clear: right; }
+.business-panel .main-content .left-sidebar .active-posts-title { float: left; width: 50%; clear: both; }
+.profile-panel .active-posts-title h4		{ margin-top: 0px; }
+.business-panel .main-content .left-sidebar .customer-review-box { float: left; width: 35%; clear: both; padding: 17px 0px 27px 0px; }
+.business-panel .product-container .nav-tabs>li>a { padding: 10px 24px; }
+.profile-panel .product-container .active-product .product-item { width: 50%; }
+.profile-panel .product-container .active-product .product-item .item-holder { margin: 0px 0px 30px 0px; min-height: 327px; }
+.profile-panel .product-container .active-product .reviews-item .reviews-info { width: 88%; }
+
+/*------------- messages -------------*/
+.inbox-header li:first-child				{ width: 5.5%; margin-right: 2%; }
+.inbox-header li:nth-child(2)				{ width: 7%; }
+.mail-list li:last-child					{ width: 92.5%; }
+
+/*------------- listings -------------*/
+.mypost-table-head ul li:nth-child(1)		{ width: 15%; }
+.mypost-table-head ul li:nth-child(2)		{ width: 84%; }
+.table.mypost-table>tbody>tr>td:nth-child(1) { width: 8%; }
+.table.mypost-table>tbody>tr>td:nth-child(2) { width: 85%; }
+.table.mypost-table>tbody>tr>td:nth-child(3) { width: 7%; }
+
+/*------------- coupons-board -------------*/
+.coupon-table-head ul li:nth-child(1)		{ width: 15%; }
+.coupon-table-head ul li:nth-child(2)		{ width: 84%; }
+.table.coupon-table>tbody>tr>td:nth-child(1) { width: 8%; }
+.table.coupon-table>tbody>tr>td:nth-child(2) { width: 85%; }
+.table.coupon-table>tbody>tr>td:nth-child(3) { width: 7%; }
+
+/*------------- standard-listing -------------*/
+.regular-posting-panel .search-bar			{ width: 450px; margin-bottom: 23px; }
+.regular-posting-panel .search-bar .search-box { float: left; width: 198px; margin-right: 12px; margin-bottom: 0px; }
+.regular-posting-panel .search-bar .search-panel { float: left; width: 197px; }
+.regular-posting-panel .search-bar .input-group-btn { float: left; }
+.regular-posting-panel .description iframe	{ width: 448px; height: 252px; }
+
+/*------------- edit-listing -------------*/
+.editableform .form-control					{ min-width: 351px; }
+.video iframe								{ width: 448px; height: 252px; }
+.edit-listing-panel div.right-site .price p .editableform .form-control { width: 325px; }
+
+/*------------- search-results -------------*/
+.search-result-body .search-bar				{ width: 100%; margin-bottom: 23px; }
+.search-result-body .search-bar .search-box	{ float: left; width: 220px; margin-right: 8px; margin-bottom: 0px; }
+.search-result-body .search-bar .search-panel { float: left; width: 177px; }
+.icons-area li:last-child					{ display: block; }
+.search-result-body #filters .search-bar	{ width: 376px; }
+.search-result-body #filters .search-bar .search-panel { width: 376px; }
+.sort_by .search-bar						{ width: 124px; margin-bottom: 0px; }
+.sort_by .search-bar .search-panel			{ float: left; width: 124px; }
+
+/*------------- spot-finder-listings -------------*/
+.spot-finder-panel .search-bar .search-box	{ float: left; width: 405px; }
+.spot-finder-panel .search-bar .search-box + .input-group-btn { float: left; }
+.spot-finder-panel .search-bar .search-panel { width: 49%; margin-right: 2%; margin-bottom: 0px; }
+.spot-finder-panel .search-bar .search-panel:last-child { margin-right: 0%; }
+
+/*------------- great-deals -------------*/
+.great-deals-panel .search-bar .search-box	{ float: left; width: 405px; }
+.great-deals-panel .search-bar .search-box + .input-group-btn { float: left; }
+.great-deals-panel .search-bar .search-panel { width: 49%; margin-right: 2%; margin-bottom: 0px; }
+.great-deals-panel .search-bar .search-panel:last-child { margin-right: 0%; }
+.great-deals-panel .great-deals-box			{ width: 50%; }
+
+/*------------- coupon-detail -------------*/
+.coupon-detail-panel .coupon-detail-box .social-icons { width: 195%; }
+.coupon-detail .great-deals-panel .great-deals-box { width: 50%; }
+
+/*------------- profile-settings -------------*/
+.pro-settings-wrap .pro-sett-pic			{ width: 50%; margin: 0 auto; }
+.pro-settings-wrap .account-details .check-note label { max-width: 100%; line-height: 27px; }
+
+/*------------- create-new-password , username & password-recovery Page -------------*/
+form.recovery-form .g-recaptcha				{ margin-left: 0px; }
+
+/*------------- posting-options -------------*/
+.vehicle-pan .vehicle-icon,
+.post-travel .travel-icon,
+.property-pan .property-icon,
+.job-info .job-icon,
+.pet-post .pet-icon { display: none; }
+
+/*------------- posting-with-edits -------------*/
+.posting-with-edits .edits-cont				{ width: 90%; }
+.posting-with-edits .edits-cont > li + li:before { padding: 0px 13px; }
+
+/*------------- help -------------*/
+.help-panel .search-bar						{ width: 450px; margin-bottom: 23px; }
+.help-panel .search-bar .search-box			{ float: left; width: 198px; margin-right: 12px; margin-bottom: 0px; }
+.help-panel .search-bar .search-panel		{ float: left; width: 197px; }
+.help-panel .search-bar .input-group-btn	{ float: left; }
+.help-panel .right-part .contact-question .g-recaptcha { margin-left: 0px; }
+
+/*------------- login & register -------------*/
+form.ragistration-form .g-recaptcha			{ margin-left: 0px; }
+
+/*------------- blog -------------*/
+.blog-panel .search-bar						{ width: 450px; margin-bottom: 23px;}
+.blog-panel .search-bar .search-box			{ float: left; width: 198px; margin-right: 12px; margin-bottom: 0px; }
+.blog-panel .search-bar .search-panel		{ float: left; width: 197px; }
+.blog-panel .search-bar .input-group-btn	{ float: left; }
+
+/*------------- feedbacks -------------*/
+.feedbacks-panel .search-bar				{ width: 450px; margin-bottom: 23px;}
+.feedbacks-panel .search-bar .search-box	{ float: left; width: 198px; margin-right: 12px; margin-bottom: 0px; }
+.feedbacks-panel .search-bar .search-panel	{ float: left; width: 197px; }
+.feedbacks-panel .search-bar .input-group-btn { float: left; }
+
+
+
+}

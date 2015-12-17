@@ -1,0 +1,1383 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPosting.cshtml";
+}
+@section scripts{
+    <link href="~/ClientFiles/final html/css/bootstrap-tagsinput.css" rel="stylesheet" />
+    <script src="~/ClientFiles/final html/js/bootstrap-tagsinput.js"></script>
+    <script src="~/ClientFiles/final html/js/bootstrap-tagsinput-angular.js"></script>
+    <script>
+        $('#MainContinueButton').click(function () {
+            var category = $('#for-sale').text();
+
+            if (category == "Vehicles") {
+                $('#Main-Box').fadeOut(500, function () {
+                    $('#Vehical-Box').fadeIn(500);
+                });
+
+                $('#PostTravel-Box').fadeOut(1000);
+                $('#Property-Box').fadeOut(1000);
+                $('#Job-Box').fadeOut(1000);
+                $('#Pet-Box').fadeOut(1000);
+                $('#the-condition').fadeOut(1000);
+                $('#creat-ad').fadeOut(1000);
+                $('#picture-upload').fadeOut(1000);
+                $('#feature-ad').fadeOut(1000);
+                $('#total-box').fadeOut(1000);
+                $('#contact-detail-box').fadeOut(1000);
+            }
+            else if (category == "Real Estate") {
+                $('#Main-Box').fadeOut(1000);
+                $('#Vehical-Box').fadeOut(1000);
+                $('#PostTravel-Box').fadeOut(1000);
+                $('#Property-Box').fadeIn(1000);
+                $('#Job-Box').fadeOut(1000);
+                $('#Pet-Box').fadeOut(1000);
+                $('#the-condition').fadeOut(1000);
+                $('#creat-ad').fadeOut(1000);
+                $('#picture-upload').fadeOut(1000);
+                $('#feature-ad').fadeOut(1000);
+                $('#total-box').fadeOut(1000);
+                $('#contact-detail-box').fadeOut(1000);
+            }
+            else if (category == "Travel") {
+                $('#Main-Box').fadeOut(1000);
+                $('#Vehical-Box').fadeOut(1000);
+                $('#PostTravel-Box').fadeIn(1000);
+                $('#Property-Box').fadeOut(1000);
+                $('#Job-Box').fadeOut(1000);
+                $('#Pet-Box').fadeOut(1000);
+                $('#creat-ad').fadeOut(1000);
+                $('#the-condition').fadeOut(1000);
+                $('#picture-upload').fadeOut(1000);
+                $('#feature-ad').fadeOut(1000);
+                $('#total-box').fadeOut(1000);
+                $('#contact-detail-box').fadeOut(1000);
+            }
+            else if (category == "Pets") {
+                $('#Main-Box').fadeOut(1000);
+                $('#Vehical-Box').fadeOut(1000);
+                $('#PostTravel-Box').fadeOut(1000);
+                $('#Property-Box').fadeOut(1000);
+                $('#Job-Box').fadeOut(1000);
+                $('#Pet-Box').fadeIn(1000);
+                $('#creat-ad').fadeOut(1000);
+                $('#the-condition').fadeOut(1000);
+                $('#picture-upload').fadeOut(1000);
+                $('#feature-ad').fadeOut(1000);
+                $('#total-box').fadeOut(1000);
+                $('#contact-detail-box').fadeOut(1000);
+            }
+            else if (category == "Jobs") {
+                $('#Main-Box').fadeOut(1000);
+                $('#Vehical-Box').fadeOut(1000);
+                $('#PostTravel-Box').fadeOut(1000);
+                $('#Property-Box').fadeOut(1000);
+                $('#Job-Box').fadeIn(1000);
+                $('#Pet-Box').fadeOut(1000);
+                $('#creat-ad').fadeOut(1000);
+                $('#the-condition').fadeOut(1000);
+                $('#picture-upload').fadeOut(1000);
+                $('#feature-ad').fadeOut(1000);
+                $('#total-box').fadeOut(1000);
+                $('#contact-detail-box').fadeOut(1000);
+            }
+        });
+        $("#drpv li").click(function () {
+            var item = $(this).text().trim();
+            $('#for-sale').text(item);
+        });
+        $(document).ready(function () {
+            $('#Vehical-Box').hide();
+            $('#PostTravel-Box').hide();
+            $('#Property-Box').hide();
+            $('#Job-Box').hide();
+            $('#Pet-Box').hide();
+            $('#the-condition').hide();
+            $('#creat-ad').hide();
+            $('#picture-upload').hide();
+            $('#feature-ad').hide();
+            $('#total-box').hide();
+            $('#contact-detail-box').hide();
+        });
+
+    </script>
+
+}
+
+
+<div id="body-panel" class="body-panel category-panel">
+    <!-- Start Body Panel -->
+    <div class="wrapper">
+        <h1 class="submit-listing">Create Your Listing</h1>
+        <div class="select-cat">
+            <div id="Main-Box">
+                <div class="property-basic-info">
+                    <div class="poperty-select-boxes">
+                        <div class="row">
+                            <div class="select-categoty poperty-select col-md-8 col-sm-12 col-xs-24">
+                                <span class="ps-box-title">Select a Category</span>
+                                <div class="input-group-btn search-panel">
+                                    <button type="button" class="btn btn-default dropdown-toggle text-left" onclick="selectcategory(this.Text)" data-toggle="dropdown">
+                                        <span id="for-sale">For Sale</span>
+                                        <span class="arrow-button"><i class="fa fa-angle-down"></i></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu" id="drpv">
+                                        <li>
+                                            <label for="community" id="gh"><i class="fa fa-user"></i>Community</label>
+                                        </li>
+                                        <li>
+                                            <label for="vehicles"><i class="fa fa-car"></i>Vehicles</label>
+                                        </li>
+                                        <li>
+                                            <label for="real-estate"><i class="fa fa-home"></i>Real Estate</label>
+                                        </li>
+                                        <li>
+                                            <label for="fashion-beauty"><i class="fa fa-tag"></i>For Sale</label>
+                                        </li>
+                                        <li>
+                                            <label for="fashion-beauty"><i class="fa fa-briefcase"></i>Jobs</label>
+                                        </li>
+                                        <li>
+                                            <label for="fashion-beauty"><i class="fa fa-graduation-cap"></i>Education</label>
+                                        </li>
+                                        <li>
+                                            <label for="fashion-beauty"><i class="fa fa-plane"></i>Travel</label>
+                                        </li>
+                                        <li>
+                                            <label for="fashion-beauty"><i class="fa fa-wrench"></i>Services</label>
+                                        </li>
+                                        <li>
+                                            <label for="fashion-beauty"><i class="fa fa-paw"></i>Pets</label>
+                                        </li>
+                                        <li>
+                                            <label for="fashion-beauty"><i class="fa fa-certificate"></i>Everything else</label>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <span class="please-select">Please select a category</span>
+                                <span class="input-group-btn"></span>
+                            </div>
+                            <div class="select-sub-category poperty-select col-md-8 col-sm-12 col-xs-24">
+                                <span class="ps-box-title">Select a Sub-Category</span>
+                                <div class="input-group-btn search-panel sub-check">
+                                    <button type="button" class="btn btn-default dropdown-toggle text-left" data-toggle="dropdown">
+                                        <span id="sub-category">Select a Sub-category</span>
+                                        <span class="arrow-button"><i class="fa fa-angle-down"></i></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li>
+                                            <label for="cars-for-sale"><i class="fa fa-check"></i>Cars for sale</label>
+                                        </li>
+                                        <li>
+                                            <label for="parts-access"><i class="fa fa-check"></i>Parts & Accessories</label>
+                                        </li>
+                                        <li>
+                                            <label for="trucks"><i class="fa fa-check"></i>Trucks</label>
+                                        </li>
+                                        <li>
+                                            <label for="vans"><i class="fa fa-check"></i>Vans</label>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <span class="please-select">Please select a sub-category</span>
+                                <span class="input-group-btn"></span>
+                            </div>
+                            <div class="state poperty-select col-md-3 col-sm-12 col-xs-24">
+                                <span class="ps-box-title">State</span>
+                                <div class="input-group-btn search-panel sub-check">
+                                    <button type="button" class="btn btn-default dropdown-toggle text-left" data-toggle="dropdown">
+                                        <span id="i-am-a">Select</span>
+                                        <span class="arrow-button"><i class="fa fa-angle-down"></i></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#state1">FL</a></li>
+                                        <li><a href="#state2">AL</a></li>
+                                    </ul>
+                                </div>
+                                <span class="input-group-btn"></span>
+                            </div>
+                            <div class="city poperty-select col-md-5 col-sm-12 col-xs-24">
+                                <span class="ps-box-title">City</span>
+                                <div class="input-group-btn search-panel">
+                                    <input class="city" type="city" placeholder="search a city">
+                                </div>
+                                <span class="input-group-btn"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="property-basic-info">
+                        <div class="poperty-select-boxes">
+                            <div class="row">
+                                <div class="select-categoty poperty-select col-md-8 col-sm-12 col-xs-24">
+                                    <span class="ps-box-title">Select a Category</span>
+                                    <div class="input-group-btn search-panel">
+                                        <select class="selectpicker" title="For Sale">
+                                            <option data-icon="fa-user">Community</option>
+                                            <option data-icon="fa-car">Vehicles</option>
+                                            <option data-icon="fa-home">Real Estate</option>
+                                            <option data-icon="fa-tag">For Sale</option>
+                                            <option data-icon="fa-briefcase">Jobs</option>
+                                            <option data-icon="fa-graduation-cap">Education</option>
+                                            <option data-icon="fa-plane">Travel</option>
+                                            <option data-icon="fa-wrench">Services</option>
+                                            <option data-icon="fa-paw">Pets</option>
+                                            <option data-icon="fa-certificate">Everything else</option>
+                                        </select>
+                                    </div>
+                                    <span class="please-select">Please select a category</span>
+                                    <span class="input-group-btn"></span>
+                                </div>
+                                <div class="select-sub-category poperty-select col-md-8 col-sm-12 col-xs-24">
+                                    <span class="ps-box-title">Select a Sub-Category</span>
+                                    <div class="input-group-btn search-panel sub-check">
+                                        <select class="selectpicker" title="Select a Sub-category">
+                                            <option data-icon="fa-check">Cars for sale</option>
+                                            <option data-icon="fa-check">Parts & Accessories</option>
+                                            <option data-icon="fa-check">Trucks</option>
+                                            <option data-icon="fa-check">Vans</option>
+                                        </select>
+                                    </div>
+                                    <span class="please-select">Please select a sub-category</span>
+                                    <span class="input-group-btn"></span>
+                                </div>
+                                <div class="state poperty-select col-md-3 col-sm-12 col-xs-24">
+                                    <span class="ps-box-title">State</span>
+                                    <div class="input-group-btn search-panel sub-check">
+                                        <select class="selectpicker" title="Select">
+                                            <option>FL</option>
+                                            <option>AL</option>
+                                        </select>
+                                    </div>
+                                    <span class="input-group-btn"></span>
+                                </div>
+                                <div class="city poperty-select col-md-5 col-sm-12 col-xs-24">
+                                    <span class="ps-box-title">City</span>
+                                    <div class="input-group-btn search-panel">
+                                        <input class="city" type="city" placeholder="search a city">
+                                    </div>
+                                    <span class="input-group-btn"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>*@
+                <div class="text-right text-center-xs">
+                    <a class="continue-btn" href="#" id="MainContinueButton">Continue</a>
+                </div>
+            </div>
+            <div class="vehicle-pan clearfix" id="Vehical-Box" style="display:none">
+                @*<div class="vehicle-icon"><i class="fa fa-car"></i></div>*@
+                <div class="property-basic-info">
+                    <div class="m-category-title">
+                        <h1>Vehicle Information <span>Free</span></h1>
+                    </div>
+                    <ul class="breadcrumb">
+                        <li><a href="#">Travel</a></li>
+                        <li><a href="#">Cruise Lines</a></li>
+                        <li><a href="#">FL</a></li>
+                        <li class="active">Miami Beach</li>
+                        <span><i class="fa fa-user"></i>by Private Owner</span>
+                    </ul>
+                    <div class="poperty-select-boxes">
+                        <div class="row list-row">
+                            <div class="vehicle-year poperty-select col-sm-4">
+                                <span class="ps-box-title">Year</span>
+                                <div class="input-group-btn search-panel">
+                                    <button type="button" class="btn btn-default dropdown-toggle text-left" data-toggle="dropdown">
+                                        <span id="whants-for">Select</span>
+                                        <span class="arrow-button"><i class="fa fa-angle-down"></i></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#contains">2014</a></li>
+                                        <li><a href="#its_equal">2015</a></li>
+                                    </ul>
+                                </div>
+                                <span class="input-group-btn"></span>
+                            </div>
+                            <div class="vehicle-make poperty-select col-sm-4">
+                                <span class="ps-box-title">Make</span>
+                                <div class="input-group-btn search-panel">
+                                    <button type="button" class="btn btn-default dropdown-toggle text-left" data-toggle="dropdown">
+                                        <span id="whants-for">Select</span>
+                                        <span class="arrow-button"><i class="fa fa-angle-down"></i></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#contains">Make</a></li>
+                                        <li><a href="#its_equal">Make</a></li>
+                                    </ul>
+                                </div>
+                                <span class="input-group-btn"></span>
+                            </div>
+                            <div class="vehicle-model poperty-select col-sm-4">
+                                <span class="ps-box-title">Model</span>
+                                <div class="input-group-btn search-panel">
+                                    <button type="button" class="btn btn-default dropdown-toggle text-left" data-toggle="dropdown">
+                                        <span id="whants-for">Select</span>
+                                        <span class="arrow-button"><i class="fa fa-angle-down"></i></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#contains">Model</a></li>
+                                        <li><a href="#its_equal">Model</a></li>
+                                    </ul>
+                                </div>
+                                <span class="input-group-btn"></span>
+                            </div>
+                            <div class="vehicle-transmission poperty-select col-sm-4">
+                                <span class="ps-box-title">Transmission</span>
+                                <div class="input-group-btn search-panel">
+                                    <button type="button" class="btn btn-default dropdown-toggle text-left" data-toggle="dropdown">
+                                        <span id="whants-for">Select</span>
+                                        <span class="arrow-button"><i class="fa fa-angle-down"></i></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#contains">Transmission</a></li>
+                                        <li><a href="#its_equal">Transmission</a></li>
+                                    </ul>
+                                </div>
+                                <span class="input-group-btn"></span>
+                            </div>
+                            <div class="vehicle-engine poperty-select col-sm-3">
+                                <span class="ps-box-title">Engine</span>
+                                <div class="input-group-btn search-panel">
+                                    <button type="button" class="btn btn-default dropdown-toggle text-left" data-toggle="dropdown">
+                                        <span id="year_built">V6</span>
+                                        <span class="arrow-button"><i class="fa fa-angle-down"></i></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#contains">V6</a></li>
+                                        <li><a href="#its_equal">V6</a></li>
+                                    </ul>
+                                </div>
+                                <span class="input-group-btn"></span>
+                            </div>
+                            <div class="vehicle-fuel-type poperty-select col-sm-5">
+                                <span class="ps-box-title">Fuel Type</span>
+                                <div class="input-group-btn search-panel">
+                                    <button type="button" class="btn btn-default dropdown-toggle text-left" data-toggle="dropdown">
+                                        <span id="size">Gasoline</span>
+                                        <span class="arrow-button"><i class="fa fa-angle-down"></i></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#contains">Gasoline</a></li>
+                                        <li><a href="#its_equal">Gasoline</a></li>
+                                    </ul>
+                                </div>
+                                <span class="input-group-btn"></span>
+                            </div>
+                        </div>
+                        <div class="row list-row margin-top-17">
+                            <div class="vehicle-vin poperty-select col-sm-6">
+                                <span class="ps-box-title">VIN <span>( Optional )</span></span>
+                                <div class="input-group-btn search-panel">
+                                    <input type="text" name="vin">
+                                </div>
+                            </div>
+                            <div class="vehicle-mileage poperty-select col-sm-6">
+                                <span class="ps-box-title">Mileage</span>
+                                <div class="input-group-btn search-panel">
+                                    <input type="text" name="mileage">
+                                </div>
+                            </div>
+                            <div class="vehicle-color-ext poperty-select col-sm-3">
+                                <span class="ps-box-title">Ext. Color</span>
+                                <div class="input-group-btn search-panel">
+                                    <button type="button" class="btn btn-default dropdown-toggle text-left" data-toggle="dropdown">
+                                        <span id="bathrooms">Black</span>
+                                        <span class="arrow-button"><i class="fa fa-angle-down"></i></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#contains">Black</a></li>
+                                        <li><a href="#its_equal">Red</a></li>
+                                    </ul>
+                                </div>
+                                <span class="input-group-btn"></span>
+                            </div>
+                            <div class="vehicle-color-int poperty-select col-sm-3">
+                                <span class="ps-box-title">Int. Color</span>
+                                <div class="input-group-btn search-panel">
+                                    <button type="button" class="btn btn-default dropdown-toggle text-left" data-toggle="dropdown">
+                                        <span id="size">Red</span>
+                                        <span class="arrow-button"><i class="fa fa-angle-down"></i></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#contains">Black</a></li>
+                                        <li><a href="#its_equal">Red</a></li>
+                                    </ul>
+                                </div>
+                                <span class="input-group-btn"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="add-amenities">
+                        <h4 class="li-name">Enter Features <span>Separate tags by commas.</span></h4>
+                        <div class="row">
+                            <div class="amenities-fields col-sm-24 col-xs-24">
+                                <input type="text" id="tags" data-role="tagsinput" value="spa,massage">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-right text-center-xs">
+                    <a class="continue-btn" href="#">Continue</a>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="post-travel" id="PostTravel-Box">
+                <div class="travel-icon"><i class="fa fa-plane"></i></div>
+                <div class="basic-info">
+                    <div class="m-category-title">
+                        <h1>Basic Information <span>Free</span></h1>
+                    </div>
+                    <ul class="breadcrumb">
+                        <li><a href="#">Travel</a></li>
+                        <li><a href="#">Cruise Lines</a></li>
+                        <li><a href="#">FL</a></li>
+                        <li class="active">Miami Beach</li>
+                        <span><i class="fa fa-user"></i>by Private Owner</span>
+                    </ul>
+                    <div class="row">
+                        <div class="nights-available col-sm-24 col-xs-24">
+                            <h4 class="li-name">Check Nights Available</h4>
+                            <div class="row">
+                                <div class="nights col-sm-4 col-xs-24">
+                                    <div class="input-container input-container--indent">
+                                        <div class="input-wrap input-wrap--small">
+                                            <input type="checkbox" id="checkbox-2" checked="" />
+                                            <i class="fa fa-fw fa-check"></i>
+                                            <span class="morph-shape" data-morph-active="M273,273c0,0-55.8,24-123,24c-78.2,0-123-24-123-24S3,235.3,3,150C3,79.936,27,27,27,27S72,3,150,3c85,0,123,24,123,24s24,38.43,24,123C297,229.646,273,273,273,273z">
+                                                <svg width="100%" height="100%" viewBox="0 0 300 300" preserveAspectRatio="none">
+                                                    <path stroke="#333" stroke-width="5" d="M273,273c0,0-55.8,0-123,0c-78.2,0-123,0-123,0s0-37.7,0-123c0-70.064,0-123,0-123s45,0,123,0c85,0,123,0,123,0s0,38.43,0,123C273,229.646,273,273,273,273z" />
+                                                </svg>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <span class="li-name">1-2 Nights</span>
+                                </div>
+                                <div class="nights col-sm-4 col-xs-24">
+                                    <div class="input-container input-container--indent">
+                                        <div class="input-wrap input-wrap--small">
+                                            <input type="checkbox" id="checkbox-2" checked="" />
+                                            <i class="fa fa-fw fa-check"></i>
+                                            <span class="morph-shape" data-morph-active="M273,273c0,0-55.8,24-123,24c-78.2,0-123-24-123-24S3,235.3,3,150C3,79.936,27,27,27,27S72,3,150,3c85,0,123,24,123,24s24,38.43,24,123C297,229.646,273,273,273,273z">
+                                                <svg width="100%" height="100%" viewBox="0 0 300 300" preserveAspectRatio="none">
+                                                    <path stroke="#333" stroke-width="5" d="M273,273c0,0-55.8,0-123,0c-78.2,0-123,0-123,0s0-37.7,0-123c0-70.064,0-123,0-123s45,0,123,0c85,0,123,0,123,0s0,38.43,0,123C273,229.646,273,273,273,273z" />
+                                                </svg>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <span class="li-name">3-5 Nights</span>
+                                </div>
+                                <div class="nights col-sm-4 col-xs-24">
+                                    <div class="input-container input-container--indent">
+                                        <div class="input-wrap input-wrap--small">
+                                            <input type="checkbox" id="checkbox-2" checked="" />
+                                            <i class="fa fa-fw fa-check"></i>
+                                            <span class="morph-shape" data-morph-active="M273,273c0,0-55.8,24-123,24c-78.2,0-123-24-123-24S3,235.3,3,150C3,79.936,27,27,27,27S72,3,150,3c85,0,123,24,123,24s24,38.43,24,123C297,229.646,273,273,273,273z">
+                                                <svg width="100%" height="100%" viewBox="0 0 300 300" preserveAspectRatio="none">
+                                                    <path stroke="#333" stroke-width="5" d="M273,273c0,0-55.8,0-123,0c-78.2,0-123,0-123,0s0-37.7,0-123c0-70.064,0-123,0-123s45,0,123,0c85,0,123,0,123,0s0,38.43,0,123C273,229.646,273,273,273,273z" />
+                                                </svg>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <span class="li-name">6-8 Nights</span>
+                                </div>
+                                <div class="nights col-sm-4 col-xs-24">
+                                    <div class="input-container input-container--indent">
+                                        <div class="input-wrap input-wrap--small">
+                                            <input type="checkbox" id="checkbox-2" checked="" />
+                                            <i class="fa fa-fw fa-check"></i>
+                                            <span class="morph-shape" data-morph-active="M273,273c0,0-55.8,24-123,24c-78.2,0-123-24-123-24S3,235.3,3,150C3,79.936,27,27,27,27S72,3,150,3c85,0,123,24,123,24s24,38.43,24,123C297,229.646,273,273,273,273z">
+                                                <svg width="100%" height="100%" viewBox="0 0 300 300" preserveAspectRatio="none">
+                                                    <path stroke="#333" stroke-width="5" d="M273,273c0,0-55.8,0-123,0c-78.2,0-123,0-123,0s0-37.7,0-123c0-70.064,0-123,0-123s45,0,123,0c85,0,123,0,123,0s0,38.43,0,123C273,229.646,273,273,273,273z" />
+                                                </svg>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <span class="li-name">9-11 Nights</span>
+                                </div>
+                                <div class="nights col-sm-4 col-xs-24">
+                                    <div class="input-container input-container--indent">
+                                        <div class="input-wrap input-wrap--small">
+                                            <input type="checkbox" id="checkbox-2" checked="" />
+                                            <i class="fa fa-fw fa-check"></i>
+                                            <span class="morph-shape" data-morph-active="M273,273c0,0-55.8,24-123,24c-78.2,0-123-24-123-24S3,235.3,3,150C3,79.936,27,27,27,27S72,3,150,3c85,0,123,24,123,24s24,38.43,24,123C297,229.646,273,273,273,273z">
+                                                <svg width="100%" height="100%" viewBox="0 0 300 300" preserveAspectRatio="none">
+                                                    <path stroke="#333" stroke-width="5" d="M273,273c0,0-55.8,0-123,0c-78.2,0-123,0-123,0s0-37.7,0-123c0-70.064,0-123,0-123s45,0,123,0c85,0,123,0,123,0s0,38.43,0,123C273,229.646,273,273,273,273z" />
+                                                </svg>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <span class="li-name">12 + Nights</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="add-amenities col-sm-24 col-xs-24">
+                            <h4 class="li-name">Enter Amenities <span>Separate tags by commas.</span></h4>
+                            <div class="row">
+                                <div class="amenities-fields col-sm-24 col-xs-24">
+                                    <input type="text" id="tags" data-role="tagsinput" value="Punta Cana,Rio Grande">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="property-pan clearfix" id="Property-Box">
+                <div class="property-icon"><i class="fa fa-home"></i></div>
+                <div class="property-basic-info">
+                    <div class="m-category-title">
+                        <h1>Property Information <span>Free</span></h1>
+                    </div>
+                    <ul class="breadcrumb">
+                        <li><a href="#">Real Estate</a></li>
+                        <li><a href="#">For Sale by Owner</a></li>
+                        <li><a href="#">FL</a></li>
+                        <li class="active">Miami Beach</li>
+                        <span><i class="fa fa-user"></i>by Private Owner</span>
+                    </ul>
+                    <div class="poperty-select-boxes">
+                        <div class="row list-row">
+                            <div class="whats-for poperty-select col-sm-4">
+                                <span class="ps-box-title">What’s for?</span>
+                                <div class="input-group-btn search-panel">
+                                    <button type="button" class="btn btn-default dropdown-toggle text-left" data-toggle="dropdown">
+                                        <span id="whants-for">Rent</span>
+                                        <span class="arrow-button"><i class="fa fa-angle-down"></i></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#contains">Rent</a></li>
+                                        <li><a href="#its_equal">Rent</a></li>
+                                    </ul>
+                                </div>
+                                <span class="input-group-btn"></span>
+                            </div>
+                            <div class="property-type poperty-select col-sm-5">
+                                <span class="ps-box-title">Property Type</span>
+                                <div class="input-group-btn search-panel">
+                                    <button type="button" class="btn btn-default dropdown-toggle text-left" data-toggle="dropdown">
+                                        <span id="type-of-property">Single Family Home</span>
+                                        <span class="arrow-button"><i class="fa fa-angle-down"></i></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#contains">Single Family Home</a></li>
+                                        <li><a href="#its_equal">Single Family Home</a></li>
+                                    </ul>
+                                </div>
+                                <span class="input-group-btn"></span>
+                            </div>
+                            <div class="property-bedroom poperty-select col-sm-3">
+                                <span class="ps-box-title">Bedrooms</span>
+                                <div class="input-group-btn search-panel">
+                                    <button type="button" class="btn btn-default dropdown-toggle text-left" data-toggle="dropdown">
+                                        <span id="beddrooms">1</span>
+                                        <span class="arrow-button"><i class="fa fa-angle-down"></i></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#contains">1</a></li>
+                                        <li><a href="#its_equal">2</a></li>
+                                    </ul>
+                                </div>
+                                <span class="input-group-btn"></span>
+                            </div>
+                            <div class="property-bathroom poperty-select col-sm-3">
+                                <span class="ps-box-title">Bathrooms</span>
+                                <div class="input-group-btn search-panel">
+                                    <button type="button" class="btn btn-default dropdown-toggle text-left" data-toggle="dropdown">
+                                        <span id="bathrooms">1</span>
+                                        <span class="arrow-button"><i class="fa fa-angle-down"></i></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#contains">1</a></li>
+                                        <li><a href="#its_equal">2</a></li>
+                                    </ul>
+                                </div>
+                                <span class="input-group-btn"></span>
+                            </div>
+                            <div class="property-size poperty-select col-sm-3">
+                                <span class="ps-box-title">Size ( sq ft )</span>
+                                <div class="input-group-btn search-panel">
+                                    <input type="text" name="size-sq-ft" placeholder="">
+                                </div>
+                            </div>
+                            <div class="property-year-build poperty-select col-sm-3">
+                                <span class="ps-box-title">Year Built</span>
+                                <div class="input-group-btn search-panel">
+                                    <button type="button" class="btn btn-default dropdown-toggle text-left" data-toggle="dropdown">
+                                        <span id="year_built">2000</span>
+                                        <span class="arrow-button"><i class="fa fa-angle-down"></i></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#contains">2000</a></li>
+                                        <li><a href="#its_equal">2000</a></li>
+                                    </ul>
+                                </div>
+                                <span class="input-group-btn"></span>
+                            </div>
+
+                            <div class="property-pets poperty-select col-sm-3">
+                                <span class="ps-box-title">Pets</span>
+                                <div class="input-group-btn search-panel">
+                                    <button type="button" class="btn btn-default dropdown-toggle text-left" data-toggle="dropdown">
+                                        <span id="year_built">No</span>
+                                        <span class="arrow-button"><i class="fa fa-angle-down"></i></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#contains">No</a></li>
+                                        <li><a href="#its_equal">Yes</a></li>
+                                    </ul>
+                                </div>
+                                <span class="input-group-btn"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="add-amenities">
+                        <h4 class="li-name">Enter Amenities <span>Separate amenities by commas.</span></h4>
+                        <div class="row">
+                            <div class="amenities-fields col-sm-24">
+                                <input type="text" id="tags" data-role="tagsinput" value="spa,massage">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="property-address-field">
+                        <h4 class="li-name">Full Property Address <span>( Optional )</span></h4>
+                        <input type="text">
+                    </div>
+                </div>
+            </div>
+            <div class="job-info" id="Job-Box">
+                <div class="job-icon"><i class="fa fa-briefcase"></i></div>
+                <div class="job-basic-info">
+                    <div class="m-category-title">
+                        <h1>Job Information <span>Free</span></h1>
+                    </div>
+                    <ul class="breadcrumb">
+                        <li><a href="#">Jobs</a></li>
+                        <li><a href="#">Accounting</a></li>
+                        <li><a href="#">FL</a></li>
+                        <li class="active">Miami Beach</li>
+                        <span><i class="fa fa-user"></i>by Private Owner</span>
+                    </ul>
+                    <div class="row">
+                        <div class="company-info col-md-10 col-sm-13 col-xs-24">
+                            <div class="banner-uploader clearfix">
+                                <span class="upload-title">
+                                    Upload your Banner <span>( Optional )</span>
+                                    <a href="#">Show me how it look</a>
+                                </span>
+                                <div class="upload-ad-box">
+                                    <div class="upload-ad">
+                                        <i class="fa fa-picture-o"></i>
+                                        <input type="file" name="pic" class="attachment-box" value="Attach your resume" accept="image/*">
+                                    </div>
+                                    <span class="upload-progress-bar"><img src="images/upload-progress-bar.png" alt=""></span>
+                                </div>
+                                <div class="upload-ad-text">
+                                    Banner Size: 740 x 200 max <br>
+                                    Up to 4MB File size max <br>
+                                    <strong>File formats: </strong>jpg, png and gif
+                                </div>
+                            </div>
+                            <div class="input-wraper">
+                                <label for="name">Company Name <span>( Optional )</span></label>
+                                <input type="text" name="name">
+                            </div>
+                            <div class="input-wraper">
+                                <label for="website">Website <span>( Optional )</span></label>
+                                <input type="text" name="website">
+                            </div>
+                        </div>
+                        <div class="company-info col-md-10 col-sm-11 col-xs-24 pull-right">
+                            <div class="use-profile">
+                                <div class="input-container input-container--indent">
+                                    <div class="input-wrap input-wrap--small">
+                                        <input type="checkbox" id="checkbox-2" checked="" />
+                                        <i class="fa fa-fw fa-check"></i>
+                                        <span class="morph-shape" data-morph-active="M273,273c0,0-55.8,24-123,24c-78.2,0-123-24-123-24S3,235.3,3,150C3,79.936,27,27,27,27S72,3,150,3c85,0,123,24,123,24s24,38.43,24,123C297,229.646,273,273,273,273z">
+                                            <svg width="100%" height="100%" viewBox="0 0 300 300" preserveAspectRatio="none">
+                                                <path stroke="#333" stroke-width="5" d="M273,273c0,0-55.8,0-123,0c-78.2,0-123,0-123,0s0-37.7,0-123c0-70.064,0-123,0-123s45,0,123,0c85,0,123,0,123,0s0,38.43,0,123C273,229.646,273,273,273,273z" />
+                                            </svg>
+                                        </span>
+                                    </div>
+                                </div>
+                                <span class="li-name">Use my Profile info.</span>
+                            </div>
+                            <div class="input-wraper">
+                                <label for="name">Contact Name <span>( Optional )</span></label>
+                                <input type="text" name="name">
+                            </div>
+                            <div class="input-wraper">
+                                <label for="phone">Phone <span>( Optional )</span></label>
+                                <input type="text" name="phone">
+                            </div>
+                            <div class="poperty-select-boxes">
+                                <span class="ps-box-title">Position Type</span>
+                                <div class="input-group-btn search-panel">
+                                    <button type="button" class="btn btn-default dropdown-toggle text-left" data-toggle="dropdown">
+                                        <span id="whants-for">Full Time</span>
+                                        <span class="arrow-button"><i class="fa fa-angle-down"></i></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#contains">Full Time</a></li>
+                                        <li><a href="#its_equal">Full Time</a></li>
+                                    </ul>
+                                </div>
+                                <span class="input-group-btn"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pet-post" id="Pet-Box">
+                <div class="pet-icon"><i class="fa fa-paw"></i></div>
+                <div class="pet-info">
+                    <div class="m-category-title">
+                        <h1>Pet Information <span>Free</span></h1>
+                    </div>
+                    <ul class="breadcrumb">
+                        <li><a href="#">Pets</a></li>
+                        <li><a href="#">Puppies for Sale</a></li>
+                        <li><a href="#">FL</a></li>
+                        <li class="active">Miami Beach</li>
+                        <span><i class="fa fa-user"></i>by Private Owner</span>
+                    </ul>
+                    <div class="poperty-select-boxes">
+                        <div class="row list-row">
+                            <div class="breed poperty-select col-md-10 col-sm-10 col-xs-24">
+                                <span class="ps-box-title">Breed</span>
+                                <div class="input-group-btn search-panel">
+                                    <input class="breed" type="city" placeholder="Labrador">
+                                </div>
+                                <span class="input-group-btn"></span>
+                            </div>
+                            <div class="age poperty-select col-md-3 col-sm-5 col-xs-24">
+                                <span class="ps-box-title">Age</span>
+                                <div class="input-group-btn search-panel">
+                                    <button type="button" class="btn btn-default dropdown-toggle text-left" data-toggle="dropdown">
+                                        <span id="type-of-property">Baby</span>
+                                        <span class="arrow-button"><i class="fa fa-angle-down"></i></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#contains">Baby</a></li>
+                                        <li><a href="#its_equal">Baby</a></li>
+                                    </ul>
+                                </div>
+                                <span class="input-group-btn"></span>
+                            </div>
+                            <div class="gender poperty-select col-md-3 col-sm-5 col-xs-24">
+                                <span class="ps-box-title">Gender</span>
+                                <div class="input-group-btn search-panel">
+                                    <button type="button" class="btn btn-default dropdown-toggle text-left" data-toggle="dropdown">
+                                        <span id="beddrooms">Baby</span>
+                                        <span class="arrow-button"><i class="fa fa-angle-down"></i></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#contains">Baby</a></li>
+                                        <li><a href="#its_equal">Baby</a></li>
+                                    </ul>
+                                </div>
+                                <span class="input-group-btn"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="select-cat">
+        <div class="the-condition" id="the-condition" style="display:none;">
+            <h3 class="padding-15">What`s the condition? <span><a href="#">Skip this step</a></span></h3>
+            <div class="padding-15">
+                <div class="row">
+                    <form>
+                        <div class="radio col-sm-5">
+                            <input type="radio" id="brand-new" name="myname" checked="checked">
+                            <label for="brand-new"><span></span>Brand New</label>
+                        </div>
+                        <div class="radio col-sm-5">
+                            <input type="radio" id="user-like" name="myname">
+                            <label for="user-like"><span></span>Used / Like New</label>
+                        </div>
+                        <div class="radio col-sm-5">
+                            <input type="radio" id="good" name="myname">
+                            <label for="good"><span></span>Good</label>
+                        </div>
+                        <div class="radio col-sm-5">
+                            <input type="radio" id="poor" name="myname">
+                            <label for="poor"><span></span>Poor</label>
+                        </div>
+                        <div class="radio col-sm-5">
+                            <input type="radio" id="damage" name="myname">
+                            <label for="damage"><span></span>Damage</label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="text-right text-center-xs">
+                <a class="continue-btn" href="#">Continue</a>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="creat-ad" id="creat-ad" style="display:none;">
+        <div class="add-title-price">
+            <div class="m-category-title">
+                <h1>Description <span>Free</span></h1>
+            </div>
+            <ul class="breadcrumb">
+                <li><a href="#">For Sale</a></li>
+                <li><a href="#">Parts & Accessories</a></li>
+                <li><a href="#">FL</a></li>
+                <li class="active">Miami Beach</li>
+                <span><i class="fa fa-user"></i>by Private Owner</span>
+            </ul>
+            <div class="row">
+                <div class="title-input col-md-19 col-sm-17 col-xs-24">
+                    <div class="ad-title">
+                        <h4 class="li-name">Your Ad Title</h4>
+                        <div class="save-title">
+                            <input type="text" class="block title-box">
+                            <span>100</span>
+                        </div>
+                        <div class="error-box"><p>Please enter your ad title</p></div>
+                    </div>
+                </div>
+                <div class="price poperty-select pull-right col-md-4 col-sm-6 col-xs-24">
+                    <div class="input-group-btn search-panel">
+                        <button type="button" class="btn btn-default dropdown-toggle text-left" data-toggle="dropdown">
+                            <span id="price">Enter a Price</span>
+                            <span class="arrow-button"><i class="fa fa-angle-down"></i></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#contains">100</a></li>
+                            <li><a href="#its_equal">450</a></li>
+                        </ul>
+                    </div>
+                    <span class="input-group-btn"></span>
+                </div>
+                <div class="price-box-input pull-right col-md-4 col-sm-6 col-xs-24">
+                    <span>$</span>
+                    <input type="text" class="price-box" value="450,000">
+                    <div class="error-box"><p>Price required</p></div>
+                </div>
+            </div>
+        </div>
+        <div class="add-description">
+            <div class="row">
+                <div class="col-md-17 col-sm-16 col-xs-24">
+                    <div class="description-area">
+                        <h4 class="li-name">Description</h4>
+                        <div class="expire-ad">This ad will expire in 2 weeks.</div>
+                        <div class="editor-wrap">
+                            <div id="full-toolbar" class="toolbar">
+                                <span class="ql-format-group">
+                                    <select title="Font" class="ql-font">
+                                        <option value="sans-serif" selected="">Sans Serif</option>
+                                        <option value="serif">Serif</option>
+                                        <option value="monospace">Monospace</option>
+                                    </select>
+                                    <select title="Size" class="ql-size">
+                                        <option value="10px">Small</option>
+                                        <option value="13px" selected="">Normal</option>
+                                        <option value="18px">Large</option>
+                                        <option value="32px">Huge</option>
+                                    </select>
+                                </span>
+                                <span class="ql-format-group">
+                                    <span title="Bold" class="ql-format-button ql-bold"></span>
+                                    <span class="ql-format-separator"></span>
+                                    <span title="Italic" class="ql-format-button ql-italic"></span>
+                                    <span class="ql-format-separator"></span>
+                                    <span title="Underline" class="ql-format-button ql-underline"></span>
+                                    <span class="ql-format-separator"></span>
+                                    <span title="Strikethrough" class="ql-format-button ql-strike"></span>
+                                </span>
+                                <span class="ql-format-group">
+                                    <select title="Text Color" class="ql-color">
+                                        <option value="rgb(0, 0, 0)" label="rgb(0, 0, 0)" selected=""></option>
+                                        <option value="rgb(230, 0, 0)" label="rgb(230, 0, 0)"></option>
+                                        <option value="rgb(255, 153, 0)" label="rgb(255, 153, 0)"></option>
+                                        <option value="rgb(255, 255, 0)" label="rgb(255, 255, 0)"></option>
+                                        <option value="rgb(0, 138, 0)" label="rgb(0, 138, 0)"></option>
+                                        <option value="rgb(0, 102, 204)" label="rgb(0, 102, 204)"></option>
+                                        <option value="rgb(153, 51, 255)" label="rgb(153, 51, 255)"></option>
+                                        <option value="rgb(255, 255, 255)" label="rgb(255, 255, 255)"></option>
+                                        <option value="rgb(250, 204, 204)" label="rgb(250, 204, 204)"></option>
+                                        <option value="rgb(255, 235, 204)" label="rgb(255, 235, 204)"></option>
+                                        <option value="rgb(255, 255, 204)" label="rgb(255, 255, 204)"></option>
+                                        <option value="rgb(204, 232, 204)" label="rgb(204, 232, 204)"></option>
+                                        <option value="rgb(204, 224, 245)" label="rgb(204, 224, 245)"></option>
+                                        <option value="rgb(235, 214, 255)" label="rgb(235, 214, 255)"></option>
+                                        <option value="rgb(187, 187, 187)" label="rgb(187, 187, 187)"></option>
+                                        <option value="rgb(240, 102, 102)" label="rgb(240, 102, 102)"></option>
+                                        <option value="rgb(255, 194, 102)" label="rgb(255, 194, 102)"></option>
+                                        <option value="rgb(255, 255, 102)" label="rgb(255, 255, 102)"></option>
+                                        <option value="rgb(102, 185, 102)" label="rgb(102, 185, 102)"></option>
+                                        <option value="rgb(102, 163, 224)" label="rgb(102, 163, 224)"></option>
+                                        <option value="rgb(194, 133, 255)" label="rgb(194, 133, 255)"></option>
+                                        <option value="rgb(136, 136, 136)" label="rgb(136, 136, 136)"></option>
+                                        <option value="rgb(161, 0, 0)" label="rgb(161, 0, 0)"></option>
+                                        <option value="rgb(178, 107, 0)" label="rgb(178, 107, 0)"></option>
+                                        <option value="rgb(178, 178, 0)" label="rgb(178, 178, 0)"></option>
+                                        <option value="rgb(0, 97, 0)" label="rgb(0, 97, 0)"></option>
+                                        <option value="rgb(0, 71, 178)" label="rgb(0, 71, 178)"></option>
+                                        <option value="rgb(107, 36, 178)" label="rgb(107, 36, 178)"></option>
+                                        <option value="rgb(68, 68, 68)" label="rgb(68, 68, 68)"></option>
+                                        <option value="rgb(92, 0, 0)" label="rgb(92, 0, 0)"></option>
+                                        <option value="rgb(102, 61, 0)" label="rgb(102, 61, 0)"></option>
+                                        <option value="rgb(102, 102, 0)" label="rgb(102, 102, 0)"></option>
+                                        <option value="rgb(0, 55, 0)" label="rgb(0, 55, 0)"></option>
+                                        <option value="rgb(0, 41, 102)" label="rgb(0, 41, 102)"></option>
+                                        <option value="rgb(61, 20, 102)" label="rgb(61, 20, 102)"></option>
+                                    </select>
+                                    <span class="ql-format-separator"></span>
+                                    <select title="Background Color" class="ql-background">
+                                        <option value="rgb(0, 0, 0)" label="rgb(0, 0, 0)"></option>
+                                        <option value="rgb(230, 0, 0)" label="rgb(230, 0, 0)"></option>
+                                        <option value="rgb(255, 153, 0)" label="rgb(255, 153, 0)"></option>
+                                        <option value="rgb(255, 255, 0)" label="rgb(255, 255, 0)"></option>
+                                        <option value="rgb(0, 138, 0)" label="rgb(0, 138, 0)"></option>
+                                        <option value="rgb(0, 102, 204)" label="rgb(0, 102, 204)"></option>
+                                        <option value="rgb(153, 51, 255)" label="rgb(153, 51, 255)"></option>
+                                        <option value="rgb(255, 255, 255)" label="rgb(255, 255, 255)" selected=""></option>
+                                        <option value="rgb(250, 204, 204)" label="rgb(250, 204, 204)"></option>
+                                        <option value="rgb(255, 235, 204)" label="rgb(255, 235, 204)"></option>
+                                        <option value="rgb(255, 255, 204)" label="rgb(255, 255, 204)"></option>
+                                        <option value="rgb(204, 232, 204)" label="rgb(204, 232, 204)"></option>
+                                        <option value="rgb(204, 224, 245)" label="rgb(204, 224, 245)"></option>
+                                        <option value="rgb(235, 214, 255)" label="rgb(235, 214, 255)"></option>
+                                        <option value="rgb(187, 187, 187)" label="rgb(187, 187, 187)"></option>
+                                        <option value="rgb(240, 102, 102)" label="rgb(240, 102, 102)"></option>
+                                        <option value="rgb(255, 194, 102)" label="rgb(255, 194, 102)"></option>
+                                        <option value="rgb(255, 255, 102)" label="rgb(255, 255, 102)"></option>
+                                        <option value="rgb(102, 185, 102)" label="rgb(102, 185, 102)"></option>
+                                        <option value="rgb(102, 163, 224)" label="rgb(102, 163, 224)"></option>
+                                        <option value="rgb(194, 133, 255)" label="rgb(194, 133, 255)"></option>
+                                        <option value="rgb(136, 136, 136)" label="rgb(136, 136, 136)"></option>
+                                        <option value="rgb(161, 0, 0)" label="rgb(161, 0, 0)"></option>
+                                        <option value="rgb(178, 107, 0)" label="rgb(178, 107, 0)"></option>
+                                        <option value="rgb(178, 178, 0)" label="rgb(178, 178, 0)"></option>
+                                        <option value="rgb(0, 97, 0)" label="rgb(0, 97, 0)"></option>
+                                        <option value="rgb(0, 71, 178)" label="rgb(0, 71, 178)"></option>
+                                        <option value="rgb(107, 36, 178)" label="rgb(107, 36, 178)"></option>
+                                        <option value="rgb(68, 68, 68)" label="rgb(68, 68, 68)"></option>
+                                        <option value="rgb(92, 0, 0)" label="rgb(92, 0, 0)"></option>
+                                        <option value="rgb(102, 61, 0)" label="rgb(102, 61, 0)"></option>
+                                        <option value="rgb(102, 102, 0)" label="rgb(102, 102, 0)"></option>
+                                        <option value="rgb(0, 55, 0)" label="rgb(0, 55, 0)"></option>
+                                        <option value="rgb(0, 41, 102)" label="rgb(0, 41, 102)"></option>
+                                        <option value="rgb(61, 20, 102)" label="rgb(61, 20, 102)"></option>
+                                    </select>
+                                </span>
+                                <span class="ql-format-group">
+                                    <span title="List" class="ql-format-button ql-list"></span>
+                                    <span class="ql-format-separator"></span>
+                                    <span title="Bullet" class="ql-format-button ql-bullet"></span>
+                                    <span class="ql-format-separator"></span>
+                                    <select title="Text Alignment" class="ql-align">
+                                        <option value="left" label="Left" selected=""></option>
+                                        <option value="center" label="Center"></option>
+                                        <option value="right" label="Right"></option>
+                                        <option value="justify" label="Justify"></option>
+                                    </select>
+                                </span>
+                                <span class="ql-format-group">
+                                    <span title="Link" class="ql-format-button ql-link"></span>
+                                </span>
+                            </div>
+                            <div id="full-editor" class="editor"></div>
+                            <div class="error-box"><p>Please enter a description</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="notice col-md-7 col-sm-8 col-xs-24">
+                    <div class="notice-inner">
+                        <p>Enter as much information as possible; ads with detailed and longer descriptions get more views and replies!  Keep details of your ads clear for users to easily understand  what you are selling.</p>
+                        <p>Extend the time of this listing.</p>
+                        <div class="extend-time-select">
+                            <div class="input-group-btn search-panel">
+                                <button type="button" class="btn btn-default dropdown-toggle text-left" data-toggle="dropdown">
+                                    <span id="time">3 Weeks</span>
+                                    <span class="arrow-button"><i class="fa fa-angle-down"></i></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#t1">1 Weeks</a></li>
+                                    <li><a href="#t2">2 Weeks</a></li>
+                                    <li><a href="#t3">3 Weeks</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="notice-price">$2.25</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-right text-center-xs">
+            <a class="continue-btn" href="#">Continue</a>
+        </div>
+    </div>
+
+    <div class="picture-upload" id="picture-upload" style="display:none;">
+        <div class="add-photo">
+            <div class="m-category-title">
+                <h1>Add Your Pictures <span>$2.50</span></h1>
+            </div>
+            <ul class="breadcrumb">
+                <li><a href="#">For Sale</a></li>
+                <li><a href="#">Parts & Accessories</a></li>
+                <li><a href="#">FL</a></li>
+                <li class="active">Miami Beach</li>
+                <span><i class="fa fa-user"></i>by Private Owner</span>
+            </ul>
+            <div class="row">
+                <div class="add-photo-left col-md-18 col-sm-16 col-xs-24">
+                    <div class="add-photo-left-head clearfix">
+                        <h4 class="li-name">Add Your Photos</h4>
+                        <p>Up to 8 photos,<strong> 4 MB max each </strong>) <span>At least one photo is required</span> in order to publish your ad for homepage gallery.</p>
+                    </div>
+                    <div class="upload-photo-view">
+                        <ul>
+                            <li>
+                                <div class="upload-ad">
+                                    <div class="uploaded-image">
+                                        <img src="images/uploaded-image.jpg" alt="">
+                                    </div>
+                                    <i class="fa fa-picture-o"></i>
+                                    <input type="file" name="pic" class="attachment-box" value="Attach your resume" accept="image/*">
+                                </div>
+                                <a class="delete" href="#">delete</a>
+                            </li>
+                            <li>
+                                <div class="upload-ad">
+                                    <i class="fa fa-picture-o"></i>
+                                    <input type="file" name="pic" class="attachment-box" value="Attach your resume" accept="image/*">
+                                </div>
+                                <span class="upload-progress-bar"><img src="images/upload-progress-bar.png" alt=""></span>
+                            </li>
+                            <li>
+                                <div class="upload-ad">
+                                    <i class="fa fa-picture-o"></i>
+                                    <input type="file" name="pic" class="attachment-box" value="Attach your resume" accept="image/*">
+                                </div>
+                            </li>
+                            <li>
+                                <div class="upload-ad">
+                                    <i class="fa fa-picture-o"></i>
+                                    <input type="file" name="pic" class="attachment-box" value="Attach your resume" accept="image/*">
+                                </div>
+                            </li>
+                            <li>
+                                <div class="upload-ad">
+                                    <i class="fa fa-picture-o"></i>
+                                    <input type="file" name="pic" class="attachment-box" value="Attach your resume" accept="image/*">
+                                </div>
+                            </li>
+                            <li>
+                                <div class="upload-ad">
+                                    <i class="fa fa-picture-o"></i>
+                                    <input type="file" name="pic" class="attachment-box" value="Attach your resume" accept="image/*">
+                                </div>
+                            </li>
+                            <li>
+                                <div class="upload-ad">
+                                    <i class="fa fa-picture-o"></i>
+                                    <input type="file" name="pic" class="attachment-box" value="Attach your resume" accept="image/*">
+                                </div>
+                            </li>
+                            <li>
+                                <div class="upload-ad">
+                                    <i class="fa fa-picture-o"></i>
+                                    <input type="file" name="pic" class="attachment-box" value="Attach your resume" accept="image/*">
+                                </div>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <div class="upload-ad">
+                                    <div class="uploaded-image">
+                                        <img src="images/uploaded-image.jpg" alt="">
+                                    </div>
+                                    <i class="fa fa-picture-o"></i>
+                                    <input type="file" name="pic" class="attachment-box" value="Attach your resume" accept="image/*">
+                                </div>
+                                <a class="delete" href="#">delete</a>
+                            </li>
+                            <li>
+                                <div class="upload-ad">
+                                    <i class="fa fa-picture-o"></i>
+                                    <input type="file" name="pic" class="attachment-box" value="Attach your resume" accept="image/*">
+                                </div>
+                                <span class="upload-progress-bar"><img src="images/upload-progress-bar.png" alt=""></span>
+                            </li>
+                            <li>
+                                <div class="upload-ad">
+                                    <i class="fa fa-picture-o"></i>
+                                    <input type="file" name="pic" class="attachment-box" value="Attach your resume" accept="image/*">
+                                </div>
+                            </li>
+                            <li>
+                                <div class="upload-ad">
+                                    <i class="fa fa-picture-o"></i>
+                                    <input type="file" name="pic" class="attachment-box" value="Attach your resume" accept="image/*">
+                                </div>
+                            </li>
+                            <li>
+                                <div class="upload-ad">
+                                    <i class="fa fa-picture-o"></i>
+                                    <input type="file" name="pic" class="attachment-box" value="Attach your resume" accept="image/*">
+                                </div>
+                            </li>
+                            <li>
+                                <div class="upload-ad">
+                                    <i class="fa fa-picture-o"></i>
+                                    <input type="file" name="pic" class="attachment-box" value="Attach your resume" accept="image/*">
+                                </div>
+                            </li>
+                            <li>
+                                <div class="upload-ad">
+                                    <i class="fa fa-picture-o"></i>
+                                    <input type="file" name="pic" class="attachment-box" value="Attach your resume" accept="image/*">
+                                </div>
+                            </li>
+                            <li>
+                                <div class="upload-ad">
+                                    <i class="fa fa-picture-o"></i>
+                                    <input type="file" name="pic" class="attachment-box" value="Attach your resume" accept="image/*">
+                                </div>
+                            </li>
+                            <li><a href="#" class="delete-icon"><i class="fa fa-times"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="more-photo">
+                        <div class="input-container input-container--indent">
+                            <div class="input-wrap input-wrap--small">
+                                <input type="checkbox" id="checkbox-2" checked="" />
+                                <i class="fa fa-fw fa-check"></i>
+                                <span class="morph-shape" data-morph-active="M273,273c0,0-55.8,24-123,24c-78.2,0-123-24-123-24S3,235.3,3,150C3,79.936,27,27,27,27S72,3,150,3c85,0,123,24,123,24s24,38.43,24,123C297,229.646,273,273,273,273z">
+                                    <svg width="100%" height="100%" viewBox="0 0 300 300" preserveAspectRatio="none">
+                                        <path stroke="#333" stroke-width="5" d="M273,273c0,0-55.8,0-123,0c-78.2,0-123,0-123,0s0-37.7,0-123c0-70.064,0-123,0-123s45,0,123,0c85,0,123,0,123,0s0,38.43,0,123C273,229.646,273,273,273,273z" />
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                        <span class="li-name">Add up to 4 more pictures for only $2.50</span>
+                    </div>
+                </div>
+                <div class="add-photo-right col-md-5 col-md-offset-1 col-sm-7 col-sm-offset-1 col-xs-24">
+                    <span>Photo Tips <i class="fa fa-picture-o"></i></span>
+                    <div class="notice-photo">
+                        <p>
+                            <span>important Notice!</span> Pictures containing nudity are not allowed. Posting will be automatically removed.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="youtube-free">
+            <h4 class="li-name">Add a FREE YouTube Video <span>( Optional )</span></h4>
+            <input type="text" class="youtube-box">
+            <a href="#"><img src="images/youtube-link-logo.png" alt=""></a>
+            <div class="youtube-text">Please paste video link url.</div>
+        </div>
+        <div class="text-right text-center-xs">
+            <a class="continue-btn" href="#">Continue</a>
+        </div>
+    </div>
+
+    <div class="feature-ad" id="feature-ad" style="display:none;">
+        <div class="upload-status">
+            <div class="m-category-title">
+                <h1>Some Features For Your Ad <span>$16</span></h1>
+            </div>
+            <ul class="breadcrumb">
+                <li><a href="#">For Sale</a></li>
+                <li><a href="#">Parts & Accessories</a></li>
+                <li><a href="#">FL</a></li>
+                <li class="active">Miami Beach</li>
+                <span><i class="fa fa-user"></i>by Private Owner</span>
+            </ul>
+            <h4 class="li-name"><strong>Make Your Ad Stand Out!</strong> Feature your listing.</h4>
+            <div class="urgent-photo">
+                <table class="table">
+                    <tr>
+                        <td>
+                            <div class="input-container input-container--indent">
+                                <div class="input-wrap input-wrap--small">
+                                    <input type="checkbox" id="checkbox-4" checked="" />
+                                    <i class="fa fa-fw fa-check"></i>
+                                    <span class="morph-shape" data-morph-active="M273,273c0,0-55.8,24-123,24c-78.2,0-123-24-123-24S3,235.3,3,150C3,79.936,27,27,27,27S72,3,150,3c85,0,123,24,123,24s24,38.43,24,123C297,229.646,273,273,273,273z">
+                                        <svg width="100%" height="100%" viewBox="0 0 300 300" preserveAspectRatio="none">
+                                            <path stroke="#333" stroke-width="5" d="M273,273c0,0-55.8,0-123,0c-78.2,0-123,0-123,0s0-37.7,0-123c0-70.064,0-123,0-123s45,0,123,0c85,0,123,0,123,0s0,38.43,0,123C273,229.646,273,273,273,273z" />
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <p>Let people now you want to sell, rent or hire quickly. <a class="view-example" href="">See how it work</a><span class="urgent-tag">Urgent</span></p>
+                        </td>
+                        <td>
+                            <span>$6</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="add-me-wrap">
+                <table class="table">
+                    <tr>
+                        <td>
+                            <div class="input-container input-container--indent">
+                                <div class="input-wrap input-wrap--small">
+                                    <input type="checkbox" id="checkbox-3" checked="" />
+                                    <i class="fa fa-fw fa-check"></i>
+                                    <span class="morph-shape" data-morph-active="M273,273c0,0-55.8,24-123,24c-78.2,0-123-24-123-24S3,235.3,3,150C3,79.936,27,27,27,27S72,3,150,3c85,0,123,24,123,24s24,38.43,24,123C297,229.646,273,273,273,273z">
+                                        <svg width="100%" height="100%" viewBox="0 0 300 300" preserveAspectRatio="none">
+                                            <path stroke="#333" stroke-width="5" d="M273,273c0,0-55.8,0-123,0c-78.2,0-123,0-123,0s0-37.7,0-123c0-70.064,0-123,0-123s45,0,123,0c85,0,123,0,123,0s0,38.43,0,123C273,229.646,273,273,273,273z" />
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <p>Put your listing at the top every 24 hours. <a class="view-example" href="">See how it work</a></p>
+                        </td>
+                        <td>
+                            <span>$10</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="text-right text-center-xs">
+            <a class="continue-btn" href="#">Continue</a>
+        </div>
+    </div>
+
+    <div class="contact-detail-box" id="contact-detail-box" style="display:none;">
+        <h4 class="padding-15">Your Contact Details<span>Your information will not be visible for non users</span></h4>
+        <div class="padding-15">
+            <div class="row">
+                <div class="col-md-24 col-sm-24 col-xs-24">
+                    <div class="row">
+                        <table class="table">
+                            <tr class="col-md-12 col-sm-12 col-xs-24">
+                                <td>
+                                    <div class="input-container input-container--indent">
+                                        <div class="input-wrap input-wrap--small">
+                                            <input type="checkbox" id="checkbox-5" checked="" />
+                                            <i class="fa fa-fw fa-check"></i>
+                                            <span class="morph-shape" data-morph-active="M273,273c0,0-55.8,24-123,24c-78.2,0-123-24-123-24S3,235.3,3,150C3,79.936,27,27,27,27S72,3,150,3c85,0,123,24,123,24s24,38.43,24,123C297,229.646,273,273,273,273z">
+                                                <svg width="100%" height="100%" viewBox="0 0 300 300" preserveAspectRatio="none">
+                                                    <path stroke="#333" stroke-width="5" d="M273,273c0,0-55.8,0-123,0c-78.2,0-123,0-123,0s0-37.7,0-123c0-70.064,0-123,0-123s45,0,123,0c85,0,123,0,123,0s0,38.43,0,123C273,229.646,273,273,273,273z" />
+                                                </svg>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <p>Use a different phone number</p>
+                                </td>
+                            </tr>
+                            <tr class="col-md-12 col-sm-12 col-xs-24">
+                                <td>
+                                    <div class="input-container input-container--indent">
+                                        <div class="input-wrap input-wrap--small">
+                                            <input type="checkbox" id="checkbox-6" checked="" />
+                                            <i class="fa fa-fw fa-check"></i>
+                                            <span class="morph-shape" data-morph-active="M273,273c0,0-55.8,24-123,24c-78.2,0-123-24-123-24S3,235.3,3,150C3,79.936,27,27,27,27S72,3,150,3c85,0,123,24,123,24s24,38.43,24,123C297,229.646,273,273,273,273z">
+                                                <svg width="100%" height="100%" viewBox="0 0 300 300" preserveAspectRatio="none">
+                                                    <path stroke="#333" stroke-width="5" d="M273,273c0,0-55.8,0-123,0c-78.2,0-123,0-123,0s0-37.7,0-123c0-70.064,0-123,0-123s45,0,123,0c85,0,123,0,123,0s0,38.43,0,123C273,229.646,273,273,273,273z" />
+                                                </svg>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <p>Hide my contact info</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-md-12 col-sm-24 col-xs-24">
+                    <p class="f-family-roboto margin-top-17">Enter a different phone number <span>( Optional )</span></p>
+                    <input type="text" class="contact-detail-box-number">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="total-box" id="total-box" style="display:none;">
+        <div class="m-category-title">
+            <h1>Total <span>$18.50</span></h1>
+        </div>
+        <div class="row total-box-text-area">
+            <div class="col-md-9 col-sm-12 col-xs-24">
+                <p>by posting an ad on kriclick.com,you agree to to be bound by our <a href="#">Terms of Use</a> and our <a href="#">Privacy Policy</a>.</p>
+            </div>
+            <div class="col-md-15 col-sm-12 col-xs-24 text-right">
+                <a href="#" class="post-my-ad-button">Post My Ad</a>
+            </div>
+        </div>
+    </div>
+    <p id="pnotmember" style="display:none;" class="f-family-opensans font-size-14 text-center padding-top-30 f-color-f57f17">if u are not a member yet, you will see this form</p>
+    <div class="contact-detail-box" id="contact-detail-box" style="display:none;">
+        <h4 class="padding-15">Your Contact Details<span class="f-size-14">You wil be automatically registered</span></h4>
+        <div class="padding-15">
+            <div class="row">
+                <div class="col col-md-10 col-sm-10 col-xs-24">
+                    <p class="f-family-roboto">Email Address</p>
+                    <input type="email" class="contact-detail-box-number max-width">
+                </div>
+                <div class="col col-md-7 col-sm-7 col-xs-24">
+                    <p class="f-family-roboto">Phone Number</p>
+                    <input type="text" class="contact-detail-box-number max-width">
+                </div>
+                <div class="col col-md-7 col-sm-7 col-xs-24">
+                    <p class="f-family-roboto">Contact Name</p>
+                    <input type="text" class="contact-detail-box-number max-width">
+                </div>
+            </div>
+            <p class="f-color-d22e3e font-size-13 marg-top-10 margin-0">Your account will need to be verified before your ad can be published, Please make sure to use a valid email address.</p>
+        </div>
+    </div>
+
+    @if (Request.IsAuthenticated)
+    { }
+    else
+
+    {
+        <div class="wrapper">
+            <div class="contact-detail-box">
+                <h4 class="padding-15">Your Contact Details<span class="f-size-14">You wil be automatically registered</span></h4>
+                <div class="padding-15">
+                    <div class="row">
+                        <div class="col col-md-10 col-sm-10 col-xs-24">
+                            <p class="f-family-roboto">Email Address</p>
+                            <input type="email" class="contact-detail-box-number max-width">
+                        </div>
+                        <div class="col col-md-7 col-sm-7 col-xs-24">
+                            <p class="f-family-roboto">Phone Number</p>
+                            <input type="text" class="contact-detail-box-number max-width">
+                        </div>
+                        <div class="col col-md-7 col-sm-7 col-xs-24">
+                            <p class="f-family-roboto">Contact Name</p>
+                            <input type="text" class="contact-detail-box-number max-width">
+                        </div>
+                    </div>
+                    <p class="f-color-d22e3e font-size-13 marg-top-10 margin-0">Your account will need to be verified before your ad can be published, Please make sure to use a valid email address.</p>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+

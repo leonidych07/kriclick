@@ -1,0 +1,200 @@
+﻿@using Microsoft.AspNet.Identity
+@using Kriclick.BLL
+@{
+    string Imageurl = "";
+    string UserType = "";
+    if (Request.IsAuthenticated)
+    {
+        string userID = User.Identity.GetUserId();
+        UserRegistrationBLL register = new UserRegistrationBLL();
+        var Result = register.GetUserProfileById(userID);
+        if (!string.IsNullOrEmpty(Result.LogoURL))
+        {
+            Imageurl = (!string.IsNullOrEmpty(Result.LogoURL)) ? Request.Url.GetLeftPart(UriPartial.Authority) + Request.ApplicationPath + "Uploads/" + Result.LogoURL : string.Empty;
+        }
+        if (!string.IsNullOrEmpty(Result.UserTypeId.ToString()))
+        {
+            UserType = Result.UserTypeId.ToString();
+        }
+
+    }
+}
+
+
+<style>
+    .loginimg {
+        width: 40px;
+        height: 40px;
+        border: 2px solid #ccc;
+        -webkit-border-radius: 150px;
+        -moz-border-radius: 150px;
+        overflow: hidden;
+        cursor: pointer;
+        margin: 0;
+    }
+
+    .header-panel .user-profile .user-account-menu ul li a i {
+        width: 24px;
+        float: left;
+        text-align: left;
+        padding-top: 2px;
+        padding-right: 0px;
+    }
+
+    .userDefaultPic {
+        background: url('../../Content/Images/UserPic.png') !important;
+        background-size: cover !important;
+    }
+</style>
+@* @if (Request.IsAuthenticated)
+    {
+
+
+        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    @Html.ActionLink("Hello " + User.Identity.GetUserName + "!", "Manage", "Account", routeValues: null, htmlAttributes: new { title = "Manage" })
+                </li>
+                <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+            </ul>
+        }
+    }
+              else
+                {*@
+@*<div class="header-right col-lg-16 col-md-14 col-sm-12 hidden-xs">*@
+<div class="ad-menu d_inline_middle">
+    <ul>
+        <li><a href=@Url.Action("Index","Posting")>post a free ad</a></li>
+        <li><a href="#">how it works</a></li>
+    </ul>
+</div>
+<div class="user-singup-menu d_inline_middle">
+    <ul>
+        @if (Request.IsAuthenticated)
+        {
+            Kriclick.BLL.UserRegistrationBLL userRegistrationBLL = new Kriclick.BLL.UserRegistrationBLL();
+
+            @Html.Raw(userRegistrationBLL.GetNameByUserID(User.Identity.GetUserId()))
+
+        }
+        else
+        {
+
+            <li>@Html.ActionLink("SIGN IN", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        }
+    </ul>
+</div>
+<div class="profile-box user-profile d_inline_middle">
+    @if (Request.IsAuthenticated)
+    {
+        if (@Imageurl != string.Empty)
+        {
+            <figure style="background-size: cover!important;background:url('@Imageurl') no-repeat"></figure>
+            @*<img src="@Imageurl" class="loginimg" style="border:none;width:37px;height:37px;" id="profilelogoimg" />*@
+        }
+        else
+        {
+            <figure class="userDefaultPic"></figure>
+        }
+    }
+    else
+    {
+        <figure class="userDefaultPic"></figure>
+    }
+    <div class="user-account-menu">
+        <span class="top-arrow"></span>
+        <ul>
+            @if (Request.IsAuthenticated)
+            {
+                if (@UserType == "1")
+                {
+                    <li>
+                        <a tabindex="" href="@Url.Action("PersonalProfile", "Account")"><i class="fa fa-user"></i>Profile</a>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        <a href="@Url.Action("BusinessProfile", "Account")"><i class="fa fa-user"></i>Profile</a>
+                    </li>
+                }
+            }
+            else
+            {
+                <li>
+                    <a tabindex="" href="#">
+                        <i class="fa fa-user"></i>
+                        Profile
+                    </a>
+                </li>
+            }
+
+            <li class="relative">
+                <a href="#">
+                    <i class="fa fa-envelope"></i>
+                    Messages
+                    <span class="badge">12</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-heart"></i>
+                    Favorites
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-check-circle"></i>
+                    Listings
+                </a>
+            </li>
+            @if (Request.IsAuthenticated)
+            {
+                if (@UserType == "1")
+                {
+                    <li>
+                        <a href="@Url.Action("PersonalProfileSettings", "Account")"><i class="fa fa-gear"></i>Settings</a>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        <a href="@Url.Action("BusinessProfileSettings", "Account")"><i class="fa fa-gear"></i>Settings</a>
+                    </li>
+                }
+            }
+            else
+            {
+                <li>
+                    <a href="#">
+                        <i class="fa fa-gear"></i>
+                        Settings
+                    </a>
+                </li>
+            }
+            @if (Request.IsAuthenticated)
+            {
+                <li>
+                    @*<a href="#">
+
+                            Logout
+                        </a>*@
+                    <a href="@Url.Action("LogOut", "Account")"><i class="fa fa-sign-out"></i>Logout</a>
+
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+@*</div>*@
+
+
+
+@*<ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>*@
+@*}*@

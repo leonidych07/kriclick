@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2013 for Web
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KriclickWebApp", "KriclickWebApp\KriclickWebApp.csproj", "{F4F4096E-8C33-4615-BF13-2DF7CC42F2D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kriclick.BLL", "Kriclick.BLL\Kriclick.BLL.csproj", "{1D3375B9-F329-4D8A-B0D2-348A20359E4E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kriclick.DLL", "Kriclick.DLL\Kriclick.DLL.csproj", "{4460D089-7949-4F52-9284-5EFE4858A46A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kriclick.Common", "Kriclick.Common\Kriclick.Common.csproj", "{843EC55F-97CE-4878-926E-59C17251C3BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kriclick.WebAPI", "Kriclick.WebAPI\Kriclick.WebAPI.csproj", "{CD2C25EF-C7C0-42C7-9B15-2C1BC9C8A1AB}"
+EndProject
+Global	
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F4F4096E-8C33-4615-BF13-2DF7CC42F2D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4F4096E-8C33-4615-BF13-2DF7CC42F2D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4F4096E-8C33-4615-BF13-2DF7CC42F2D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4F4096E-8C33-4615-BF13-2DF7CC42F2D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D3375B9-F329-4D8A-B0D2-348A20359E4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D3375B9-F329-4D8A-B0D2-348A20359E4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D3375B9-F329-4D8A-B0D2-348A20359E4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D3375B9-F329-4D8A-B0D2-348A20359E4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4460D089-7949-4F52-9284-5EFE4858A46A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4460D089-7949-4F52-9284-5EFE4858A46A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4460D089-7949-4F52-9284-5EFE4858A46A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4460D089-7949-4F52-9284-5EFE4858A46A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{843EC55F-97CE-4878-926E-59C17251C3BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{843EC55F-97CE-4878-926E-59C17251C3BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{843EC55F-97CE-4878-926E-59C17251C3BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{843EC55F-97CE-4878-926E-59C17251C3BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD2C25EF-C7C0-42C7-9B15-2C1BC9C8A1AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD2C25EF-C7C0-42C7-9B15-2C1BC9C8A1AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD2C25EF-C7C0-42C7-9B15-2C1BC9C8A1AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD2C25EF-C7C0-42C7-9B15-2C1BC9C8A1AB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

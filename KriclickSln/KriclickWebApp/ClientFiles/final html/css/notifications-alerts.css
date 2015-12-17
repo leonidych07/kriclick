@@ -1,0 +1,138 @@
+/* 
+============ notifications alerts ============>> 
+*/
+.notify-list {
+	margin-bottom: 30px;
+}
+.notifications {
+	padding: 17px;
+	font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+}
+.notifications .fa-times {
+	float: right;
+	margin-left: 13px;
+	font-size: 21px;
+}
+.notifications.green {
+	background-color: #5fc3a1;
+	color: #3a7863;
+}
+.notifications.green .fa-times {
+	color: #3a7863;
+}
+.notifications.red {
+	background-color: #ef5851;
+	color: #992620;
+}
+.notifications.red .fa-times {
+	color: #be3d37;
+}
+.notifications.yellow {
+	background-color: #fdd371;
+	color: #9f7513;
+}
+.notifications.yellow .fa-times {
+	color: #c69b3c;
+}
+.notifications.user {
+	background-color: #e1e5ec;
+	font-size: 16px;
+	color: #727c90;
+}
+.notifications.user:before {
+	content: " ";
+    display: table;
+}
+.notifications.user:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+.notifications.user .fa-times {
+	color: #bcc0c9;
+}
+.notifications.user .user-pic {
+	float: left;
+	width: 58px;
+	height: 58px;
+	margin-right: 13px;
+	border: 3px solid #ccc;
+	border-radius: 150px;
+	-webkit-border-radius: 150px;
+	-moz-border-radius: 150px;
+	background: url(../images/carolyn-cutrone.jpg) no-repeat;
+}
+.notifications.user .user-name {
+	margin-top: 7px;
+	font-weight: 600;
+}
+.notifications.user .user-text {
+	font-weight: 400;
+}
+.notifications.red-notice {
+	background-color: #ef5851;
+	font-size: 24px;
+	color: #ffffff;
+}
+.notifications.red-notice .fa-times {
+	color: #be3d37;
+}
+.notifications.red-notice + .red-notice-info {
+	padding: 17px;
+	background-color: #ffffff;
+	font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+	text-align: center;
+}
+.notifications.red-notice + .red-notice-info h4 {
+	margin: 10px 0px 20px 0px;
+	font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+	color: #ef5851;
+	font-weight: 400;
+}
+.notifications.red-notice + .red-notice-info p {
+    margin: 10px 0px;
+	font-size: 16px;
+	color: #a3a3a3;
+}
+.notifications.red-error {
+	background-color: #ef5851;
+	text-align: center;
+}
+.notifications.red-error h4 {
+	margin: 10px 0px;
+	font-family: 'Open Sans', sans-serif;
+    font-size: 24px;
+	color: #b7352f;
+	font-weight: 700;
+}
+.notifications.red-error p {
+    margin: 10px 0px;
+	font-size: 18px;
+	color: #ffffff;
+}
+.notifications.white-error {
+	background-color: #ffffff;
+	text-align: center;
+}
+.notifications.white-error h4 {
+	margin: 10px 0px;
+	font-family: 'Open Sans', sans-serif;
+    font-size: 24px;
+	color: #ef5851;
+	font-weight: 700;
+}
+.notifications.white-error p {
+    margin: 10px 0px;
+	font-size: 18px;
+	color: #a3a3a3;
+}
+.notifications.coupon-expired {
+	background-color: #ffd9d9;
+	color: #ef5851;
+}

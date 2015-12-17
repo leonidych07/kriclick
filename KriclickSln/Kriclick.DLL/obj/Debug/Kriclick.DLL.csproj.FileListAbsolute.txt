@@ -1,0 +1,10 @@
+E:\TFS\Kriclick\KriclickSln\Kriclick.DLL\bin\Debug\Kriclick.DLL.dll.config
+E:\TFS\Kriclick\KriclickSln\Kriclick.DLL\bin\Debug\Kriclick.DLL.dll
+E:\TFS\Kriclick\KriclickSln\Kriclick.DLL\bin\Debug\Kriclick.DLL.pdb
+E:\TFS\Kriclick\KriclickSln\Kriclick.DLL\bin\Debug\EntityFramework.dll
+E:\TFS\Kriclick\KriclickSln\Kriclick.DLL\bin\Debug\EntityFramework.SqlServer.dll
+E:\TFS\Kriclick\KriclickSln\Kriclick.DLL\bin\Debug\EntityFramework.xml
+E:\TFS\Kriclick\KriclickSln\Kriclick.DLL\bin\Debug\EntityFramework.SqlServer.xml
+E:\TFS\Kriclick\KriclickSln\Kriclick.DLL\obj\Debug\Kriclick.DLL.csprojResolveAssemblyReference.cache
+E:\TFS\Kriclick\KriclickSln\Kriclick.DLL\obj\Debug\Kriclick.DLL.dll
+E:\TFS\Kriclick\KriclickSln\Kriclick.DLL\obj\Debug\Kriclick.DLL.pdb

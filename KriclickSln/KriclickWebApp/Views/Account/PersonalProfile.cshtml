@@ -1,0 +1,455 @@
+﻿@model Kriclick.Common.Models.UserProfileViewModel
+@{
+    ViewBag.Title = "PersonalProfile";
+}
+<style>
+    .MaxImageHeight {
+        max-height: 200px;
+        max-width: 200px;
+    }
+
+    .business-panel .main-content .left-sidebar .send-message-btn {
+        border: 2px solid #4790D2;
+    }
+</style>
+<script type="text/javascript">
+
+    function fileupload() {
+        var data = new FormData();
+
+        var files = $("#fileUpload").get(0).files;
+
+        // Add the uploaded image content to the form data collection
+        if (files.length > 0) {
+            data.append("UploadedImage", files[0]);
+        }
+
+        // Make Ajax request with the contentType = false, and procesDate = false
+        var ajaxRequest = $.ajax({
+            type: "POST",
+            url: "/webapi/SiteFileUpload/UploadProfileHeader",
+            contentType: false,
+            processData: false,
+            data: data,
+            success: function (data) {
+                //alert(data);
+                if (data != '') {
+                    $('#benner-panel').css({ "background": "url(" + data + ") no-repeat scroll center center / cover", });
+                }
+            }
+        });
+
+        ajaxRequest.done(function (xhr, textStatus) {
+            //alert(textStatus);
+        });
+    };
+    //});
+</script>
+
+<div id="benner-panel" class="business-benner-panel personal">
+
+    <!--Start Benner Panel-->
+    <div class="overlay">
+        <div class="wrapper">
+            Upload your banner: <input type="file" id="fileUpload" onchange="fileupload();" />
+            <div class="display-table">
+                <div class="table-cell">
+
+                    <div class="banner-content">
+                        <h1>@Html.DisplayFor(model => model.FirstName)  @Html.DisplayFor(model => model.LastName)</h1>
+                        <div class="content_right">
+                            <p>
+                                @Html.HiddenFor(model => model.ProfileHeaderURL)
+                                Followers
+                                <span>0</span>
+                            </p>
+                            <p>
+                                Following
+                                <span>0</span>
+                            </p>
+                            <button type="button" class="follow-btn">follow</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!--End Benner Panel-->
+
+<div id="body-panel" class="body-panel profile-panel business-panel">
+    <!-- Start Body Panel -->
+    <div class="wrapper">
+        <div class="main-content">
+            <div class="row">
+                <div class="product-container col-md-24 col-sm-24 col-xs-24">
+                    <div class="row">
+                        <div class="left-sidebar col-md-6 col-sm-6 col-xs-24">
+                            <div class="profile-logo-user">
+                                <img src="@ViewBag.Imageurl" alt="" class="img-responsive MaxImageHeight">
+                            </div>
+                            <button type="button" class="send-message-btn">Send a Message</button>
+                            <div class="customer-contuct">
+                                <span class="address block"><i class="fa fa-map-marker"></i> @Html.DisplayFor(model => model.City), @Html.DisplayFor(model => model.StateName)</span>
+                                <span class="phone block"><i class="fa fa-phone"></i>@Html.DisplayFor(model => model.PhoneNo)</span>
+                                @*<span class="web-site block"><i class="fa fa-globe"></i>www.mydomain.com</span>*@
+                            </div>
+                            <div class="customer-social-holder">
+                                @if (!string.IsNullOrEmpty(Model.fb))
+                                {
+                                    <a class="facebook" href=@Model.fb target="_blank"><i class="fa fa-facebook"></i></a>
+                                }
+                                @if (!string.IsNullOrEmpty(Model.twitter))
+                                {
+                                    <a class="twitter" href=@Model.twitter target="_blank"><i class="fa fa-twitter"></i></a>
+                                }
+                                @if (!string.IsNullOrEmpty(Model.Instagram))
+                                {
+                                    <a class="instagram" href=@Model.Instagram target="_blank"><i class="fa fa-instagram"></i></a>
+                                }
+                                @if (!string.IsNullOrEmpty(Model.googleplus))
+                                {
+                                    <a class="google-plus" href=@Model.googleplus target="_blank"><i class="fa fa-google-plus"></i></a>
+                                }
+                                @if (!string.IsNullOrEmpty(Model.pinterest))
+                                {
+                                    <a class="pinterest" href=@Model.pinterest target="_blank"><i class="fa fa-pinterest-p"></i></a>
+                                }
+                            </div>
+                            <div class="varified-user">
+                                <div class="varified-text">
+                                    <p><i class="fa fa-check"></i>&nbsp; Verified User</p>
+                                </div>
+                            </div>
+                            <div class="active-posts-title">
+                                <h4>Active Posts:&nbsp; <strong>6</strong></h4>
+                            </div>
+                            <div class="customer-review-box">
+                                <div class="reviews">
+                                    <div class="customer-review-title">
+                                        <h5>Reviews</h5>
+                                    </div>
+                                    <div class="rating">
+                                        <div class="customer-review-icon">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-half-o"></i>
+                                        </div>
+                                        <span class="rating-point">4.5</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ad-box">
+                                <span class="ad-title u-case text-center">Advertising</span>
+                                <img src="~/ClientFiles/final html/images/advertisement.jpg" alt="" />
+                            </div>
+                        </div>
+                        <div class="right-sidebar col-md-18 col-sm-18 col-xs-24">
+                            <div class="row">
+                                <div class="col-sm-24 col-xs-24">
+                                    <!-- Nav tabs -->
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li role="presentation" class="active"><a href="#listings" aria-controls="listings" role="tab" data-toggle="tab">Listings</a></li>
+                                        <li role="presentation"><a href="#favorites" aria-controls="favorites" role="tab" data-toggle="tab">Favorites</a></li>
+                                        <li role="presentation"><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">Reviews</a></li>
+                                    </ul>
+                                    <!-- Tab panes -->
+                                    <div class="tab-content active-product">
+                                        <div role="tabpanel" class="tab-pane fade in active" id="listings">
+                                            <div class="row">
+                                                <div class="listings-count col-md-24">
+                                                    <h5>29 Listings</h5>
+                                                </div>
+                                                <div class="product-item col-md-8 col-sm-8 col-xs-24">
+                                                    <div class="item-holder">
+                                                        <a href="#" class="product-img">
+                                                            <img src="~/ClientFiles/final html/images/customer-product-1.png" alt="">
+                                                            <span class="customer-product-price-tag">$380,400</span>
+                                                        </a>
+                                                        <div class="product-dec">
+                                                            <p><a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed ...</a></p>
+                                                        </div>
+                                                        <div class="product-location">
+                                                            <span><i class="fa fa-map-marker"></i>6 miles - Miami, Fl</span>
+                                                            <span><i class="fa fa-calendar-o"></i>Date: 10/20/2015</span>
+                                                        </div>
+                                                        <ul class="btns">
+                                                            <li class="color1">urgent</li>
+                                                            <li class="color2">business</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="product-item col-md-8 col-sm-8 col-xs-24">
+                                                    <div class="item-holder">
+                                                        <a href="#" class="product-img">
+                                                            <img src="~/ClientFiles/final html/images/customer-product-2.png" alt="">
+                                                            <span class="customer-product-price-tag">$380,400</span>
+                                                        </a>
+                                                        <div class="product-dec">
+                                                            <p><a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed ...</a></p>
+                                                        </div>
+                                                        <div class="product-location">
+                                                            <span><i class="fa fa-map-marker"></i>6 miles - Miami, Fl</span>
+                                                            <span><i class="fa fa-calendar-o"></i>Date: 10/20/2015</span>
+                                                        </div>
+                                                        <ul class="btns">
+                                                            <li class="color1">urgent</li>
+                                                            <li class="color2">business</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="product-item col-md-8 col-sm-8 col-xs-24">
+                                                    <div class="item-holder">
+                                                        <a href="#" class="product-img">
+                                                            <img src="~/ClientFiles/final html/images/customer-product-3.png" alt="">
+                                                            <span class="customer-product-price-tag">$380,400</span>
+                                                        </a>
+                                                        <div class="product-dec">
+                                                            <p><a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed ...</a></p>
+                                                        </div>
+                                                        <div class="product-location">
+                                                            <span><i class="fa fa-map-marker"></i>6 miles - Miami, Fl</span>
+                                                            <span><i class="fa fa-calendar-o"></i>Date: 10/20/2015</span>
+                                                        </div>
+                                                        <ul class="btns">
+                                                            <li class="color1">urgent</li>
+                                                            <li class="color2">business</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="product-item col-md-8 col-sm-8 col-xs-24">
+                                                    <div class="item-holder">
+                                                        <a href="#" class="product-img">
+                                                            <img src="~/ClientFiles/final html/images/customer-product-1.png" alt="">
+                                                            <span class="customer-product-price-tag">$380,400</span>
+                                                        </a>
+                                                        <div class="product-dec">
+                                                            <p><a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed ...</a></p>
+                                                        </div>
+                                                        <div class="product-location">
+                                                            <span><i class="fa fa-map-marker"></i>6 miles - Miami, Fl</span>
+                                                            <span><i class="fa fa-calendar-o"></i>Date: 10/20/2015</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-item col-md-8 col-sm-8 col-xs-24">
+                                                    <div class="item-holder">
+                                                        <a href="#" class="product-img">
+                                                            <img src="~/ClientFiles/final html/images/customer-product-2.png" alt="">
+                                                            <span class="customer-product-price-tag">$380,400</span>
+                                                        </a>
+                                                        <div class="product-dec">
+                                                            <p><a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed ...</a></p>
+                                                        </div>
+                                                        <div class="product-location">
+                                                            <span><i class="fa fa-map-marker"></i>6 miles - Miami, Fl</span>
+                                                            <span><i class="fa fa-calendar-o"></i>Date: 10/20/2015</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-item col-md-8 col-sm-8 col-xs-24">
+                                                    <div class="item-holder">
+                                                        <a href="#" class="product-img">
+                                                            <img src="~/ClientFiles/final html/images/customer-product-3.png" alt="">
+                                                            <span class="customer-product-price-tag">$380,400</span>
+                                                        </a>
+                                                        <div class="product-dec">
+                                                            <p><a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed ...</a></p>
+                                                        </div>
+                                                        <div class="product-location">
+                                                            <span><i class="fa fa-map-marker"></i>6 miles - Miami, Fl</span>
+                                                            <span><i class="fa fa-calendar-o"></i>Date: 10/20/2015</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane fade" id="favorites">
+                                            <div class="row">
+                                                <div class="listings-count col-md-24">
+                                                    <h5>3 Listings</h5>
+                                                </div>
+                                                <div class="product-item col-md-8 col-sm-8 col-xs-24">
+                                                    <div class="item-holder">
+                                                        <a href="#" class="product-img">
+                                                            <img src="~/ClientFiles/final html/images/customer-product-1.png" alt="">
+                                                            <span class="customer-product-price-tag">$380,400</span>
+                                                        </a>
+                                                        <div class="product-dec">
+                                                            <p><a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed ...</a></p>
+                                                        </div>
+                                                        <div class="product-location">
+                                                            <span><i class="fa fa-map-marker"></i>6 miles - Miami, Fl</span>
+                                                            <span><i class="fa fa-calendar-o"></i>Date: 10/20/2015</span>
+                                                        </div>
+                                                        <ul class="btns">
+                                                            <li class="color1">urgent</li>
+                                                            <li class="color2">business</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="product-item col-md-8 col-sm-8 col-xs-24">
+                                                    <div class="item-holder">
+                                                        <a href="#" class="product-img">
+                                                            <img src="~/ClientFiles/final html/images/customer-product-1.png" alt="">
+                                                            <span class="customer-product-price-tag">$380,400</span>
+                                                        </a>
+                                                        <div class="product-dec">
+                                                            <p><a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed ...</a></p>
+                                                        </div>
+                                                        <div class="product-location">
+                                                            <span><i class="fa fa-map-marker"></i>6 miles - Miami, Fl</span>
+                                                            <span><i class="fa fa-calendar-o"></i>Date: 10/20/2015</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-item col-md-8 col-sm-8 col-xs-24">
+                                                    <div class="item-holder">
+                                                        <a href="#" class="product-img">
+                                                            <img src="~/ClientFiles/final html/images/customer-product-1.png" alt="">
+                                                            <span class="customer-product-price-tag">$380,400</span>
+                                                        </a>
+                                                        <div class="product-dec">
+                                                            <p><a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed ...</a></p>
+                                                        </div>
+                                                        <div class="product-location">
+                                                            <span><i class="fa fa-map-marker"></i>6 miles - Miami, Fl</span>
+                                                            <span><i class="fa fa-calendar-o"></i>Date: 10/20/2015</span>
+                                                        </div>
+                                                        <ul class="btns">
+                                                            <li class="color1">urgent</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane fade" id="reviews">
+                                            <div class="row">
+                                                <div class="listings-count col-md-24">
+                                                    <h5>45 Reviews</h5>
+                                                </div>
+                                                <div class="col-md-14 col-sm-14 col-xs-24">
+                                                    <div class="reviews-item col-md-24 col-sm-24 col-xs-24 padding-none">
+                                                        <div class="item-holder">
+                                                            <img class="reviews-img" src="~/ClientFiles/final html/images/reviews_thumb1.jpg" alt="">
+                                                            <div class="reviews-info">
+                                                                <div class="reviews-name">Amanda Mistori</div>
+                                                                <div class="rating">
+                                                                    <span>2 hours ago</span>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star-o"></i>
+                                                                </div>
+                                                                <div class="reviews-dec">
+                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, voluptatibus aut cum</p>
+                                                                </div>
+                                                                <div class="reviews-link"><a href="#">read more...</a></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="reviews-item col-md-24 col-sm-24 col-xs-24 padding-none">
+                                                        <div class="item-holder">
+                                                            <img class="reviews-img" src="~/ClientFiles/final html/images/reviews_thumb2.jpg" alt="">
+                                                            <div class="reviews-info">
+                                                                <div class="reviews-name">Amanda Mistori</div>
+                                                                <div class="rating">
+                                                                    <span>2 hours ago</span>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star-o"></i>
+                                                                    <i class="fa fa-star-o"></i>
+                                                                </div>
+                                                                <div class="reviews-dec">
+                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, voluptatibus aut cum</p>
+                                                                </div>
+                                                                <div class="reviews-link"><a href="#">read more...</a></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="reviews-item col-md-24 col-sm-24 col-xs-24 padding-none">
+                                                        <div class="item-holder">
+                                                            <img class="reviews-img" src="~/ClientFiles/final html/images/reviews_thumb3.jpg" alt="">
+                                                            <div class="reviews-info">
+                                                                <div class="reviews-name">Amanda Mistori</div>
+                                                                <div class="rating">
+                                                                    <span>2 hours ago</span>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star-o"></i>
+                                                                    <i class="fa fa-star-o"></i>
+                                                                </div>
+                                                                <div class="reviews-dec">
+                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, voluptatibus aut cum</p>
+                                                                </div>
+                                                                <div class="reviews-link"><a href="#">read more...</a></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="reviews-item col-md-24 col-sm-24 col-xs-24 padding-none">
+                                                        <div class="item-holder">
+                                                            <img class="reviews-img" src="~/ClientFiles/final html/images/reviews_thumb4.jpg" alt="">
+                                                            <div class="reviews-info">
+                                                                <div class="reviews-name">Amanda Mistori</div>
+                                                                <div class="rating">
+                                                                    <span>2 hours ago</span>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star-o"></i>
+                                                                    <i class="fa fa-star-o"></i>
+                                                                </div>
+                                                                <div class="reviews-dec">
+                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, voluptatibus aut cum</p>
+                                                                </div>
+                                                                <div class="reviews-link"><a href="#">read more...</a></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="reviews-form-box col-md-10 col-sm-10 col-xs-24">
+                                                    <div class="reviews-title">Submit a Review</div>
+                                                    <div class="reviews-form">
+                                                        <div class="rating">
+                                                            <span>Rate</span>
+                                                            <i class="fa fa-star-o"></i>
+                                                            <i class="fa fa-star-o"></i>
+                                                            <i class="fa fa-star-o"></i>
+                                                            <i class="fa fa-star-o"></i>
+                                                            <i class="fa fa-star-o"></i>
+                                                        </div>
+                                                        <div class="field-bar">
+                                                            <input class="text-field" type="text" name="x" placeholder="Title">
+                                                            <textarea class="text-area" name="x" id="textarea" rows="8" placeholder="Write your note"></textarea>
+                                                            <input type="submit" name="button" id="button" value="Submit a Review" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @section scripts
+    {
+        <script>
+            $(document).ready(function () {
+                var profileHeaderURL = $('#ProfileHeaderURL').val();
+
+                if (profileHeaderURL != '') {
+                    $('#benner-panel').css({ "background": "url(" + profileHeaderURL + ") no-repeat scroll center center / cover", });
+                }
+            });
+        </script>
+    }
+</div><!-- End Body Panel -->

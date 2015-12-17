@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3f24a98b5d624d99adc3221f26281b27" Name="Diagram1">
+        <EntityTypeShape EntityType="KriclickDBModel.AspNetRole" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KriclickDBModel.AspNetUserLogin" Width="1.5" PointX="5.625" PointY="12.25" />
+        <EntityTypeShape EntityType="KriclickDBModel.AspNetUser" Width="1.5" PointX="3.375" PointY="4" />
+        <EntityTypeShape EntityType="KriclickDBModel.Country" Width="1.5" PointX="1.125" PointY="9" />
+        <EntityTypeShape EntityType="KriclickDBModel.FAQ" Width="1.5" PointX="10.625" PointY="1" />
+        <EntityTypeShape EntityType="KriclickDBModel.FAQCategory" Width="1.5" PointX="8.375" PointY="1.125" />
+        <EntityTypeShape EntityType="KriclickDBModel.IndustryType" Width="1.5" PointX="3.375" PointY="11.625" />
+        <EntityTypeShape EntityType="KriclickDBModel.State" Width="1.5" PointX="3.375" PointY="8.75" />
+        <EntityTypeShape EntityType="KriclickDBModel.UserReview" Width="1.5" PointX="7.875" PointY="4.625" />
+        <EntityTypeShape EntityType="KriclickDBModel.UserType" Width="1.5" PointX="3.375" PointY="1.375" />
+        <AssociationConnector Association="KriclickDBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="KriclickDBModel.FK_States_Countries" />
+        <AssociationConnector Association="KriclickDBModel.FK_FAQ_FAQCategory" />
+        <EntityTypeShape EntityType="KriclickDBModel.UserProfile" Width="1.5" PointX="5.875" PointY="1.75" />
+        <AssociationConnector Association="KriclickDBModel.FK_UserProfile_AspNetUsers" />
+        <AssociationConnector Association="KriclickDBModel.FK_UserProfile_IndustryTypes" />
+        <AssociationConnector Association="KriclickDBModel.FK_UserProfile_States" />
+        <AssociationConnector Association="KriclickDBModel.FK_UserProfile_UserTypes" />
+        <AssociationConnector Association="KriclickDBModel.FK_UserReview_UserProfile" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "ConfirmEmail";
+    Layout = "~/Views/Shared/_LayoutWithoutFooter.cshtml";
+}
+
+<div id="body-panel" class="body-panel verified-panel">
+    <!-- Start Body Panel -->
+    <div class="wrapper">
+        <div class="email-verified">
+            <div class="m-category-title">
+                <h1 class="c-case">Email Verification</h1>
+            </div>
+            <div class="verified-info">
+                <div class="verified-icon">
+                    <i class="fa fa-check"></i>
+                </div>
+                <div class="verified-title">Successfully verified!</div>
+                <div class="verified-text">
+                    Congratulations! You have successfully verified your email address.<br>
+                    If you want to change the email address, you may go to "Settings"  and change it.
+                </div>
+                @if (ViewBag.AlreadyConfirmed == null)
+                {
+                    <div class="verified-btn">
+                        <a class="goto-profile-btn" href="CreateProfile?UserId=@ViewBag.UserId">Go To Profile</a>
+                    </div>
+                }
+                else
+                {
+                    <div class="verified-btn">
+                        <span style="color:red;">Already confirmed</span>
+                    </div>
+                }
+
+                @if (ViewBag.GoToProfileURL == "-1")
+                {
+                    <div class="verified-text2">Go to <a href="CreateProfile?UserId=@ViewBag.UserId">Home</a> Page</div>
+                }
+                else
+                {
+                    <div class="verified-text2">Go to <a href=@Url.Content("~/")>Home</a> Page</div>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
