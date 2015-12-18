@@ -671,6 +671,7 @@
     <Content Include="ProjectFiles\packages.zip" />
     <None Include="Properties\PublishProfiles\KriclickPublish.pubxml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
+    <Content Include="Scripts\bootstrap-strength-meter.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
@@ -683,6 +684,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\password-score-options.js" />
+    <Content Include="Scripts\password-score.js" />
     <Content Include="Scripts\passwordStrengthMeter.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
