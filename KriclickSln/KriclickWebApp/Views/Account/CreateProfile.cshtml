@@ -102,6 +102,40 @@
             $('#example-progress-bar-hierarchy-container div').addClass('passwordstrengthbar');
         });
     </script>
+    <script>
+        $(document).ready(function () {
+            $('#example-progress-bar-hierarchy2').strengthMeter('progressBar', {
+                container: $('#example-progress-bar-hierarchy-container2'),
+                //hierarchy: {
+                //    '0': 'progress-bar-danger',
+                //    '10': 'progress-bar-warning',
+                //    '20': 'progress-bar-success'
+                //}
+            });
+            $('#example-progress-bar-hierarchy2').strengthMeter('text', {
+                container: $('#example-text-hierarchy-text2'),
+                //hierarchy: {
+                //    '0': ['text-danger', 'very weak'],
+                //    '10': ['text-warning', 'weak'],
+                //    '15': ['text-warning', 'good'],
+                //    '20': ['text-success', 'strong'],
+                //    '25': ['text-success', 'very strong']
+
+                //}
+            });
+            $('#example-progress-bar-hierarchy2').keyup(function () {
+                $('#example-text-hierarchy-text2').removeClass('validationmsgdisplay');
+                $('#example-progress-bar-hierarchy-container2').removeClass('validationmsgdisplay');
+                $('#example-text-hierarchy-text2').addClass('validationmsgmargin');
+            });
+
+
+            $('#example-text-hierarchy-text2').addClass('validationmsgdisplay');
+            $('#example-progress-bar-hierarchy-container2').addClass('validationmsgdisplay');
+
+            $('#example-progress-bar-hierarchy-container2 div').addClass('passwordstrengthbar');
+        });
+    </script>
 
     <script language="javascript">
         var result = "";
@@ -400,9 +434,15 @@
                         <div class="row">
                             <div class="col col-xs-24 col-sm-12">
                                 <span class="cr-box-title">Password</span>
-                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @placeholder = "Password", @Id = "txtpassword" } })
+                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @placeholder = "Password", @Id = "txtpassword", @id = "example-progress-bar-hierarchy2" } })
                                 @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger ValidationFontSize" })
-                                <span id="result2"></span>
+                                @*<span id="result2"></span>*@
+                                <div class="form-group">
+                                    <div class="col-sm-24" id="example-progress-bar-hierarchy-container2">
+                                    </div>
+                                    <div class="col-sm-24" id="example-text-hierarchy-text2">
+                                    </div>
+                                </div>
                             </div>
                             <div class="col col-xs-24 col-sm-12">
                                 <span class="cr-box-title">Confirm Password</span>
