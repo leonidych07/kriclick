@@ -77,196 +77,15 @@
 </head>
 <body>
 
-    <div id="header-panel" class="header-panel d_inline_middle">
-        <!-- Start Header Panel -->
-        <div class="row clearfix">
-            <div class="header-left col-lg-8 col-md-10 col-sm-12 col-xs-24">
-                <a class="site-logo d_inline_middle d_vmxs_inline_b fl_vmxs_none m_vmxs_bottom_10 vc_child" href="#"><img src="~/ClientFiles/final%20html/images/logo.png" alt=""></a>
-                <div class="location-text d_inline_middle">
-                    <i class="fa fa-map-marker"></i>
-                    <span>South Miami 33133</span>
-                </div>
-                <div class="profile-box-mobile user-profile">
-                    @*<figure></figure>*@
-                    @if (Request.IsAuthenticated)
-                    {
-                        if (@Imageurl != string.Empty)
-                        {
-                            <figure style="background-size: cover!important;background:url('@Imageurl') no-repeat"></figure>
-                            @*<img src="@Imageurl" class="loginimg" style="border:none;width:37px;height:37px;" id="profilelogoimg2" />*@
-                        }
-                        else
-                        {
-                            <figure class="userDefaultPic"></figure>
-                        }
-                    }
-                    else
-                    {
-                        <figure class="userDefaultPic"></figure>
-                    }
-                    <div class="user-singup-menu">
-                        <ul class="horizontal_list clearfix">                         
-                            <li>@Html.ActionLink("SIGN IN", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink2", @class = "tt_uppercase" })</li>
-                        </ul>
-                    </div>
-                    <div class="user-account-menu">
-                        <span class="top-arrow"></span>
-                        <ul>
-                            <li>
-                                <a tabindex="" href="#">
-                                    <i class="fa fa-user"></i>
-                                    Profile
-                                </a>
-                            </li>
-                            <li class="relative">
-                                <a href="#">
-                                    <i class="fa fa-envelope"></i>
-                                    Messages
-                                    <span class="badge">12</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-heart"></i>
-                                    Favorites
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-check-circle"></i>
-                                    Listings
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-gear"></i>
-                                    Settings
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-sign-out"></i>
-                                    Logout
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="header-right col-lg-16 col-md-14 col-sm-12 hidden-xs">
-                @Html.Partial("_LoginPartial")
-                @*<div class="ad-menu d_inline_middle">
-                    <ul>
-                        <li><a href="#">post a free ad</a></li>
-                        <li><a href="#">how it works</a></li>
-                    </ul>
-                </div>
-                <div class="user-singup-menu d_inline_middle">
-                    <ul>
-                        <li><a href="#" class="d_inline_b">sign in</a></li>
-                    </ul>
-                </div>
-                <div class="profile-box user-profile d_inline_middle">
-                    <figure></figure>
-                    <div class="user-account-menu">
-                        <span class="top-arrow"></span>
-                        <ul>
-                            <li>
-                                <a tabindex="" href="#">
-                                    <i class="fa fa-user"></i>
-                                    Profile
-                                </a>
-                            </li>
-                            <li class="relative">
-                                <a href="#">
-                                    <i class="fa fa-envelope"></i>
-                                    Messages
-                                    <span class="badge">12</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-heart"></i>
-                                    Favorites
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-check-circle"></i>
-                                    Listings
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-gear"></i>
-                                    Settings
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-sign-out"></i>
-                                    Logout
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>*@
-            </div>
-            <div class="mobile-option hidden-lg hidden-md hidden-sm col-xs-24">
-                <div class="location-text">
-                    <i class="fa fa-map-marker"></i>
-                    <span>South Miami 33133</span>
-                </div>
-                <div class="change"><a href="#">How it works</a></div>
-            </div>
-            <div class="mobile-ad-btn hidden-lg hidden-md hidden-sm col-xs-24 padding-none">
-                <a href="@Url.Action("Index","Posting")">post a free ad</a>
-            </div>
-        </div>
-    </div><!-- End Header Panel -->
-    <div class="body-content">
+    @Html.Partial("_HeaderPartial")
+ 
+       <div class="body-content">
         @RenderBody()
-
     </div>
 
-       
+       @Html.Partial("_FooterPartial")
   
-    <div id="footer-panel" class="footer-panel">
-        <!--Start Footer Panel-->
-        <div class="home-wrapper">
-            <div class="footer-inner">
-                <div class="footer_middle_menu_area clearfix">
-                    <div class="footer_middle_menu">
-                        <ul>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Press</a></li>
-                            <li><a href="#">Help</a></li>
-                            <li><a href="#">Avoid Scams</a></li>
-                            <li><a href="#">How it Works</a></li>
-                            <li><a href="#">Feedback</a></li>
-                        </ul>
-                    </div>
-                    <div class="social-icons">
-                        <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                        <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                        <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-                        <a href="#" class="pinterest"><i class="fa fa-pinterest-p"></i></a>
-                        <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
-                    </div>
-                </div>
-                <div class="footer_bottom_menu_area">
-                    <div class="footer_bottom_menu">
-                        <ul>
-                            <li><a href="#">Cookies</a></li>
-                            <li><a href="#">Terms of Use</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                        </ul>
-                    </div>
-                    <p class="copyright-text">&copy;2015 copyright | Kriclick.com</p>
-                </div>
-            </div>
-        </div>
-    </div><
+    
 
     <script type="text/javascript" src="~/ClientFiles/final%20html/js/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="~/ClientFiles/final%20html/js/jquery.mousewheel.js"></script>
@@ -286,13 +105,6 @@
     <script type="text/javascript" src="~/ClientFiles/final%20html/js/jquery.fancybox-thumbs.js"></script>
     <script type="text/javascript" src="~/ClientFiles/final%20html/js/simplegallery.min.js"></script>
     <script type="text/javascript" src="~/ClientFiles/final%20html/js/custom.jquery.js"></script>
-
-    @*
-        <script type="text/javascript" src="~/ClientFiles/final%20html/js/jquery-1.11.3.min.js"></script>
-        <script type="text/javascript" src="~/ClientFiles/final%20html/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="~/ClientFiles/final%20html/js/custom.jquery.js"></script>*@
-    @*@Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")*@
 
 
     @RenderSection("scripts", required: false)

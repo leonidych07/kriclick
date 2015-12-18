@@ -105,6 +105,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DBBackup\DBBackup_18Dec2015_12.58pm.sql" />
     <Content Include="DBBackup\DBBackup_2Dec2015_5.36pm.sql" />
     <Content Include="DBBackup\DBBackup_4Dec2015_2.40pm.sql" />
   </ItemGroup>
