@@ -733,6 +733,8 @@
     <Content Include="Views\Account\PersonalProfileSettings.cshtml" />
     <Content Include="Views\Account\BusinessProfileSettings.cshtml" />
     <Content Include="Views\Shared\_LayoutPosting.cshtml" />
+    <Content Include="Views\Shared\_FooterPartial.cshtml" />
+    <Content Include="Views\Shared\_HeaderPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
