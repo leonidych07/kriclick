@@ -42,7 +42,7 @@
                 $('#mylogo').prop('src', LogoURL)
                  .width(200)
                  .height(200);
-                $('#personal .logo-avatar .upload-ad i').removeClass('fa-picture-o').css('top', '0').css('left', '0');
+                $('#personal .logo-avatar .upload-ad i').removeClass('fa-user').css('top', '0').css('left', '0');
             }
 
         });
@@ -67,7 +67,7 @@
                     $('#mylogo').prop('src', e.target.result)
                         .width(200)
                         .height(200);
-                    $('#personal .logo-avatar .upload-ad i').removeClass('fa-picture-o').css('top', '0').css('left', '0');
+                    $('#personal .logo-avatar .upload-ad i').removeClass('fa-user').css('top', '0').css('left', '0');
                 };
                 reader.readAsDataURL(input.files[0]);
             }
@@ -142,7 +142,7 @@
                         $('#mylogo').prop('src', data)
                                 .width(200)
                                 .height(200);
-                        $('#personal .logo-avatar .upload-ad i').removeClass('fa-picture-o').css('top', '0').css('left', '0');
+                        $('#personal .logo-avatar .upload-ad i').removeClass('fa-user').css('top', '0').css('left', '0');
                         $('#profilelogoimg').prop('src', data).width(37).height(37);
                         $('#profilelogoimg2').prop('src', data).width(37).height(37);
                     }
@@ -197,7 +197,7 @@
             <div class="notifications-box">
                 <div class="notifications red">
                     <a href="javascript:void();" class="notificationmsg"><i class="fa fa-times"></i></a>
-                    This email has been already registered.
+                    This email is already registered.
                 </div>
             </div>
         }
@@ -322,7 +322,7 @@
                                                 @*<img src="@ViewBag.Imageurl" alt="" class="img-responsive">*@
                                                 <div class="pro-sett-pic">
                                                     <div class="upload-ad imgboxwidthheight">
-                                                        <i class="fa fa-picture-o userDefaultPic">
+                                                        <i class="fa fa-user">
                                                             <img id="mylogo" />
                                                         </i>
                                                         @*<input type="file" name="" class="" value="Attach your resume" accept="image/*">*@
