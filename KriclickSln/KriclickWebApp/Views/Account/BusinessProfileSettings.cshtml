@@ -160,6 +160,24 @@
 
     </script>
 
+    <script>
+        function validatingform()
+        {
+            $('#errorstateid').hide();
+            if ($('#StateId').val() == '')
+            {
+                $('#errorstateid').show();
+               return false;
+            }
+            return true;
+        }
+        $('#StateId').change(function () {
+            $('#errorstateid').hide();
+            if ($('#StateId').val() == '') {
+                $('#errorstateid').show();                
+            }
+        })
+    </script>
 }
 @using (Html.BeginForm("BusinessProfileSettings", "Account", FormMethod.Post, new { @class = "form-horizontal comp-reg-form", role = "form", enctype = "multipart/form-data" }))
 {
@@ -397,8 +415,9 @@
                                                                     </ul>*@
                                                                 @Html.DropDownListFor(m => m.StateId, new SelectList(ViewBag.State, "StateId", "Abbreviation"), new { @class = "selectpicker" })
                                                             </div>
-
+                                                            @Html.ValidationMessageFor(model => model.StateId, "Select State", new { @class = "text-danger ValidationFontSize", @id = "errorstateid" })
                                                         </div>
+                                                        
                                                         <div class="col col-sm-10 col-xs-8">
                                                             @*<input type="city" placeholder="City">*@
                                                             @Html.EditorFor(model => model.City, new { htmlAttributes = new { @placeholder = "City" } })
@@ -409,6 +428,9 @@
                                                             @Html.EditorFor(model => model.ZipCode, new { htmlAttributes = new { @placeholder = "Zip Code" } })
                                                             @Html.ValidationMessageFor(model => model.ZipCode, "", new { @class = "text-danger ValidationFontSize" })
                                                         </div>
+
+                                                        <div class="clearfix"></div>
+
                                                         <div class="col col-sm-12 col-xs-12">
                                                             @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @placeholder = "* * * * * * * * *", @Id = "txtpassword", @data_val = "false" } })
                                                             <div class="change-link"><a href="Javascript:void(0);" onclick="ChangePassword();">Change Password</a></div>
@@ -478,7 +500,7 @@
                                                         @Html.EditorFor(model => model.youtubeurl, new { htmlAttributes = new { @placeholder = "YouTube", @class = "text-field" } })
                                                         @Html.ValidationMessageFor(model => model.youtubeurl, "", new { @class = "text-danger ValidationFontSize" })
                                                     </div>
-                                                    <input type="submit" name="button" id="button" value="save updates">
+                                                    <input type="submit" name="button" id="button" value="save updates" onclick="return validatingform();">
                                                 </div>
                                             </div>
                                         </div>
