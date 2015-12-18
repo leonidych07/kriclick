@@ -378,7 +378,7 @@ namespace Kriclick.BLL
         }
 
         /// <summary>
-        /// This method is used to get user by email address or username
+        /// This method is used to get user by email address or user name
         /// </summary>
         /// <param name="usernameOremail"></param>
         /// <returns></returns>
