@@ -26,6 +26,10 @@
     <style>
         .ValidationFontSize {
             font-size: 12px !important;
+            color:#d50000!important;
+            /*color: #ffffff !important;
+            position: relative !important;
+            text-transform: none !important;*/
         }
 
         .dropdownscroll {
@@ -40,7 +44,7 @@
             z-index: 10000;
             position: relative;
         }
-      
+
         /*.fa {
             cursor: cell;
         }*/
@@ -233,17 +237,17 @@
                             @Html.DropDownListFor(m => m.BusinessProfileViewModel.IndustryTypeId, new SelectList(ViewBag.IndustryList, "IndustryTypeId", "IndustryType1"), new { @class = "selectpicker" })
 
                             @*<button type="button" class="btn btn-default dropdown-toggle text-left" data-toggle="dropdown">
-                                <span id="stateInd">Select an Industry</span>
-                                <span class="arrow-button"><i class="fa fa-angle-down"></i></span>
-                            </button>
-                            <ul class="dropdown-menu dropdownscroll" role="menu">
-                                @foreach (var st in ViewBag.IndustryList)
-                                {
-                                    <li><a href="javascript:void(0);" id="@st.IndustryTypeId" onclick="selectindustry(this.id, this.text);">@st.IndustryType1</a></li>
-                                }
-                            </ul>*@
+                                    <span id="stateInd">Select an Industry</span>
+                                    <span class="arrow-button"><i class="fa fa-angle-down"></i></span>
+                                </button>
+                                <ul class="dropdown-menu dropdownscroll" role="menu">
+                                    @foreach (var st in ViewBag.IndustryList)
+                                    {
+                                        <li><a href="javascript:void(0);" id="@st.IndustryTypeId" onclick="selectindustry(this.id, this.text);">@st.IndustryType1</a></li>
+                                    }
+                                </ul>*@
                             @Html.HiddenFor(model => model.BusinessProfileViewModel.IndustryTypeId)
-                            @Html.ValidationMessageFor(model => model.BusinessProfileViewModel.IndustryTypeId, "", new { @class = "text-danger ValidationFontSize" })
+                            @Html.ValidationMessageFor(model => model.BusinessProfileViewModel.IndustryTypeId, "", new { @class = "text-danger ValidationFontSize " })
                             @*<li><a href="#industry1">Industry 1</a></li>
                                 <li><a href="#industry2">Industry 2</a></li>*@
 
@@ -300,16 +304,16 @@
                             <div class="col col-xs-24 col-sm-8">
                                 <div class="input-group-btn search-panel">
                                     @*<button type="button" class="btn btn-default dropdown-toggle text-left" data-toggle="dropdown">
-                                        <span id="ststate" name="ststate">State</span>
-                                        <span class="arrow-button"><i class="fa fa-angle-down"></i></span>
-                                    </button>
-                                    <ul class="dropdown-menu dropdownscroll" role="menu">
-                                        @foreach (var st in ViewBag.State)
-                                        {
-                                            <li><a href="javascript:void(0);" id="@st.StateId" onclick="selectbusinessstate(this.id, this.text);">@st.Abbreviation</a></li>
-                                        }
-                                      
-                                    </ul>*@
+                                            <span id="ststate" name="ststate">State</span>
+                                            <span class="arrow-button"><i class="fa fa-angle-down"></i></span>
+                                        </button>
+                                        <ul class="dropdown-menu dropdownscroll" role="menu">
+                                            @foreach (var st in ViewBag.State)
+                                            {
+                                                <li><a href="javascript:void(0);" id="@st.StateId" onclick="selectbusinessstate(this.id, this.text);">@st.Abbreviation</a></li>
+                                            }
+
+                                        </ul>*@
                                     @Html.DropDownListFor(m => m.StateId, new SelectList(ViewBag.State, "StateId", "Abbreviation"), new { @class = "selectpicker" })
                                     @Html.HiddenFor(model => model.StateId)
                                     @Html.ValidationMessageFor(model => model.StateId, "", new { @class = "text-danger ValidationFontSize" })
@@ -369,7 +373,7 @@
                             <div class="input-wrap input-wrap--small">
                                 @Html.HiddenFor(model => model.BusinessProfileViewModel.IsSpotFinder)
                                 @*@Html.CheckBoxFor(model => model.BusinessProfileViewModel.IsSpotFinder, new { @checked = "checked", @id = "checkbox-2" })*@
-                                <input type="checkbox" id="checkbox-2"  onclick="setcheck(this.checked);" />
+                                <input type="checkbox" id="checkbox-2" onclick="setcheck(this.checked);" />
                                 <i class="fa fa-fw fa-check"></i>
                                 <span class="morph-shape" data-morph-active="M273,273c0,0-55.8,24-123,24c-78.2,0-123-24-123-24S3,235.3,3,150C3,79.936,27,27,27,27S72,3,150,3c85,0,123,24,123,24s24,38.43,24,123C297,229.646,273,273,273,273z">
                                     <svg width="100%" height="100%" viewBox="0 0 300 300" preserveAspectRatio="none">
@@ -414,12 +418,12 @@
                             <div class="col col-xs-24 col-sm-9">
                                 <span class="cr-box-title">First Name</span>
                                 @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @placeholder = "First Name" } })
-                                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger ValidationFontSize" })
+                                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger ValidationFontSize " })
                             </div>
                             <div class="col col-xs-24 col-sm-9">
                                 <span class="cr-box-title">Last Name</span>
                                 @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @placeholder = "Last Name" } })
-                                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger ValidationFontSize" })
+                                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger ValidationFontSize " })
                             </div>
                         </div>
                     </div>
@@ -428,12 +432,12 @@
                             <div class="col col-xs-24 col-sm-12">
                                 <span class="cr-box-title">Username</span>
                                 @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @placeholder = "User name", @onblur = "checkusername(this.value, 'user');" } })
-                                @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger ValidationFontSize" })
+                                @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger ValidationFontSize " })
                             </div>
                             <div class="col col-xs-24 col-sm-12">
                                 <span class="cr-box-title">Phone Number</span>
                                 @Html.EditorFor(model => model.PhoneNo, new { htmlAttributes = new { @placeholder = "Phone Number", @id = "personalPhoneNo" } })
-                                @Html.ValidationMessageFor(model => model.PhoneNo, "", new { @class = "text-danger ValidationFontSize" })
+                                @Html.ValidationMessageFor(model => model.PhoneNo, "", new { @class = "text-danger ValidationFontSize " })
                             </div>
                         </div>
                     </div>
@@ -442,14 +446,14 @@
                             <div class="col col-xs-24 col-sm-12">
                                 <span class="cr-box-title">Password</span>
                                 @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @placeholder = "Password" } })
-                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger ValidationFontSize" })
+                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger ValidationFontSize " })
                                 <span id="result"></span>
                             </div>
                             <div class="col col-xs-24 col-sm-12">
                                 <span class="cr-box-title">Confirm Password</span>
 
                                 @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @placeholder = "Confirm Password" } })
-                                @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger ValidationFontSize" })
+                                @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger ValidationFontSize " })
                             </div>
                         </div>
                         @*<div class="row">
@@ -470,18 +474,18 @@
                                 <div class="input-group-btn search-panel">
                                     @*@Html.DropDownListFor(model => model.StateId, new SelectList(ViewBag.State, "StateId", "StateName"), new { @class = "form-control btn btn-default dropdown-toggle text-left" })*@
                                     @*<button type="button" class="btn btn-default dropdown-toggle text-left" data-toggle="dropdown">
-                                        <span id="personalState" name="personalState">State</span>
-                                        <span class="arrow-button"><i class="fa fa-angle-down"></i></span>
-                                    </button>
-                                    <ul class="dropdown-menu dropdownscroll" role="menu">
-                                        @foreach (var st in ViewBag.State)
-                                        {
-                                            <li><a href="javascript:void(0);" id="@st.StateId" onclick="selectstatePersonal(this.id, this.text);">@st.Abbreviation</a></li>
-                                        }
-                                    </ul>*@
+                                            <span id="personalState" name="personalState">State</span>
+                                            <span class="arrow-button"><i class="fa fa-angle-down"></i></span>
+                                        </button>
+                                        <ul class="dropdown-menu dropdownscroll" role="menu">
+                                            @foreach (var st in ViewBag.State)
+                                            {
+                                                <li><a href="javascript:void(0);" id="@st.StateId" onclick="selectstatePersonal(this.id, this.text);">@st.Abbreviation</a></li>
+                                            }
+                                        </ul>*@
                                     @Html.DropDownListFor(m => m.StateId, new SelectList(ViewBag.State, "StateId", "Abbreviation"), new { @class = "selectpicker" })
                                     @Html.HiddenFor(model => model.StateId, new { @id = "PersonalStateId" })
-                                    @Html.ValidationMessageFor(model => model.StateId, "", new { @class = "text-danger ValidationFontSize" })
+                                    @Html.ValidationMessageFor(model => model.StateId, "", new { @class = "text-danger ValidationFontSize " })
                                     <input type="hidden" name="UserId" value="@ViewBag.UserId">
                                     @*<li><a href="#state2">AL</a></li>*@
 
@@ -497,7 +501,7 @@
                             </div>
                             <div class="col col-xs-24 col-sm-9">
                                 @Html.EditorFor(model => model.City, new { htmlAttributes = new { @placeholder = "City" } })
-                                @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger ValidationFontSize" })
+                                @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger ValidationFontSize " })
                             </div>
                             <div class="col col-xs-24 col-sm-7">
                                 @Html.EditorFor(model => model.ZipCode, new { htmlAttributes = new { @placeholder = "Zip Code" } })
