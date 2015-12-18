@@ -14,11 +14,11 @@
 
             var defaults = {
                 container: input.parent(),
-                base: 80,
+                base: 40,
                 hierarchy: {
                     '0': 'progress-bar-danger',
-                    '25': 'progress-bar-warning',
-                    '50': 'progress-bar-success'
+                    '15': 'progress-bar-warning',
+                    '25': 'progress-bar-success'
                 },
                 passwordScore: {
                     options: [],
