@@ -65,39 +65,39 @@
             cursor: cell;
         }*/
     </style>
-    @*<script src="~/Scripts/password-score.js"></script>
+    <script src="~/Scripts/password-score.js"></script>
     <script src="~/Scripts/password-score-options.js"></script>
-    <script src="~/Scripts/bootstrap-strength-meter.js"></script>*@
+    <script src="~/Scripts/bootstrap-strength-meter.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            //$('#example-progress-bar-hierarchy').strengthMeter('progressBar', {
-            //    container: $('#example-progress-bar-hierarchy-container'),
-            //    hierarchy: {
-            //        '0': 'progress-bar-danger',
-            //        '10': 'progress-bar-warning',
-            //        '20': 'progress-bar-success'
-            //    }
-            //});
-            //$('#example-progress-bar-hierarchy').strengthMeter('text', {
-            //    container: $('#example-text-hierarchy-text'),
-            //    hierarchy: {
-            //        '0': ['text-danger', 'very weak'],
-            //        '10': ['text-warning', 'weak'],
-            //        '15': ['text-warning', 'good'],
-            //        '20': ['text-success', 'strong'],
-            //        '25': ['text-success', 'very strong']
+            $('#example-progress-bar-hierarchy').strengthMeter('progressBar', {
+                container: $('#example-progress-bar-hierarchy-container'),
+                //hierarchy: {
+                //    '0': 'progress-bar-danger',
+                //    '10': 'progress-bar-warning',
+                //    '20': 'progress-bar-success'
+                //}
+            });
+            $('#example-progress-bar-hierarchy').strengthMeter('text', {
+                container: $('#example-text-hierarchy-text'),
+                //hierarchy: {
+                //    '0': ['text-danger', 'very weak'],
+                //    '10': ['text-warning', 'weak'],
+                //    '15': ['text-warning', 'good'],
+                //    '20': ['text-success', 'strong'],
+                //    '25': ['text-success', 'very strong']
               
-            //    }
-            //});
-            //$('#example-progress-bar-hierarchy').keyup(function () {
-            //    $('#example-text-hierarchy-text').removeClass('validationmsgdisplay');
-            //    $('#example-progress-bar-hierarchy-container').removeClass('validationmsgdisplay');
-            //    $('#example-text-hierarchy-text').addClass('validationmsgmargin');
-            //});
+                //}
+            });
+            $('#example-progress-bar-hierarchy').keyup(function () {
+                $('#example-text-hierarchy-text').removeClass('validationmsgdisplay');
+                $('#example-progress-bar-hierarchy-container').removeClass('validationmsgdisplay');
+                $('#example-text-hierarchy-text').addClass('validationmsgmargin');
+            });
 
             
-            //$('#example-text-hierarchy-text').addClass('validationmsgdisplay');
-            //$('#example-progress-bar-hierarchy-container').addClass('validationmsgdisplay');
+            $('#example-text-hierarchy-text').addClass('validationmsgdisplay');
+            $('#example-progress-bar-hierarchy-container').addClass('validationmsgdisplay');
             
             $('#example-progress-bar-hierarchy-container div').addClass('passwordstrengthbar');
         });
@@ -504,9 +504,8 @@
                                 @*<span id="result"></span>*@
 
                                 <div class="form-group">
-                                    <div class="col-sm-12" id="example-progress-bar-hierarchy-container">
+                                    <div class="col-sm-24" id="example-progress-bar-hierarchy-container">
                                     </div>
-                                    <div class="col-sm-12"></div>
                                     <div class="col-sm-24" id="example-text-hierarchy-text">
                                     </div>
                                 </div>
