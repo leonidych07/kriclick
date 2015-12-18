@@ -133,7 +133,7 @@
                     $('#mylogo').prop('src', e.target.result)
                         .width(73)
                         .height(73);
-                    $('#personal .logo-avatar .upload-ad i').removeClass('fa-picture-o').css('top', '0').css('left', '0');
+                    $('#personal .logo-avatar .upload-ad i').removeClass('fa-user').css('top', '0').css('left', '0');
                 };
                 reader.readAsDataURL(input.files[0]);
             }
@@ -145,7 +145,7 @@
                     $('#mylogoBusiness').prop('src', e.target.result)
                         .width(73)
                         .height(73);
-                    $('#business .logo-avatar .upload-ad i').removeClass('fa-picture-o').css('top', '0').css('left', '0');
+                    $('#business .logo-avatar .upload-ad i').removeClass('fa-user').css('top', '0').css('left', '0');
                 };
                 reader.readAsDataURL(input.files[0]);
             }
@@ -269,7 +269,7 @@
                             <div class="logo-avatar col col-xs-12 col-sm-6">
                                 <span class="upload-title">Company Logo</span>
                                 <div class="upload-ad">
-                                    <i class="fa fa-picture-o userDefaultPic">
+                                    <i class="fa fa-user">
                                         <img id="mylogoBusiness" />
                                     </i>
                                     @*<input type="file" name="" class="" value="Attach your resume"  accept="image/*">*@
@@ -401,7 +401,7 @@
                             <div class="logo-avatar col col-xs-12 col-sm-6">
                                 <span class="upload-title">Avatar</span>
                                 <div class="upload-ad">
-                                    <i class="fa fa-picture-o">
+                                    <i class="fa fa-user">
                                         <img id="mylogo" />
                                     </i>
 
