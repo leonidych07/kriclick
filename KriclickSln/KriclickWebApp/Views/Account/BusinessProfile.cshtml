@@ -12,9 +12,8 @@
         border: 2px solid #4790D2;
     }
 </style>
-
+<script src="~/Scripts/jquery-2.1.4.js"></script>
 <script type="text/javascript">
-
     function fileupload() {
         var data = new FormData();
 
@@ -52,11 +51,14 @@
     <!--Start Benner Panel-->
     <div class="overlay">
         <div class="wrapper">
-            Upload your banner: <input type="file" id="fileUpload" onchange="fileupload();" />
+            @if (Request.IsAuthenticated)
+            {
+                <span>Upload your banner:</span><input type="file" id="fileUpload" onchange="fileupload();" />
+            }
             <div class="display-table">
                 <div class="table-cell">
                     <div class="banner-content">
-                        <h1>@Html.DisplayFor(model => model.FirstName)      @Html.DisplayFor(model => model.LastName)    </h1>
+                        <h1>@Html.DisplayFor(model => model.FirstName)  @Html.DisplayFor(model => model.LastName)</h1>
                         <div class="content_right">
                             <p>
                                 @Html.HiddenFor(model => model.ProfileHeaderURL)
@@ -67,7 +69,10 @@
                                 Following
                                 <span>0</span>
                             </p>
-                            <button type="button" class="follow-btn">follow</button>
+                            @if (Request.IsAuthenticated)
+                            {
+                                <button type="button" class="follow-btn">follow</button>
+                            }
                         </div>
                     </div>
                 </div>
@@ -84,9 +89,12 @@
                     <div class="row">
                         <div class="left-sidebar col-md-6 col-sm-8 col-xs-24">
                             <div class="profile-logo-user">
-                                <img src="@ViewBag.Imageurl  " alt="" class="img-responsive MaxImageHeight">
+                                <img src="@Model.LogoURL" alt="" class="img-responsive MaxImageHeight">
                             </div>
-                            <button type="button" class="send-message-btn hidden-xs">Send a Message</button>
+                            @if (Request.IsAuthenticated)
+                            {
+                                <button type="button" class="send-message-btn hidden-xs">Send a Message</button>
+                            }
                             <button type="button" class="send-message-btn hidden-lg hidden-md hidden-sm"><i class="fa fa-paper-plane"></i></button>
                             <div class="customer-contuct">
                                 <span class="address block"><i class="fa fa-map-marker"></i> @Html.DisplayFor(model => model.City)    , @Html.DisplayFor(model => model.StateName)    </span>
@@ -508,16 +516,16 @@
             </div>
         </div>
     </div>
-    @section scripts
-    {
+    @*@section scripts
+    {*@    
         <script>
             $(document).ready(function () {
                 var profileHeaderURL = $('#ProfileHeaderURL').val();
-
+                //alert(profileHeaderURL);
                 if (profileHeaderURL != '') {
                     $('#benner-panel').css({ "background": "url(" + profileHeaderURL + ") no-repeat scroll center center / cover", });
                 }
             });
         </script>
-    }
+    @*}*@
 </div><!-- End Body Panel -->

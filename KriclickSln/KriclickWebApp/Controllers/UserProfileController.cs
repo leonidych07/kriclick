@@ -309,7 +309,9 @@ namespace KriclickWebApp.Controllers
                 return View(Result);
             }
 
-            Result = userBll.GetUserProfileById(userID);           
+            Result = userBll.GetUserProfileById(userID);
+            Result.ProfileHeaderURL = (!string.IsNullOrEmpty(Result.ProfileHeaderURL)) ? Request.Url.GetLeftPart(UriPartial.Authority) + Request.ApplicationPath + "Uploads/UserProfileHeaderImages/" + Result.ProfileHeaderURL : string.Empty;
+            Result.LogoURL = (!string.IsNullOrEmpty(Result.LogoURL)) ? Request.Url.GetLeftPart(UriPartial.Authority) + Request.ApplicationPath + "Uploads/" + Result.LogoURL : string.Empty;
 
             return View(Result);
         }
@@ -317,37 +319,39 @@ namespace KriclickWebApp.Controllers
         [AllowAnonymous]
         public ActionResult PersonalProfile(string Username = "")
         {
-            UserProfileViewModel Result = new UserProfileViewModel();
+            //UserProfileViewModel Result = new UserProfileViewModel();
             
-            string userID = (string.IsNullOrEmpty(Username)) ? User.Identity.GetUserId() : GetUserIdFromRoute();
-            UserRegistrationBLL userBll = new UserRegistrationBLL();
-            Result = userBll.GetUserProfileById(userID);
-            Result.ProfileHeaderURL = (!string.IsNullOrEmpty(Result.ProfileHeaderURL)) ? Request.Url.GetLeftPart(UriPartial.Authority) + Request.ApplicationPath + "Uploads/UserProfileHeaderImages/" + Result.ProfileHeaderURL : string.Empty;
+            //string userID = (string.IsNullOrEmpty(Username)) ? User.Identity.GetUserId() : GetUserIdFromRoute();
+            //UserRegistrationBLL userBll = new UserRegistrationBLL();
+            //Result = userBll.GetUserProfileById(userID);
+            //Result.ProfileHeaderURL = (!string.IsNullOrEmpty(Result.ProfileHeaderURL)) ? Request.Url.GetLeftPart(UriPartial.Authority) + Request.ApplicationPath + "Uploads/UserProfileHeaderImages/" + Result.ProfileHeaderURL : string.Empty;
 
-            if (!string.IsNullOrEmpty(Result.LogoURL))
-            {
-                ViewBag.Imageurl = (!string.IsNullOrEmpty(Result.LogoURL)) ? Request.Url.GetLeftPart(UriPartial.Authority) + Request.ApplicationPath + "Uploads/" + Result.LogoURL : string.Empty;
-            }           
+            //if (!string.IsNullOrEmpty(Result.LogoURL))
+            //{
+            //    ViewBag.Imageurl = (!string.IsNullOrEmpty(Result.LogoURL)) ? Request.Url.GetLeftPart(UriPartial.Authority) + Request.ApplicationPath + "Uploads/" + Result.LogoURL : string.Empty;
+            //}           
 
-            return PartialView(Result);
+            //return View(Result);
+            return View();
         }
 
         [AllowAnonymous]
         public ActionResult BusinessProfile(string Username = "")
         {
-            UserProfileViewModel Result = new UserProfileViewModel();
+            //UserProfileViewModel Result = new UserProfileViewModel();
            
-            string userID = (string.IsNullOrEmpty(Username)) ? User.Identity.GetUserId() : GetUserIdFromRoute();
-            UserRegistrationBLL userBll = new UserRegistrationBLL();
-            Result = userBll.GetUserProfileById(userID);
-            Result.ProfileHeaderURL = (!string.IsNullOrEmpty(Result.ProfileHeaderURL)) ? Request.Url.GetLeftPart(UriPartial.Authority) + Request.ApplicationPath + "Uploads/UserProfileHeaderImages/" + Result.ProfileHeaderURL : string.Empty;
+            //string userID = (string.IsNullOrEmpty(Username)) ? User.Identity.GetUserId() : GetUserIdFromRoute();
+            //UserRegistrationBLL userBll = new UserRegistrationBLL();
+            //Result = userBll.GetUserProfileById(userID);
+            //Result.ProfileHeaderURL = (!string.IsNullOrEmpty(Result.ProfileHeaderURL)) ? Request.Url.GetLeftPart(UriPartial.Authority) + Request.ApplicationPath + "Uploads/UserProfileHeaderImages/" + Result.ProfileHeaderURL : string.Empty;
 
-            if (!string.IsNullOrEmpty(Result.LogoURL))
-            {
-                ViewBag.Imageurl = (!string.IsNullOrEmpty(Result.LogoURL)) ? Request.Url.GetLeftPart(UriPartial.Authority) + Request.ApplicationPath + "Uploads/" + Result.LogoURL : string.Empty;
-            }           
+            //if (!string.IsNullOrEmpty(Result.LogoURL))
+            //{
+            //    ViewBag.Imageurl = (!string.IsNullOrEmpty(Result.LogoURL)) ? Request.Url.GetLeftPart(UriPartial.Authority) + Request.ApplicationPath + "Uploads/" + Result.LogoURL : string.Empty;
+            //}
 
-            return PartialView(Result);
+            //return View(Result);
+            return View();
         }
 
         public string GetUploadedFilePath(HttpPostedFileBase Reportfile, string userId)
