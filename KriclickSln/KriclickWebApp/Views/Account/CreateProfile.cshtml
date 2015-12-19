@@ -37,13 +37,12 @@
             min-width: 50px;
             overflow-y: scroll;
         }
-
         .validationmsgdisplay {
-            display: none;
+            display:none;
         }
 
         .validationmsgmargin {
-            margin-left: 15px;
+            margin-left:15px;
         }
 
         .imagePosition {
@@ -57,15 +56,10 @@
             height: 6px;
             border-radius: inherit;
             margin-top: 15px;
-            margin-bottom: 10px;
+            margin-bottom:10px;
         }
-
         .form-group {
-            margin-bottom: 0px;
-        }
-
-        .open > .dropdown-menu {
-            height: 150px !important;
+            margin-bottom:0px;
         }
 
         /*.fa {
@@ -93,7 +87,7 @@
                 //    '15': ['text-warning', 'good'],
                 //    '20': ['text-success', 'strong'],
                 //    '25': ['text-success', 'very strong']
-
+              
                 //}
             });
             $('#example-progress-bar-hierarchy').keyup(function () {
@@ -102,10 +96,10 @@
                 $('#example-text-hierarchy-text').addClass('validationmsgmargin');
             });
 
-
+            
             $('#example-text-hierarchy-text').addClass('validationmsgdisplay');
             $('#example-progress-bar-hierarchy-container').addClass('validationmsgdisplay');
-
+            
             $('#example-progress-bar-hierarchy-container div').addClass('passwordstrengthbar');
         });
     </script>
@@ -341,7 +335,7 @@
                         <input type="hidden" name="UserTypeId" value="2" />
                         <span class="cr-box-title">Industry Type</span>
                         <div class="input-group-btn search-panel" id="Industries">
-                            @Html.DropDownListFor(m => m.BusinessProfileViewModel.IndustryTypeId, new SelectList(ViewBag.IndustryList, "IndustryTypeId", "IndustryType1"), new { @class = "selectpicker", @id = "IndustryDropdown" })
+                            @Html.DropDownListFor(m => m.BusinessProfileViewModel.IndustryTypeId, new SelectList(ViewBag.IndustryList, "IndustryTypeId", "IndustryType1"), new { @class = "selectpicker",@id="IndustryDropdown" })
 
                             @*<button type="button" class="btn btn-default dropdown-toggle text-left" data-toggle="dropdown">
                                     <span id="stateInd">Select an Industry</span>
@@ -453,7 +447,7 @@
                         <div class="row">
                             <div class="col col-xs-24 col-sm-12">
                                 <span class="cr-box-title">Password</span>
-                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @placeholder = "Password", @id = "example-progress-bar-hierarchy2" } })
+                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @placeholder = "Password",  @id = "example-progress-bar-hierarchy2" } })
                                 @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger ValidationFontSize note-mess2" })
                                 @*<span id="result2"></span>*@
                                 <div class="form-group">

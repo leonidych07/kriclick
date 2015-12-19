@@ -9,14 +9,3 @@ E:\TFS\Kriclick\KriclickSln\Kriclick.BLL\bin\Debug\Kriclick.DLL.dll
 E:\TFS\Kriclick\KriclickSln\Kriclick.BLL\bin\Debug\Kriclick.Common.pdb
 E:\TFS\Kriclick\KriclickSln\Kriclick.BLL\bin\Debug\Kriclick.DLL.pdb
 E:\TFS\Kriclick\KriclickSln\Kriclick.BLL\bin\Debug\EntityFramework.xml
-E:\GITHubProjects\KriclickGITHub\KriclickSln\Kriclick.BLL\bin\Debug\Kriclick.BLL.dll
-E:\GITHubProjects\KriclickGITHub\KriclickSln\Kriclick.BLL\bin\Debug\Kriclick.BLL.pdb
-E:\GITHubProjects\KriclickGITHub\KriclickSln\Kriclick.BLL\bin\Debug\EntityFramework.dll
-E:\GITHubProjects\KriclickGITHub\KriclickSln\Kriclick.BLL\bin\Debug\Kriclick.Common.dll
-E:\GITHubProjects\KriclickGITHub\KriclickSln\Kriclick.BLL\bin\Debug\Kriclick.DLL.dll
-E:\GITHubProjects\KriclickGITHub\KriclickSln\Kriclick.BLL\bin\Debug\Kriclick.Common.pdb
-E:\GITHubProjects\KriclickGITHub\KriclickSln\Kriclick.BLL\bin\Debug\Kriclick.DLL.pdb
-E:\GITHubProjects\KriclickGITHub\KriclickSln\Kriclick.BLL\bin\Debug\EntityFramework.xml
-E:\GITHubProjects\KriclickGITHub\KriclickSln\Kriclick.BLL\obj\Debug\Kriclick.BLL.csprojResolveAssemblyReference.cache
-E:\GITHubProjects\KriclickGITHub\KriclickSln\Kriclick.BLL\obj\Debug\Kriclick.BLL.dll
-E:\GITHubProjects\KriclickGITHub\KriclickSln\Kriclick.BLL\obj\Debug\Kriclick.BLL.pdb
