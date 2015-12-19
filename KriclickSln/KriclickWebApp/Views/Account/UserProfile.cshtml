@@ -1,0 +1,31 @@
+﻿@model Kriclick.Common.Models.UserProfileViewModel
+@{
+    ViewBag.Title = "User Profile";
+}
+
+@if (Model.UserId != Guid.Empty.ToString())
+{
+    if (Model.UserTypeId == (int)Kriclick.Common.Enums.UserType.Business)
+    {
+        Html.RenderPartial("BusinessProfile");
+    }
+    else
+    {
+        Html.RenderPartial("PersonalProfile");
+    }
+}
+else
+{
+    <div id="body-panel" class="body-panel verified-panel">
+        <!-- Start Body Panel -->
+        <div class="wrapper" style="padding-bottom:150px;">
+            <div class="email-verified">
+                <div class="m-category-title">
+                    <h1 class="c-case" style="color:red;">
+                        This user profile does not exists
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+}

@@ -132,13 +132,13 @@ namespace KriclickWebApp.Controllers
                 {
                     string userID = User.Identity.GetUserId();
                     UserRegistrationBLL userBll = new UserRegistrationBLL();
-                    Result = userBll.GetUserProfileById(userID);                    
+                    Result = userBll.GetUserProfileById(userID);
 
                     if (!string.IsNullOrEmpty(Result.LogoURL))
                     {
                         ViewBag.Imageurl = (!string.IsNullOrEmpty(Result.LogoURL)) ? Request.Url.GetLeftPart(UriPartial.Authority) + Request.ApplicationPath + "Uploads/" + Result.LogoURL : string.Empty;
                     }
-                    
+
                     ViewBag.UserId = userID;
 
                     if (string.IsNullOrEmpty(userProfileViewModel.EmailId))
@@ -270,53 +270,84 @@ namespace KriclickWebApp.Controllers
             return result;
         }
 
-        public ActionResult PersonalProfile()
+        public string GetUserIdFromRoute()
         {
-            UserProfileViewModel Result = new UserProfileViewModel();
+            string userID = string.Empty; 
+            string UserName = string.Empty;
 
-            if (User.Identity.IsAuthenticated)
+            if (ControllerContext.RouteData.Values["username"] == null)
             {
-                string userID = User.Identity.GetUserId();
-                UserRegistrationBLL userBll = new UserRegistrationBLL();
-                Result = userBll.GetUserProfileById(userID);
-                Result.ProfileHeaderURL = (!string.IsNullOrEmpty(Result.ProfileHeaderURL)) ? Request.Url.GetLeftPart(UriPartial.Authority) + Request.ApplicationPath + "Uploads/UserProfileHeaderImages/" + Result.ProfileHeaderURL : string.Empty;
-
-                if (!string.IsNullOrEmpty(Result.LogoURL))
-                {
-                    ViewBag.Imageurl = (!string.IsNullOrEmpty(Result.LogoURL)) ? Request.Url.GetLeftPart(UriPartial.Authority) + Request.ApplicationPath + "Uploads/" + Result.LogoURL : string.Empty;
-                }
-
-                if (Result.UserTypeId == (int)Kriclick.Common.Enums.UserType.Business)
-                {
-                    return RedirectToAction("BusinessProfile", "Account");
-                }
+                userID = string.Empty;
+                return userID;
             }
+
+            UserName = (string.IsNullOrEmpty(ControllerContext.RouteData.Values["username"].ToString())) ? string.Empty : ControllerContext.RouteData.Values["username"].ToString();
+            var CurrentUser = UserManager.FindByName(UserName);
+
+            if (CurrentUser == null)
+            {
+                userID = string.Empty;
+            }
+            else
+            {
+                userID = CurrentUser.Id;
+            }
+            return userID;
+        }
+
+        [AllowAnonymous]
+        public ActionResult UserProfile()
+        {
+            string userID = GetUserIdFromRoute();            
+
+            UserProfileViewModel Result = new UserProfileViewModel();
+            UserRegistrationBLL userBll = new UserRegistrationBLL();
+
+            if (userID == string.Empty)
+            {
+                Result.UserId = Guid.Empty.ToString();
+                return View(Result);
+            }
+
+            Result = userBll.GetUserProfileById(userID);           
+
             return View(Result);
         }
 
-        //[AllowAnonymous]
-        public ActionResult BusinessProfile()
+        [AllowAnonymous]
+        public ActionResult PersonalProfile(string Username = "")
         {
             UserProfileViewModel Result = new UserProfileViewModel();
+            
+            string userID = (string.IsNullOrEmpty(Username)) ? User.Identity.GetUserId() : GetUserIdFromRoute();
+            UserRegistrationBLL userBll = new UserRegistrationBLL();
+            Result = userBll.GetUserProfileById(userID);
+            Result.ProfileHeaderURL = (!string.IsNullOrEmpty(Result.ProfileHeaderURL)) ? Request.Url.GetLeftPart(UriPartial.Authority) + Request.ApplicationPath + "Uploads/UserProfileHeaderImages/" + Result.ProfileHeaderURL : string.Empty;
 
-            if (User.Identity.IsAuthenticated)
+            if (!string.IsNullOrEmpty(Result.LogoURL))
             {
-                string userID = User.Identity.GetUserId();
-                UserRegistrationBLL userBll = new UserRegistrationBLL();
-                Result = userBll.GetUserProfileById(userID);
-                Result.ProfileHeaderURL = (!string.IsNullOrEmpty(Result.ProfileHeaderURL)) ? Request.Url.GetLeftPart(UriPartial.Authority) + Request.ApplicationPath + "Uploads/UserProfileHeaderImages/" + Result.ProfileHeaderURL : string.Empty;
+                ViewBag.Imageurl = (!string.IsNullOrEmpty(Result.LogoURL)) ? Request.Url.GetLeftPart(UriPartial.Authority) + Request.ApplicationPath + "Uploads/" + Result.LogoURL : string.Empty;
+            }           
 
-                if (!string.IsNullOrEmpty(Result.LogoURL))
-                {
-                    ViewBag.Imageurl = (!string.IsNullOrEmpty(Result.LogoURL)) ? Request.Url.GetLeftPart(UriPartial.Authority) + Request.ApplicationPath + "Uploads/" + Result.LogoURL : string.Empty;
-                }
+            return PartialView(Result);
+        }
 
-                if (Result.UserTypeId == (int)Kriclick.Common.Enums.UserType.Personal)
-                {
-                    return RedirectToAction("PersonalProfile", "Account");
-                }
-            }
-            return View(Result);
+        [AllowAnonymous]
+        public ActionResult BusinessProfile(string Username = "")
+        {
+            UserProfileViewModel Result = new UserProfileViewModel();
+           
+            string userID = (string.IsNullOrEmpty(Username)) ? User.Identity.GetUserId() : GetUserIdFromRoute();
+            UserRegistrationBLL userBll = new UserRegistrationBLL();
+            Result = userBll.GetUserProfileById(userID);
+            Result.ProfileHeaderURL = (!string.IsNullOrEmpty(Result.ProfileHeaderURL)) ? Request.Url.GetLeftPart(UriPartial.Authority) + Request.ApplicationPath + "Uploads/UserProfileHeaderImages/" + Result.ProfileHeaderURL : string.Empty;
+
+            if (!string.IsNullOrEmpty(Result.LogoURL))
+            {
+                ViewBag.Imageurl = (!string.IsNullOrEmpty(Result.LogoURL)) ? Request.Url.GetLeftPart(UriPartial.Authority) + Request.ApplicationPath + "Uploads/" + Result.LogoURL : string.Empty;
+            }           
+
+            return PartialView(Result);
         }
 
         public string GetUploadedFilePath(HttpPostedFileBase Reportfile, string userId)

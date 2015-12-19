@@ -109,7 +109,7 @@
         <ul>
             @if (Request.IsAuthenticated)
             {
-                if (@UserType == "1")
+                @*if (@UserType == "1")
                 {
                     <li>
                         <a tabindex="" href="@Url.Action("PersonalProfile", "Account")"><i class="fa fa-user"></i>Profile</a>
@@ -120,7 +120,10 @@
                     <li>
                         <a href="@Url.Action("BusinessProfile", "Account")"><i class="fa fa-user"></i>Profile</a>
                     </li>
-                }
+                }*@
+                <li>
+                    <a href="@User.Identity.Name"><i class="fa fa-user"></i>Profile</a>
+                </li>
             }
             else
             {
