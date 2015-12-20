@@ -10,8 +10,8 @@
     <script>
         $(document).ready(function () {
 
-            $("#businessPhoneNo").mask("(999) 999-9999");
-            $("#personalPhoneNo").mask("(999) 999-9999");
+            $("#businessPhoneNo").mask("(999) 999-9999").change(function () { $(this).valid();});
+            $("#personalPhoneNo").mask("(999) 999-9999").change(function () { $(this).valid(); });
 
             $("#brand-new").click(function () {
                 $('#business').hide();
@@ -41,29 +41,14 @@
         .open > .dropdown-menu {
             height: 150px !important;
         }
-
-        .validationmsgdisplay {
-            display: none;
-        }
-
-        .validationmsgmargin {
-            margin-left: 15px;
-        }
-
+        
         .imagePosition {
             margin-top: -73px;
             min-width: 73px;
             z-index: 10000;
             position: relative;
         }
-
-        .passwordstrengthbar {
-            height: 6px;
-            border-radius: inherit;
-            margin-top: 15px;
-            margin-bottom: 10px;
-        }
-
+        
         .form-group {
             margin-bottom: 0px;
         }
@@ -244,7 +229,8 @@
                     $('#mylogo').prop('src', e.target.result)
                         .width(73)
                         .height(73);
-                    $('#personal .logo-avatar .upload-ad i').removeClass('fa-user').css('top', '0').css('left', '0');
+                    $('#personal .logo-avatar .upload-ad i').removeClass('fa-picture-o').css('top', '0').css('left', '0')
+                    .css('background-image', 'url(' + e.target.result + ')');
                 };
                 reader.readAsDataURL(input.files[0]);
             }
@@ -256,7 +242,8 @@
                     $('#mylogoBusiness').prop('src', e.target.result)
                         .width(73)
                         .height(73);
-                    $('#business .logo-avatar .upload-ad i').removeClass('fa-user').css('top', '0').css('left', '0');
+                    $('#business .logo-avatar .upload-ad i').removeClass('fa-picture-o').css('top', '0').css('left', '0')
+                    .css('background-image', 'url(' + e.target.result + ')');
                 };
                 reader.readAsDataURL(input.files[0]);
             }
@@ -313,19 +300,19 @@
 <div id="body-panel" class="body-panel">
     <!-- Start Body Panel -->
     <div class="comp-reg-page-wrap">
-        <div class="title-text">
+        <div class="title-text  text-center">
             <h3 class="u-case">Complete Your Registration</h3>
             <span class="block">Complete this form to determine the type of account you need.</span>
+            <span class="block">Please select the account that fit your needs</span>
         </div>
         <div class="radio-box">
             <div class="row">
                 <div class="radio col col-xs-12 col-sm-12">
-                    <input type="radio" id="brand-new" name="UserTypeId" value="1" class="css-checkbox" checked="checked">
+                    <input type="radio" id="brand-new" name="myname" checked="checked">
                     <label for="brand-new"><span></span>Personal</label>
-
                 </div>
                 <div class="radio col col-xs-12 col-sm-12">
-                    <input type="radio" id="user-like" name="UserTypeId" value="2" class="css-checkbox">
+                    <input type="radio" id="user-like" name="myname">
                     <label for="user-like"><span></span>Business</label>
                 </div>
             </div>
@@ -333,11 +320,11 @@
 
 
         <div id="business" style="display:none">
-            @using (Html.BeginForm("CreateBusinessProfile", "Account", FormMethod.Post, new { @class = "form-horizontal comp-reg-form", role = "form", enctype = "multipart/form-data", @id = "BusinessForm" }))
+            @using (Html.BeginForm("CreateBusinessProfile", "Account", FormMethod.Post, new { @class = "comp-reg-form", role = "form", enctype = "multipart/form-data", @id = "BusinessForm" }))
             {
                 @*@Html.ValidationSummary("", new { @class = "text-danger" })*@
                 <div class="row">
-                    <div class="col col-xs-24 col-sm-24">
+                    <div class="col col-md-24 col-sm-24 col-xs-24">
                         <input type="hidden" name="UserTypeId" value="2" />
                         <span class="cr-box-title">Industry Type</span>
                         <div class="input-group-btn search-panel" id="Industries">
@@ -360,55 +347,58 @@
 
                         </div>
                     </div>
-                    @*<div class="col col-xs-24 col-sm-24">
-                            <span class="cr-box-title">Full Name</span>
-                            @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @placeholder = "Full Name" } })
-                            @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger ValidationFontSize" })
-                        </div>*@
-                    <div class="col col-xs-24 col-sm-12">
+                    @*<div class="col col-md-24 col-sm-24 col-xs-24">
+        <span class="cr-box-title">Full Name</span>
+        @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @placeholder = "Full Name" } })
+        @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger ValidationFontSize" })
+    </div>*@
+                    <div class="col col-md-24 col-sm-24 col-xs-24">
                         <span class="cr-box-title">First Name</span>
                         @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @placeholder = "First Name" } })
                         @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger ValidationFontSize note-mess2" })
                     </div>
-                    <div class="col col-xs-24 col-sm-12">
+                    <div class=col col-md-24 col-sm-24 col-xs-24">
                         <span class="cr-box-title">Last Name</span>
                         @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @placeholder = "Last Name" } })
                         @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger ValidationFontSize note-mess2" })
                     </div>
-                    <div class="col col-xs-24 col-sm-24">
+                    <div class="col col-md-24 col-sm-24 col-xs-24">
                         <div class="row">
-                            <div class="logo-avatar col col-xs-12 col-sm-6">
-                                <span class="upload-title">Company Logo</span>
+                            <div class="logo-avatar col col-md-6 col-sm-6 col-xs-9">
+                                <span class="upload-title">Logo</span>
                                 <div class="upload-ad">
-                                    <i class="fa fa-user">
+                                    <i class="fa fa-picture-o">
                                         <img id="mylogoBusiness" />
                                     </i>
                                     @*<input type="file" name="" class="" value="Attach your resume"  accept="image/*">*@
-                                    @Html.TextBoxFor(model => model.LogoURL, new { @class = "form-control attachment-box", type = "file", onchange = "checkext(this.id);ShowImagePreviewBussiness(this);", @id = "businesslogourl" })
+                                    @Html.TextBoxFor(model => model.LogoURL, new { @class = "attachment-box", @accept = "image/*", type = "file", onchange = "checkext(this.id);ShowImagePreviewBussiness(this);", @id = "businesslogourl" })
                                 </div>
                                 @*<span class="upload-progress-bar"><img src="~/ClientFiles/final%20html/images/upload-progress-bar.png" alt=""></span>*@
                             </div>
-                            <div class="col col-xs-24 col-sm-18">
+                            <div class="col col-md-18 col-sm-18 col-xs-15">
                                 <span class="cr-box-title">Company Name</span>
 
                                 @Html.EditorFor(model => model.BusinessProfileViewModel.CompanyName, new { htmlAttributes = new { @placeholder = "Company Name" } })
                                 @Html.ValidationMessageFor(model => model.BusinessProfileViewModel.CompanyName, "", new { @class = "text-danger ValidationFontSize note-mess2" })
                             </div>
+                            @*<div class="note-mess col col-md-24 col-sm-24 col-xs-24">
+                                The following format is not accepted.
+                            </div>*@
                         </div>
                     </div>
-                    <div class="col col-xs-24 col-sm-24">
-                        <span class="cr-box-title">Company Phone</span>
-                        @Html.EditorFor(model => model.PhoneNo, new { htmlAttributes = new { @placeholder = "Company Phone", @id = "businessPhoneNo" } })
-                        @Html.ValidationMessageFor(model => model.PhoneNo, "", new { @class = "text-danger ValidationFontSize" })
+                    <div class="col col-md-24 col-sm-24 col-xs-24">
+                        <span class="cr-box-title">Phone</span>
+                        @Html.EditorFor(model => model.PhoneNo, new { htmlAttributes = new { @placeholder = "Phone", @id = "businessPhoneNo" } })
+                        @Html.ValidationMessageFor(model => model.PhoneNo, "", new { @class = "text-danger ValidationFontSize note-mess2" })
                     </div>
-                    <div class="col col-xs-24 col-sm-24 address">
-                        <span class="cr-box-title">Company Address</span>
-                        @Html.EditorFor(model => model.BusinessProfileViewModel.Address, new { htmlAttributes = new { @placeholder = "Company Address" } })
+                    <div class="col col-md-24 col-sm-24 col-xs-24 address">
+                        <span class="cr-box-title">Address</span>
+                        @Html.EditorFor(model => model.BusinessProfileViewModel.Address, new { htmlAttributes = new { @placeholder = "Address" } })
                         @Html.ValidationMessageFor(model => model.BusinessProfileViewModel.Address, "", new { @class = "text-danger ValidationFontSize note-mess2" })
                     </div>
-                    <div class="col col-xs-24 col-sm-24">
+                    <div class="col col-md-24 col-sm-24 col-xs-24">
                         <div class="row">
-                            <div class="col col-xs-24 col-sm-8">
+                            <div class="col col-md-6 col-sm-6 col-xs-24">
                                 <div class="input-group-btn search-panel">
                                     @*<button type="button" class="btn btn-default dropdown-toggle text-left" data-toggle="dropdown">
                                             <span id="ststate" name="ststate">State</span>
@@ -428,60 +418,60 @@
                                     @*@Html.DropDownListFor(model => model.StateId, new SelectList(ViewBag.State, "StateId", "Abbreviation"), new { @class = "form-control btn btn-default dropdown-toggle text-left" })*@
                                 </div>
                             </div>
-                            <div class="col col-xs-24 col-sm-9">
+                            <div class="col col-md-11 col-sm-11 col-xs-24">
                                 @Html.EditorFor(model => model.City, new { htmlAttributes = new { @placeholder = "City" } })
                                 @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger ValidationFontSize note-mess2" })
                             </div>
-                            <div class="col col-xs-24 col-sm-7">
+                            <div class="col col-md-7 col-sm-7 col-xs-2">
                                 @Html.EditorFor(model => model.ZipCode, new { htmlAttributes = new { @placeholder = "Zip Code" } })
                                 @Html.ValidationMessageFor(model => model.ZipCode, "", new { @class = "text-danger ValidationFontSize note-mess2" })
                             </div>
                         </div>
                     </div>
-                    <div class="col col-xs-24 col-sm-24">
-                        <span class="cr-box-title">Company Website</span>
+                    <div class="col col-md-24 col-sm-24 col-xs-24">
+                        <span class="cr-box-title">Website</span>
                         @Html.EditorFor(model => model.BusinessProfileViewModel.Website, new { htmlAttributes = new { @placeholder = "http://" } })
                         @Html.ValidationMessageFor(model => model.BusinessProfileViewModel.Website, "", new { @class = "text-danger ValidationFontSize note-mess2" })
                     </div>
-                    <div class="col col-xs-24 col-sm-24">
+                    <div class="col col-md-24 col-sm-24 col-xs-24">
                         <span class="cr-box-title">Username</span>
 
                         @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @placeholder = "Username", @onblur = "checkusername(this.value, 'business');" } })
                         @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger ValidationFontSize note-mess2" })
                     </div>
-                    <div class="col col-xs-24 col-sm-24">
+                    <div class="col col-md-24 col-sm-24 col-xs-24">
                         <div class="row">
-                            <div class="col col-xs-24 col-sm-12">
+                            <div class="col col-md-12 col-sm-12 col-xs-24">
                                 <span class="cr-box-title">Password</span>
                                 @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @placeholder = "Password", @id = "example-progress-bar-hierarchy2" } })
                                 @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger ValidationFontSize note-mess2" })
                                 @*<span id="result2"></span>*@
-                                <div class="form-group">
-                                    <div class="col-sm-24" id="example-progress-bar-hierarchy-container2">
+                                <div class="form-group pass-prog-bar">
+                                    <div class="password-progress-bar" id="example-progress-bar-hierarchy-container2">
                                     </div>
                                     <div class="col-sm-24" id="example-text-hierarchy-text2">
                                     </div>
                                 </div>
                             </div>
-                            <div class="col col-xs-24 col-sm-12">
+                            <div class="col col-md-12 col-sm-12 col-xs-24">
                                 <span class="cr-box-title">Confirm Password</span>
                                 @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @placeholder = "Confirm Password" } })
                                 @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger ValidationFontSize note-mess2" })
                             </div>
                         </div>
                         @*<div class="row">
-                                <div class="col col-xs-24 col-sm-12">
-                                    <span class="password-progress-bar">
-                                        <img src="~/ClientFiles/final%20html/images/password-progress-bar.png" alt="">
-                                        <span>Weak</span>
-                                    </span>
-                                </div>
-                                <div class="col col-xs-24 col-sm-12">
-                                    <div class="note-mess2">Password does not match</div>
-                                </div>
-                            </div>*@
+        <div class="pass-prog-bar col col-md-12 col-sm-12 col-xs-24">
+            <span class="password-progress-bar">
+                <img src="~/ClientFiles/final%20html/images/password-progress-bar.png" alt="">
+                <span>Weak</span>
+            </span>
+        </div>
+        <div class="col col-md-12 col-sm-12 col-xs-24">
+            <div class="note-mess2">Password does not match</div>
+        </div>
+    </div>*@
                     </div>
-                    <div class="col col-xs-24 col-sm-24">
+                    <div class="col col-md-24 col-sm-24 col-xs-24">
                         <div class="check-note" id="SpotCheckbox">
                             <div class="input-wrap input-wrap--small">
                                 @Html.HiddenFor(model => model.BusinessProfileViewModel.IsSpotFinder)
@@ -497,7 +487,7 @@
                             <label>Add this business to the Spot Finder</label>
                         </div>
                     </div>
-                    <div class="col col-xs-24 col-sm-24">
+                    <div class="col col-md-24 col-sm-24 col-xs-24">
                         <input type="submit" name="button" id="buttonbusiness" value="Complete Registration">
                         <span id="spabussusername" style="display: none; color: red; padding-left: 100px;">Username already exists.</span>
                     </div>
@@ -507,69 +497,72 @@
 
         <div id="personal">
 
-            @using (Html.BeginForm("CreateProfile", "Account", FormMethod.Post, new { @class = "form-horizontal comp-reg-form", role = "form", enctype = "multipart/form-data", @id = "PersonalForm" }))
+            @using (Html.BeginForm("CreateProfile", "Account", FormMethod.Post, new { @class = "comp-reg-form", role = "form", enctype = "multipart/form-data", @id = "PersonalForm" }))
             {
                 @*@Html.ValidationMessageFor(model => model.PhoneNo, "", new { @class = "notifications coupon-expired" })*@
                 @*@Html.ValidationSummary("", new { @class = "text-danger" })*@
                 <div class="row">
-                    <div class="col col-xs-24 col-sm-24">
+                    <div class="col col-md-24 col-sm-24 col-xs-24">
                         <div class="row">
                             <input type="hidden" name="UserTypeId" value="1" />
-                            <div class="logo-avatar col col-xs-12 col-sm-6">
+                            <div class="logo-avatar col col-md-6 col-sm-6 col-xs-9">
                                 <span class="upload-title">Avatar</span>
                                 <div class="upload-ad">
-                                    <i class="fa fa-user">
+                                    <i class="fa fa fa-picture-o">
                                         <img id="mylogo" />
                                     </i>
 
-                                    @Html.TextBoxFor(model => model.LogoURL, new { @class = "form-control attachment-box", type = "file", onchange = "checkext(this.id);ShowImagePreview(this);", @id = "personallogourl" })
+                                    @Html.TextBoxFor(model => model.LogoURL, new { @class = "attachment-box", @accept = "image/*", type = "file", onchange = "checkext(this.id);ShowImagePreview(this);", @id = "personallogourl" })
                                     <input type="hidden" name="UserId" value="@ViewBag.UserId">
                                     @*<img id="PersonalImage" />*@
                                     @*<input type="file" name="pic" class="attachment-box" value="Attach your resume" accept="image/*">*@
                                 </div>
                             </div>
-                            <div class="col col-xs-24 col-sm-9">
+                            <div class="col col-md-18 col-sm-18 col-xs-15">
                                 <span class="cr-box-title">First Name</span>
                                 @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @placeholder = "First Name" } })
                                 @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger ValidationFontSize note-mess2" })
                             </div>
-                            <div class="col col-xs-24 col-sm-9">
+                            <div class="col col-md-18 col-sm-18 col-xs-15">
                                 <span class="cr-box-title">Last Name</span>
                                 @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @placeholder = "Last Name" } })
                                 @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger ValidationFontSize note-mess2" })
                             </div>
+                            @*<div class="note-mess col col-md-24 col-sm-24 col-xs-24">
+                                The following format is not accepted.
+                            </div>*@
                         </div>
                     </div>
-                    <div class="col col-xs-24 col-sm-24">
+                    <div class="col col-md-24 col-sm-24 col-xs-24">
                         <div class="row">
-                            <div class="col col-xs-24 col-sm-12">
+                            <div class="col col-md-12 col-sm-12 col-xs-24">
                                 <span class="cr-box-title">Username</span>
-                                @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @placeholder = "User name", @onblur = "checkusername(this.value, 'user');" } })
+                                @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @placeholder = "User name", @onblur = "checkusername(this.value, 'user');", type = "username" } })
                                 @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger ValidationFontSize note-mess2" })
                             </div>
-                            <div class="col col-xs-24 col-sm-12">
+                            <div class="col col-md-12 col-sm-12 col-xs-24">
                                 <span class="cr-box-title">Phone Number</span>
-                                @Html.EditorFor(model => model.PhoneNo, new { htmlAttributes = new { @placeholder = "Phone Number", @id = "personalPhoneNo" } })
+                                @Html.EditorFor(model => model.PhoneNo, new { htmlAttributes = new { @placeholder = "Phone Number", @id = "personalPhoneNo", type = "phone-number" } })
                                 @Html.ValidationMessageFor(model => model.PhoneNo, "", new { @class = "text-danger ValidationFontSize note-mess2" })
                             </div>
                         </div>
                     </div>
-                    <div class="col col-xs-24 col-sm-24">
+                    <div class="col col-md-24 col-sm-24 col-xs-24">
                         <div class="row">
-                            <div class="col col-xs-24 col-sm-12">
+                            <div class="col col-md-12 col-sm-12 col-xs-24">
                                 <span class="cr-box-title">Password</span>
                                 @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @placeholder = "Password", @id = "example-progress-bar-hierarchy" } })
                                 @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger ValidationFontSize note-mess2" })
                                 @*<span id="result"></span>*@
 
-                                <div class="form-group">
-                                    <div class="col-sm-24" id="example-progress-bar-hierarchy-container">
+                                <div class="form-group pass-prog-bar">
+                                    <div class="password-progress-bar" id="example-progress-bar-hierarchy-container">
                                     </div>
                                     <div class="col-sm-24" id="example-text-hierarchy-text">
                                     </div>
                                 </div>
                             </div>
-                            <div class="col col-xs-24 col-sm-12">
+                            <div class="col col-md-12 col-sm-12 col-xs-24">
                                 <span class="cr-box-title">Confirm Password</span>
 
                                 @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @placeholder = "Confirm Password" } })
@@ -577,20 +570,20 @@
                             </div>
                         </div>
                         @*<div class="row">
-                                <div class="col col-xs-24 col-sm-12">
-                                    <span class="password-progress-bar">
-                                        <img src="~/ClientFiles/final%20html/images/password-progress-bar.png" alt="">
-                                        <span>Weak</span>
-                                    </span>
-                                </div>
-                                <div class="col col-xs-24 col-sm-12">
-                                    <div class="note-mess2">Password does not match</div>
-                                </div>
-                            </div>*@
+        <div class="pass-prog-bar col col-md-12 col-sm-12 col-xs-24">
+            <span class="password-progress-bar">
+                <img src="/ClientFiles/final html/images/password-progress-bar.png" alt="">
+                <span>Weak</span>
+            </span>
+        </div>
+        <div class="col col-md-12 col-sm-12 col-xs-24">
+            <div class="note-mess2">Password does not match</div>
+        </div>
+    </div>*@
                     </div>
-                    <div class="col col-xs-24 col-sm-24">
+                    <div class="col col-md-24 col-sm-24 col-xs-24">
                         <div class="row">
-                            <div class="col col-xs-24 col-sm-8">
+                            <div class="col col-md-6 col-sm-6 col-xs-24">
                                 <div class="input-group-btn search-panel">
                                     @*@Html.DropDownListFor(model => model.StateId, new SelectList(ViewBag.State, "StateId", "StateName"), new { @class = "form-control btn btn-default dropdown-toggle text-left" })*@
                                     @*<button type="button" class="btn btn-default dropdown-toggle text-left" data-toggle="dropdown">
@@ -619,17 +612,17 @@
                                         </ul>*@
                                 </div>
                             </div>
-                            <div class="col col-xs-24 col-sm-9">
+                            <div class="col col-md-11 col-sm-11 col-xs-24">
                                 @Html.EditorFor(model => model.City, new { htmlAttributes = new { @placeholder = "City" } })
                                 @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger ValidationFontSize note-mess2" })
                             </div>
-                            <div class="col col-xs-24 col-sm-7">
+                            <div class="col col-md-7 col-sm-7 col-xs-24">
                                 @Html.EditorFor(model => model.ZipCode, new { htmlAttributes = new { @placeholder = "Zip Code" } })
                                 @Html.ValidationMessageFor(model => model.ZipCode, "", new { @class = "text-danger ValidationFontSize note-mess2" })
                             </div>
                         </div>
                     </div>
-                    <div class="col col-xs-24 col-sm-24">
+                    <div class="col col-md-24 col-sm-24 col-xs-24">
                         <input type="submit" name="button" id="buttonuser" value="Complete Registration">
                         <span id="spausername" style="display: none; color: red; padding-left: 100px;">Username already exists.</span>
                     </div>

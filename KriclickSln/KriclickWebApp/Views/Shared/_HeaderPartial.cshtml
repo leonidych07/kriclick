@@ -48,19 +48,52 @@
                     <figure class="userDefaultPic"></figure>
                 }
                 <div class="user-singup-menu">
-                    <ul class="horizontal_list clearfix">
-                        <li>@Html.ActionLink("SIGN IN", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink2", @class = "tt_uppercase" })</li>
+                    <ul>
+                        @if (Request.IsAuthenticated)
+                        {
+                            Kriclick.BLL.UserRegistrationBLL userRegistrationBLL = new Kriclick.BLL.UserRegistrationBLL();
+
+                            @Html.Raw(userRegistrationBLL.GetNameByUserID(User.Identity.GetUserId()))
+
+                        }
+                        else
+                        {
+
+                            <li>@Html.ActionLink("SIGN IN", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+                        }
                     </ul>
                 </div>
                 <div class="user-account-menu">
                     <span class="top-arrow"></span>
                     <ul>
-                        <li>
-                            <a tabindex="" href="#">
-                                <i class="fa fa-user"></i>
-                                Profile
-                            </a>
-                        </li>
+                        @if (Request.IsAuthenticated)
+            {
+                            @*if (@UserType == "1")
+                {
+                    <li>
+                        <a tabindex="" href="@Url.Action("PersonalProfile", "Account")"><i class="fa fa-user"></i>Profile</a>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        <a href="@Url.Action("BusinessProfile", "Account")"><i class="fa fa-user"></i>Profile</a>
+                    </li>
+                }*@
+                            <li>
+                                <a href="../@User.Identity.Name"><i class="fa fa-user"></i>Profile</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li>
+                                <a tabindex="" href="#">
+                                    <i class="fa fa-user"></i>
+                                    Profile
+                                </a>
+                            </li>
+                        }
+
                         <li class="relative">
                             <a href="#">
                                 <i class="fa fa-envelope"></i>
@@ -69,29 +102,51 @@
                             </a>
                         </li>
                         @*<li>
-                            <a href="#">
-                                <i class="fa fa-heart"></i>
-                                Favorites
-                            </a>
-                        </li>*@
+                <a href="#">
+                    <i class="fa fa-heart"></i>
+                    Favorites
+                </a>
+            </li>*@
                         <li>
                             <a href="#">
                                 <i class="fa fa-check-circle"></i>
                                 Listings
                             </a>
                         </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-gear"></i>
-                                Settings
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-sign-out"></i>
-                                Logout
-                            </a>
-                        </li>
+                        @if (Request.IsAuthenticated)
+            {
+                if (@UserType == "1")
+                {
+                                <li>
+                                    <a href="@Url.Action("PersonalProfileSettings", "Account")"><i class="fa fa-gear"></i>Settings</a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li>
+                                    <a href="@Url.Action("BusinessProfileSettings", "Account")"><i class="fa fa-gear"></i>Settings</a>
+                                </li>
+                            }
+                        }
+                        else
+                        {
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-gear"></i>
+                                    Settings
+                                </a>
+                            </li>
+                        }
+                        @if (Request.IsAuthenticated)
+                        {
+                            <li>
+                                @*<a href="#">
+                                    Logout
+                                </a>*@
+                                <a href="@Url.Action("LogOut", "Account")"><i class="fa fa-sign-out"></i>Logout</a>
+
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>

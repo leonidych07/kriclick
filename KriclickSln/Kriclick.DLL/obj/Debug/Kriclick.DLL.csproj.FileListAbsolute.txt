@@ -8,3 +8,13 @@ E:\TFS\Kriclick\KriclickSln\Kriclick.DLL\bin\Debug\EntityFramework.SqlServer.xml
 E:\TFS\Kriclick\KriclickSln\Kriclick.DLL\obj\Debug\Kriclick.DLL.csprojResolveAssemblyReference.cache
 E:\TFS\Kriclick\KriclickSln\Kriclick.DLL\obj\Debug\Kriclick.DLL.dll
 E:\TFS\Kriclick\KriclickSln\Kriclick.DLL\obj\Debug\Kriclick.DLL.pdb
+C:\Users\Роман\Desktop\job\git\kriclick\KriclickSln\Kriclick.DLL\bin\Debug\Kriclick.DLL.dll.config
+C:\Users\Роман\Desktop\job\git\kriclick\KriclickSln\Kriclick.DLL\bin\Debug\Kriclick.DLL.dll
+C:\Users\Роман\Desktop\job\git\kriclick\KriclickSln\Kriclick.DLL\bin\Debug\Kriclick.DLL.pdb
+C:\Users\Роман\Desktop\job\git\kriclick\KriclickSln\Kriclick.DLL\bin\Debug\EntityFramework.dll
+C:\Users\Роман\Desktop\job\git\kriclick\KriclickSln\Kriclick.DLL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Роман\Desktop\job\git\kriclick\KriclickSln\Kriclick.DLL\bin\Debug\EntityFramework.xml
+C:\Users\Роман\Desktop\job\git\kriclick\KriclickSln\Kriclick.DLL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Роман\Desktop\job\git\kriclick\KriclickSln\Kriclick.DLL\obj\Debug\Kriclick.DLL.csprojResolveAssemblyReference.cache
+C:\Users\Роман\Desktop\job\git\kriclick\KriclickSln\Kriclick.DLL\obj\Debug\Kriclick.DLL.dll
+C:\Users\Роман\Desktop\job\git\kriclick\KriclickSln\Kriclick.DLL\obj\Debug\Kriclick.DLL.pdb

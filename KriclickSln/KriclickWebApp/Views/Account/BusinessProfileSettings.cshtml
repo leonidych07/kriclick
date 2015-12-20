@@ -301,7 +301,7 @@
                                                     <div class="modal-body">
                                                         <div class="container-fluid">
                                                             <div class="row">
-                                                                <div class="plans-item col-md-8 text-center">
+                                                                <div class="plans-item text-center col-md-8 col-sm-8 col-xs-24">
                                                                     <div class="plan-name">Free</div>
                                                                     <div class="plan-price">forever</div>
                                                                     <button type="button" class="plan-upgrade-btn">upgrade</button>
@@ -312,7 +312,7 @@
                                                                         <li>Up to <strong>2</strong> weeks time</li>
                                                                     </ul>
                                                                 </div>
-                                                                <div class="plans-item col-md-8 text-center">
+                                                                <div class="plans-item text-center col-md-8 col-sm-8 col-xs-24">
                                                                     <div class="plan-name">Best</div>
                                                                     <div class="plan-price"><span>$5</span> / month</div>
                                                                     <button type="button" class="plan-upgrade-btn">upgrade</button>
@@ -323,7 +323,7 @@
                                                                         <li>Up to <strong>2</strong> weeks time</li>
                                                                     </ul>
                                                                 </div>
-                                                                <div class="plans-item col-md-8 text-center">
+                                                                <div class="plans-item text-center col-md-8 col-sm-8 col-xs-24">
                                                                     <div class="plan-name">Deal</div>
                                                                     <div class="plan-price"><span>$9</span> / month</div>
                                                                     <button type="button" class="plan-upgrade-btn">upgrade</button>
@@ -362,7 +362,7 @@
                                                     <span id="uploadimgspan" style="display:none;">Uploading...</span>
                                                 </div>
 
-                                                <div class="pro-sett-details hidden-xs">
+                                                <div class="pro-sett-details hidden-sm hidden-xs">
                                                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci ttation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
                                                     <div class="delete-account">
                                                         <div class="input-wrap input-wrap--small">
@@ -376,7 +376,37 @@
                                                         </div>
                                                         <label>Yes, delete my account</label>
                                                     </div>
-                                                    <button type="button" class="delete-account-btn">delete account</button>
+                                                    <button type="button" class="delete-account-btn hidden-sm hidden-xs" data-toggle="modal" data-target="#delete_account">delete account</button>
+                                                    <div id="delete_account" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridModalLabel">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header text-center">
+                                                                    <div class="container-fluid">
+                                                                        <div class="row">
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                            <div class="modal-title u-case col-md-24">Delete My Account</div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="container-fluid">
+                                                                        <div class="row">
+                                                                            <div class="delete-acc-form col-md-24 col-sm-24 col-xs-24">
+                                                                                <div class="field-text">Please enter your password to delete this account.</div>
+                                                                                <div class="field-bar">
+                                                                                    <input type="text" name="x" placeholder="Enter password">
+                                                                                </div>
+                                                                                <div class="field-note">Your password is incorrect</div>
+                                                                                <div class="field-bar">
+                                                                                    <input class="delete-acc-btn" type="submit" name="button" id="button" value="Yes Delete My Account">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div><!-- /.modal-content -->
+                                                        </div><!-- /.modal-dialog -->
+                                                    </div><!-- /.modal -->
                                                 </div>
                                             </div>
                                             <div class="pro-sett-form col-md-14 col-sm-14 col-xs-24">
@@ -443,14 +473,50 @@
 
                                                         <div class="col col-sm-12 col-xs-12">
                                                             @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @placeholder = "* * * * * * * * *", @Id = "txtpassword", @data_val = "false" } })
-                                                            <div class="change-link"><a href="Javascript:void(0);" onclick="ChangePassword();">Change Password</a></div>
+                                                            <!--<div class="change-link"><a href="Javascript:void(0);" onclick="ChangePassword();">Change Password</a></div>-->
+                                                            <div class="change-link"><a href="#" data-toggle="modal" data-target="#change_password">Change Password</a></div>
+                                                            <div id="change_password" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridModalLabel">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header text-center">
+                                                                            <div class="container-fluid">
+                                                                                <div class="row">
+                                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                                    <div class="modal-title u-case col-md-24">Change Password</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <div class="container-fluid">
+                                                                                <div class="row">
+                                                                                    <div class="change-pass-form col-md-24 col-sm-24 col-xs-24">
+                                                                                        <div class="field-bar">
+                                                                                            <input type="text" name="x" placeholder="Old password">
+                                                                                        </div>
+                                                                                        <div class="field-bar">
+                                                                                            <input type="text" name="x" placeholder="New pasword">
+                                                                                        </div>
+                                                                                        <div class="field-bar">
+                                                                                            <input type="text" name="x" placeholder="Confirm new password">
+                                                                                        </div>
+                                                                                        <div class="field-note">Your new password does not match</div>
+                                                                                        <div class="field-bar">
+                                                                                            <input class="update-pass-btn" type="submit" name="button" id="button" value="Update Password">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div><!-- /.modal-content -->
+                                                                </div><!-- /.modal-dialog -->
+                                                            </div><!-- /.modal -->
                                                         </div>
                                                         <div class="col col-sm-12 col-xs-12">
                                                             @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @placeholder = "* * * * * * * * *", @Id = "txtconfirmpassword", @data_val = "false" } })
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="pro-field-bar hidden-lg hidden-md hidden-sm">
+                                                <div class="pro-field-bar hidden-lg hidden-md">
                                                     @*<div class="row">
                                                             <div class="col col-sm-24 col-xs-24">
                                                                 <input type="text" placeholder="Company Name">
@@ -514,8 +580,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="pro-sett-form account-details col-md-9 col-sm-24 col-xs-24">
-                                            <div class="pro-field-bar hidden-xs">
+                                        <div class="pro-sett-form account-details col-md-9 col-sm-12 col-xs-24">
+                                            <div class="pro-field-bar hidden-sm hidden-xs">
                                                 @*<div class="row">
                                                         <div class="col col-sm-24 col-xs-24">
                                                             <input type="text" placeholder="Company Name">
@@ -580,7 +646,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="details-info hidden-lg hidden-md hidden-sm">
+                                            <div class="details-info hidden-lg hidden-md">
                                                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
                                                 <div class="delete-account">
                                                     <div class="input-wrap input-wrap--small">
@@ -594,7 +660,7 @@
                                                     </div>
                                                     <label>Yes, delete my account</label>
                                                 </div>
-                                                <button type="button" class="delete-account-btn">delete account</button>
+                                                <button type="button" class="delete-account-btn" data-toggle="modal" data-target="#delete_account">delete account</button>
                                             </div>
                                         </div>
                                     </div>

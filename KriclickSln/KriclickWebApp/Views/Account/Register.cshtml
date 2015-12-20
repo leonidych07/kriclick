@@ -83,12 +83,6 @@
     }*/
 </style>
 <div id="body-panel" class="body-panel">
-
-
-
-
-
-
     <!-- Start Body Panel -->
     <div class="login-page-wrap">
         <div class="title-text">
@@ -108,23 +102,24 @@
                     </div>
                 }
             }
-            <h3 class="u-case text-center">CREATE AN ACCOUNT</h3>
+            <h3 class="u-case text-center">Create an Account</h3>
             <span class="block text-center">Sign in with Facebook or Google</span>
         </div>
 
 
         <div class="row">
-            <div class="col-xs-12 col-sm-12">
-                <section id="socialLoginForm">
-                    @Html.Partial("_ExternalLoginsListPartial", new KriclickWebApp.Models.ExternalLoginViewModel() { Action = "ExternalLogin", ReturnUrl = ViewBag.ReturnUrl })
-                </section>
-                <span class="block text-right span1">Already a member?</span>
-
+            <div class="left-part col-md-12 col-sm-12 col-xs-24">
+                <div class="social-login">
+                    <section id="socialLoginForm">
+                        @Html.Partial("_ExternalLoginsListPartial", new KriclickWebApp.Models.ExternalLoginViewModel() { Action = "ExternalLogin", ReturnUrl = ViewBag.ReturnUrl })
+                    </section>
+                    <span class="block text-right span1">Already a member?</span>
+                </div>
                 <div class="text-right">
                     @Html.ActionLink("Sign in", "Login", "Account")
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12">
+            <div class="right-part col-md-12 col-sm-12 col-xs-24">
                 @*<form class="ragistration-form">*@
                 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "ragistration-form", role = "form" }))
                 {
@@ -141,13 +136,13 @@
                         @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "field" })*@
                     @*<div class="g-recaptcha" data-sitekey="6LfJmQ0TAAAAAAQZ7-YW96vZqJmDNVqxP6_TLmcm"></div>*@
                     <span class="block">By joining you agree to our <a href="#">Terms & Conditions</a></span>
-                    <button type="submit">Register</button>
+                    <button type="submit">Sign up</button>
                 }
                 @*<input type="submit" value="SIGN IN" class="btn btn-default" />*@
                 @*</form>*@
-                <div class="forget">
+                @*<div class="forget">
                     <a href="#">Forgot Password</a><a href="#">Forgot Username</a>
-                </div>
+                </div>*@
             </div>
         </div>
 

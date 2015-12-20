@@ -12,19 +12,28 @@ namespace Kriclick.Common
         {
             bool Send=false;
             MailMessage mail = new MailMessage();
-            SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+            
 
-            mail.From = new MailAddress("noreplyxws@gmail.com");
+            mail.From = new MailAddress("kriclick.mailer@gmail.com");
             mail.To.Add(to);
             mail.Subject = subject;
             mail.Body = body;
             mail.IsBodyHtml = true;
+            /*SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
             SmtpServer.Port = 587;
             SmtpServer.Credentials = new System.Net.NetworkCredential("noreplyxws@gmail.com", "goldykhurmi.");
             SmtpServer.EnableSsl = true;
-            SmtpServer.Send(mail);
-           
-            Send=true;
+            SmtpServer.Send(mail);*/
+            
+            //TODO : mail service on server to don't use google and have own domain
+            var client = new SmtpClient("smtp.gmail.com", 587)
+            {
+                Credentials = new System.Net.NetworkCredential("kriclick.mailer@gmail.com", "2wsx!QAZ"),
+                EnableSsl = true
+            };
+            client.Send(mail);
+
+            Send =true;
             return Send;
         }
         

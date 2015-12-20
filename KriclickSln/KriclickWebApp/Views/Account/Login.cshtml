@@ -111,19 +111,20 @@
 
             @Html.ValidationSummary(true)
             <div class="row">
-                <div class="col-xs-12 col-sm-12">
+                <div class="left-part col-md-12 col-sm-12 col-xs-24">
+                    <div class="social-login">
+                        <section id="socialLoginForm">
 
-                    <section id="socialLoginForm">
+                            @Html.Partial("_ExternalLoginsListPartialSignIn", new KriclickWebApp.Models.ExternalLoginViewModel() { Action = "ExternalLogin", ReturnUrl = ViewBag.ReturnUrl })
 
-                        @Html.Partial("_ExternalLoginsListPartialSignIn", new KriclickWebApp.Models.ExternalLoginViewModel() { Action = "ExternalLogin", ReturnUrl = ViewBag.ReturnUrl })
-
-                    </section>
-                    <span class="block text-right span1">Not a member yet?</span>
+                        </section>
+                        <span class="block text-right span1">Not a member yet?</span>
+                    </div>
                     <div class="text-right">
                         @Html.ActionLink("Register", "Register", "Account")
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-12">
+                <div class="right-part col-md-12 col-sm-12 col-xs-24">
 
                     @*<form class="ragistration-form">*@
                     @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "ragistration-form", role = "form" }))

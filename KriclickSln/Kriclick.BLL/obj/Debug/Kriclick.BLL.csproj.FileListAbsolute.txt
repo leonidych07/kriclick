@@ -9,3 +9,14 @@ E:\TFS\Kriclick\KriclickSln\Kriclick.BLL\bin\Debug\Kriclick.DLL.dll
 E:\TFS\Kriclick\KriclickSln\Kriclick.BLL\bin\Debug\Kriclick.Common.pdb
 E:\TFS\Kriclick\KriclickSln\Kriclick.BLL\bin\Debug\Kriclick.DLL.pdb
 E:\TFS\Kriclick\KriclickSln\Kriclick.BLL\bin\Debug\EntityFramework.xml
+C:\Users\Роман\Desktop\job\git\kriclick\KriclickSln\Kriclick.BLL\bin\Debug\Kriclick.BLL.dll
+C:\Users\Роман\Desktop\job\git\kriclick\KriclickSln\Kriclick.BLL\bin\Debug\Kriclick.BLL.pdb
+C:\Users\Роман\Desktop\job\git\kriclick\KriclickSln\Kriclick.BLL\bin\Debug\EntityFramework.dll
+C:\Users\Роман\Desktop\job\git\kriclick\KriclickSln\Kriclick.BLL\bin\Debug\Kriclick.Common.dll
+C:\Users\Роман\Desktop\job\git\kriclick\KriclickSln\Kriclick.BLL\bin\Debug\Kriclick.DLL.dll
+C:\Users\Роман\Desktop\job\git\kriclick\KriclickSln\Kriclick.BLL\bin\Debug\Kriclick.Common.pdb
+C:\Users\Роман\Desktop\job\git\kriclick\KriclickSln\Kriclick.BLL\bin\Debug\Kriclick.DLL.pdb
+C:\Users\Роман\Desktop\job\git\kriclick\KriclickSln\Kriclick.BLL\bin\Debug\EntityFramework.xml
+C:\Users\Роман\Desktop\job\git\kriclick\KriclickSln\Kriclick.BLL\obj\Debug\Kriclick.BLL.csprojResolveAssemblyReference.cache
+C:\Users\Роман\Desktop\job\git\kriclick\KriclickSln\Kriclick.BLL\obj\Debug\Kriclick.BLL.dll
+C:\Users\Роман\Desktop\job\git\kriclick\KriclickSln\Kriclick.BLL\obj\Debug\Kriclick.BLL.pdb

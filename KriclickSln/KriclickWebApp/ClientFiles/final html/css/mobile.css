@@ -471,7 +471,7 @@ body										{ padding: 0px; }
 /*------------- business-profile -------------*/
 .business-benner-panel						{ min-height: 169px; }
 .business-benner-panel .display-table		{ height: 169px; }
-.business-benner-panel .banner-content h1	{ float: none; margin: 0px 0 70px 0; font-size: 24px; }
+.business-benner-panel .banner-content h1	{ float: none; margin: 0px 0 20px 0; font-size: 24px; }
 .business-benner-panel .banner-content .content_right { float: none; }
 .business-benner-panel .banner-content p	{ margin-right: 17px; font-size: 12px; line-height: 17px; }
 .business-benner-panel .banner-content p span { font-size: 18px; }
@@ -727,6 +727,8 @@ body										{ padding: 0px; }
 .pro-settings-wrap .pro-sett-form .social-field-bar input[type="submit"] { width: 100%; }
 .pro-settings-wrap .sidebar-w-inner			{ padding: 13px; }
 .pro-settings-wrap .account-details .check-note label { max-width: 85%; line-height: 17px; }
+#change_password .modal-dialog				{ width: auto; }
+#delete_account .modal-dialog				{ width: auto; }
 
 /*------------- create-new-password , username & password-recovery Page -------------*/
 .recovery-page-wrap							{ padding-right: 15px; padding-left: 15px; }

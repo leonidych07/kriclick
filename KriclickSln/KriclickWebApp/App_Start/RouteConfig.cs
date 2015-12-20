@@ -16,10 +16,16 @@ namespace KriclickWebApp
             routes.LowercaseUrls = true;
 
             routes.MapRoute(
+                name: "BusinessProfileSettings",
+                url: "Settings",
+                defaults: new { controller = "account", action = "BusinessProfileSettings", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "UserProfile",
                 url: "{username}",
                 defaults: new { controller = "account", action = "userprofile", id = UrlParameter.Optional }
-            );             
+            );
 
             routes.MapRoute(
                 name: "Default",

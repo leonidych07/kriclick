@@ -1,0 +1,25 @@
+﻿.pass-prog-bar{
+    display: inline-block;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1em;
+    padding-left: 1px;
+}
+form.comp-reg-form .password-progress-bar {
+    display: inline-block;
+    padding-top: 10px;
+    line-height: 10px;
+    width: 153px;
+}
+
+form.comp-reg-form .validationmsgdisplay{
+    display: none;
+}
+form.comp-reg-form .password-progress-bar .passwordstrengthbar{
+    height: 6px;
+    border-radius: 0px;
+    margin: 0px;
+}
+form.comp-reg-form .password-progress-bar .validationmsgmargin{
+    margin: 0px;
+}

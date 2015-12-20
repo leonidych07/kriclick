@@ -37,11 +37,11 @@ namespace KriclickWebApp.Controllers
             {
                 if (userProfileViewModel.UserTypeId == (int)Kriclick.Common.Enums.UserType.Personal)
                 {
-                    return RedirectToAction("PersonalProfile", "Account", new { UserID = UserId });
+                    return RedirectToAction("UserProfile", "Account", new { username = userProfileViewModel.Username });
                 }
                 else if (userProfileViewModel.UserTypeId == (int)Kriclick.Common.Enums.UserType.Business)
                 {
-                    return RedirectToAction("BusinessProfile", "Account", new { UserID = UserId });
+                    return RedirectToAction("UserProfile", "Account", new { username = userProfileViewModel.Username });
                 }
             }
 

@@ -3,3 +3,8 @@ E:\TFS\Kriclick\KriclickSln\Kriclick.Common\bin\Debug\Kriclick.Common.pdb
 E:\TFS\Kriclick\KriclickSln\Kriclick.Common\obj\Debug\Kriclick.Common.csprojResolveAssemblyReference.cache
 E:\TFS\Kriclick\KriclickSln\Kriclick.Common\obj\Debug\Kriclick.Common.dll
 E:\TFS\Kriclick\KriclickSln\Kriclick.Common\obj\Debug\Kriclick.Common.pdb
+C:\Users\Роман\Desktop\job\git\kriclick\KriclickSln\Kriclick.Common\bin\Debug\Kriclick.Common.dll
+C:\Users\Роман\Desktop\job\git\kriclick\KriclickSln\Kriclick.Common\bin\Debug\Kriclick.Common.pdb
+C:\Users\Роман\Desktop\job\git\kriclick\KriclickSln\Kriclick.Common\obj\Debug\Kriclick.Common.csprojResolveAssemblyReference.cache
+C:\Users\Роман\Desktop\job\git\kriclick\KriclickSln\Kriclick.Common\obj\Debug\Kriclick.Common.dll
+C:\Users\Роман\Desktop\job\git\kriclick\KriclickSln\Kriclick.Common\obj\Debug\Kriclick.Common.pdb

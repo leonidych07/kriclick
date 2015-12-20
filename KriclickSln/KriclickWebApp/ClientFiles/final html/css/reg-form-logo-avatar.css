@@ -1,0 +1,12 @@
+﻿.comp-reg-form .logo-avatar .upload-ad i{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.comp-reg-form .logo-avatar .upload-ad img{
+    opacity: 0;
+}
+
+.comp-reg-form .logo-avatar .attachment-box{
+    padding: 0px;
+}

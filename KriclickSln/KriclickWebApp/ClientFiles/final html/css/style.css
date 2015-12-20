@@ -3146,6 +3146,7 @@ table.coupon-table  tbody tr td .option-toggle a i{
 .pro-settings-wrap .pro-sett-form .pro-field-bar input {
 	float: left;
     width: 100%;
+	height: 43px;
     padding: 0px 13px;
     margin: 0px 0px;
     border: 1px solid #e2e2e2;
@@ -3228,6 +3229,7 @@ table.coupon-table  tbody tr td .option-toggle a i{
 .pro-settings-wrap .pro-sett-form .social-field-bar .text-field {
 	float: right;
     width: 85%;
+	height: 43px;
     padding: 0px 13px;
     margin: 0px 0px;
     border: 1px solid #e2e2e2;
@@ -8497,6 +8499,7 @@ form.comp-reg-form .note-mess2 {
 	padding-top: 2px;
 	padding-left: 14px;
 	font-size: 12px;
+	line-height: 1em;
 	color: #d50000;
 }
 form.comp-reg-form .check-note {
@@ -9021,9 +9024,6 @@ form.comp-reg-form input[type="submit"]:hover {
 	float: left;
 }
 
-
-
-
 /* 
 ============ popup plans ============>> 
 */
@@ -9154,7 +9154,7 @@ form.comp-reg-form input[type="submit"]:hover {
     padding: 0px 10px;
     margin: 0px 0px;
     border: 1px solid #d6d6d6;
-    background-color: transparent;
+	background-color: #ffffff;
     border-radius: 3px;
 	font-family: 'Open Sans', sans-serif;
     font-size: 16px;
@@ -9193,7 +9193,6 @@ form.comp-reg-form input[type="submit"]:hover {
 	line-height: normal;
 	text-align: center;
 }
-
 #plans .thankyou-title {
 	padding-top: 156px;
     font-size: 48px;
@@ -9207,6 +9206,152 @@ form.comp-reg-form input[type="submit"]:hover {
     color: #555555;
 	font-weight: 300;
     line-height: normal;
+}
+
+/* 
+============ popup change_password ============>> 
+*/
+#change_password .modal-dialog {
+	width: 481px;
+}
+#change_password .modal-content {
+	height: 348px;
+	background-color: #f5f5f5;
+}
+#change_password .row {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+#change_password .modal-header .close {
+	margin-bottom: -21px;
+	position: relative;
+	z-index: 9;
+}
+#change_password .modal-header .modal-title {
+	padding-top: 13px;
+	font-size: 18px;
+}
+#change_password .change-pass-form {
+	padding-top: 7px;
+	font-family: 'Roboto', sans-serif;
+	line-height: normal;
+}
+#change_password .change-pass-form .field-bar {
+    padding-bottom: 12px;
+}
+#change_password .change-pass-form .field-bar input {
+    float: none;
+	width: 100%;
+    height: 43px;
+    padding: 0px 10px;
+    margin: 0px 0px;
+    border: 1px solid #e2e2e2;
+	background-color: #ffffff;
+    border-radius: 0;
+	font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    color: #000000;
+    line-height: 41px;
+}
+#change_password .change-pass-form .field-note {
+	padding-bottom: 15px;
+	padding-left: 10px;
+	font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    color: #ce1d25;
+}
+#change_password .change-pass-form .field-bar .update-pass-btn {
+	display: inline-block;
+	width: 100%;
+	height: 43px;
+	padding: 8px 10px;
+	margin: 0px 0px;
+	border: none;
+    background-color: #4790d2;
+    border-radius: 0;
+	font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+	color: #ffffff;
+	text-transform: uppercase;
+	line-height: normal;
+	text-align: center;
+}
+
+/* 
+============ popup delete_account ============>> 
+*/
+#delete_account .modal-dialog {
+	width: 481px;
+}
+#delete_account .modal-content {
+	height: 304px;
+	background-color: #f5f5f5;
+}
+#delete_account .row {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+#delete_account .modal-header .close {
+	margin-bottom: -21px;
+	position: relative;
+	z-index: 9;
+}
+#delete_account .modal-header .modal-title {
+	padding-top: 13px;
+	font-size: 18px;
+}
+#delete_account .delete-acc-form {
+	padding-top: 7px;
+	font-family: 'Roboto', sans-serif;
+	line-height: normal;
+}
+#delete_account .delete-acc-form .field-text {
+	padding-top: 13px;
+    padding-bottom: 21px;
+	font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    color: #545454;
+	font-weight: 300;
+}
+#delete_account .delete-acc-form .field-bar {
+    padding-bottom: 12px;
+}
+#delete_account .delete-acc-form .field-bar input {
+    float: none;
+	width: 100%;
+    height: 43px;
+    padding: 0px 10px;
+    margin: 0px 0px;
+    border: 1px solid #e2e2e2;
+	background-color: #ffffff;
+    border-radius: 0;
+	font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    color: #000000;
+    line-height: 41px;
+}
+#delete_account .delete-acc-form .field-note {
+	padding-bottom: 20px;
+	padding-left: 10px;
+	font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    color: #ce1d25;
+}
+#delete_account .delete-acc-form .field-bar .delete-acc-btn {
+	display: inline-block;
+	width: 100%;
+	height: 43px;
+	padding: 8px 10px;
+	margin: 0px 0px;
+	border: none;
+    background-color: #e53935;
+    border-radius: 0;
+	font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+	color: #ffffff;
+	text-transform: uppercase;
+	line-height: normal;
+	text-align: center;
 }
 
 /* 
@@ -9740,6 +9885,48 @@ form.comp-reg-form input[type="submit"]:hover {
     position: relative;
     background: url(../images/business-benner-img.jpg) no-repeat center center;
     background-size: cover;
+}
+.update-cover-photo {
+	position: absolute;
+    top: 19px;
+    left: 13px;
+	z-index: 1;
+}
+.update-cover-photo .camera-btn {
+	float: left;
+    width: auto;
+    padding: 6px 8px;
+	background: rgba(255,255,255,.7);
+	border-radius: 3px;
+	overflow: hidden;
+}
+.update-cover-photo .camera-btn i {
+	font-size: 20px;
+	color: #363d45;
+	vertical-align: middle;
+}
+.update-cover-photo .camera-btn:hover i {
+	color: #798496;
+}
+.update-cover-photo .camera-btn span {
+	display: block;
+	width: 0px;
+	height: 0px;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+	color: #414a5a;
+	opacity: 0;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+.update-cover-photo .camera-btn:hover span {
+	display: inline-block;
+	width: auto;
+	height: auto;
+	margin-left: 12px;
+	opacity: 1;
 }
 .business-benner-panel .overlay {
     background: rgba(0,0,0,.5);
