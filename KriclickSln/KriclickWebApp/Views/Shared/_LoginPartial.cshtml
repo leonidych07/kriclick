@@ -156,18 +156,9 @@
             </li>
             @if (Request.IsAuthenticated)
             {
-                if (@UserType == "1")
-                {
-                    <li>
-                        <a href="@Url.Action("PersonalProfileSettings", "Account")"><i class="fa fa-gear"></i>Settings</a>
-                    </li>
-                }
-                else
-                {
-                    <li>
-                        <a href="@Url.Action("BusinessProfileSettings", "Account")"><i class="fa fa-gear"></i>Settings</a>
-                    </li>
-                }
+                <li>
+                    <a href="@Url.Action("ProfileSettings", "Account")"><i class="fa fa-gear"></i>Settings</a>
+                </li>
             }
             else
             {

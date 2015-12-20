@@ -179,6 +179,7 @@ namespace KriclickWebApp.Controllers
                 string userID = User.Identity.GetUserId();
                 UserRegistrationBLL userBll = new UserRegistrationBLL();
                 Result = userBll.GetUserProfileById(userID);
+
                 if (!string.IsNullOrEmpty(Result.LogoURL))
                 {
                     ViewBag.Imageurl = (!string.IsNullOrEmpty(Result.LogoURL)) ? Request.Url.GetLeftPart(UriPartial.Authority) + Request.ApplicationPath + "Uploads/" + Result.LogoURL : string.Empty;
@@ -204,11 +205,88 @@ namespace KriclickWebApp.Controllers
                 ViewBag.State = CommonBLL.GetStateList();
                 ViewBag.IndustryList = CommonBLL.GetIndustryTypeList();
 
+                string userID = User.Identity.GetUserId();
+                UserRegistrationBLL userBll = new UserRegistrationBLL();
+                Result = userBll.GetUserProfileById(userID);
+
                 if (ModelState.IsValid)
                 {
-                    string userID = User.Identity.GetUserId();
-                    UserRegistrationBLL userBll = new UserRegistrationBLL();
-                    Result = userBll.GetUserProfileById(userID);
+                    if (!string.IsNullOrEmpty(Result.LogoURL))
+                    {
+                        ViewBag.Imageurl = (!string.IsNullOrEmpty(Result.LogoURL)) ? Request.Url.GetLeftPart(UriPartial.Authority) + Request.ApplicationPath + "Uploads/" + Result.LogoURL : string.Empty;
+                    }
+
+                    ViewBag.UserId = userID;
+
+                    if (string.IsNullOrEmpty(userProfileViewModel.EmailId))
+                    {
+                        ViewBag.ResultMessage = "-4";
+                        return View(Result);
+                    }
+
+                    UserRegistrationBLL register = new UserRegistrationBLL();
+                    userProfileViewModel.UserId = userID;
+                    userProfileViewModel.UserProfileId = Result.UserProfileId;
+                    userProfileViewModel.UserTypeId = Result.UserTypeId;
+
+                    if (!string.IsNullOrEmpty(userProfileViewModel.Password))
+                    {
+                        var removeresult = await UserManager.RemovePasswordAsync(userProfileViewModel.UserId);
+
+                        var addpasswordresult = await UserManager.AddPasswordAsync(userProfileViewModel.UserId, userProfileViewModel.Password);
+
+                        var user = UserManager.FindById(userProfileViewModel.UserId);
+
+                        await SignInAsync(user, isPersistent: false);
+                    }
+
+                    long iResult = register.UpdateUserProfile(userProfileViewModel);
+                    ViewBag.ResultMessage = iResult.ToString();
+                }
+            }
+            return View(Result);
+        }
+
+        public ActionResult ProfileSettings()
+        {
+            UserProfileViewModel Result = new UserProfileViewModel();
+            if (User.Identity.IsAuthenticated)
+            {
+                string userID = User.Identity.GetUserId();
+                UserRegistrationBLL userBll = new UserRegistrationBLL();
+                Result = userBll.GetUserProfileById(userID);
+
+                if (!string.IsNullOrEmpty(Result.LogoURL))
+                {
+                    ViewBag.Imageurl = (!string.IsNullOrEmpty(Result.LogoURL)) ? Request.Url.GetLeftPart(UriPartial.Authority) + Request.ApplicationPath + "Uploads/" + Result.LogoURL : string.Empty;
+                    Result.LogoURL = ViewBag.Imageurl;
+                }
+                ViewBag.State = CommonBLL.GetStateList();
+                ViewBag.UserId = userID;
+                ViewBag.IndustryList = CommonBLL.GetIndustryTypeList();
+            }
+            return View(Result);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> ProfileSettings(UserProfileViewModel userProfileViewModel)
+        {
+            UserProfileViewModel Result = new UserProfileViewModel();
+            if (User.Identity.IsAuthenticated)
+            {
+                var valueToClean = ModelState["Password"];
+                valueToClean.Errors.Clear();
+                valueToClean = ModelState["ConfirmPassword"];
+                valueToClean.Errors.Clear();
+                ViewBag.State = CommonBLL.GetStateList();
+                ViewBag.IndustryList = CommonBLL.GetIndustryTypeList();
+
+                string userID = User.Identity.GetUserId();
+                UserRegistrationBLL userBll = new UserRegistrationBLL();
+                Result = userBll.GetUserProfileById(userID);
+
+                if (ModelState.IsValid)
+                {
                     if (!string.IsNullOrEmpty(Result.LogoURL))
                     {
                         ViewBag.Imageurl = (!string.IsNullOrEmpty(Result.LogoURL)) ? Request.Url.GetLeftPart(UriPartial.Authority) + Request.ApplicationPath + "Uploads/" + Result.LogoURL : string.Empty;

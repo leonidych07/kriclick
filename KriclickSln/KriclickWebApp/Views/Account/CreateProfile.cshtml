@@ -10,8 +10,8 @@
     <script>
         $(document).ready(function () {
 
-            $("#businessPhoneNo").mask("(999) 999-9999").change(function () { $(this).valid();});
-            $("#personalPhoneNo").mask("(999) 999-9999").change(function () { $(this).valid(); });
+            $("#businessPhoneNo").mask("(999) 999-9999").blur(function () { $(this).valid();});
+            $("#personalPhoneNo").mask("(999) 999-9999").blur(function () { $(this).valid(); });
 
             $("#brand-new").click(function () {
                 $('#business').hide();

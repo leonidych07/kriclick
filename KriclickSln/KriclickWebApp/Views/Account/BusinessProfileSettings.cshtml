@@ -189,7 +189,7 @@
         })
     </script>
 }
-@using (Html.BeginForm("BusinessProfileSettings", "Account", FormMethod.Post, new { @class = "form-horizontal comp-reg-form", role = "form", enctype = "multipart/form-data" }))
+@using (Html.BeginForm("BusinessProfileSettings", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
 {
     if (ViewBag.ResultMessage != null)
     {
@@ -283,7 +283,14 @@
                         <div class="main-content col-md-18 col-sm-19 col-xs-24">
                             <div class="row">
                                 <div class="mailbox-prop col-md-24 col-sm-24 col-xs-24">
-                                    <div class="free-account-title">Business Account</div>
+                                    @if (Model.UserTypeId != 1)
+                                    {
+                                        <div class="free-account-title">Business Account</div>
+                                    }
+                                    else
+                                    {
+                                        <div class="free-account-title">Personal Account</div>
+                                    }
                                     <div class="serch-biling-upgrade">
                                         <button type="button" class="upgrade-btn hidden-xs" data-toggle="modal" data-target="#plans">upgrade</button>
                                         <div id="plans" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridModalLabel">
@@ -354,7 +361,7 @@
                                                             <img id="mylogo" />
                                                         </i>
                                                         @*<input type="file" name="" class="" value="Attach your resume" accept="image/*">*@
-                                                        @Html.HiddenFor(model => model.LogoURL);
+                                                        @Html.HiddenFor(model => model.LogoURL)
                                                         @Html.TextBoxFor(model => model.LogoURL, new { @class = "form-control attachment-box", type = "file", onchange = "checkext(this.id);ShowImagePreview(this);", @id = "personallogourl" })
 
                                                     </div>
@@ -417,12 +424,14 @@
                                                             @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @placeholder = "First Name" } })
                                                             @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger ValidationFontSize" })
                                                         </div>
+                                                        @if (Model.UserTypeId != 1) {
                                                         <div class="col col-sm-24 col-xs-24">
                                                             <div class="input-group-btn search-panel">
                                                                 @Html.DropDownListFor(m => m.BusinessProfileViewModel.IndustryTypeId, new SelectList(ViewBag.IndustryList, "IndustryTypeID", "IndustryType1"), new { @class = "selectpicker" })
                                                                 @Html.ValidationMessageFor(model => model.BusinessProfileViewModel.IndustryTypeId, "", new { @class = "text-danger ValidationFontSize" })
                                                             </div>
                                                         </div>
+                                                        }
                                                         <div class="col col-sm-24 col-xs-24">
                                                             @*<input type="text" placeholder="Full Name">*@
                                                             @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @placeholder = "Last Name" } })
@@ -516,6 +525,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                @if (Model.UserTypeId != 1) { 
                                                 <div class="pro-field-bar hidden-lg hidden-md">
                                                     @*<div class="row">
                                                             <div class="col col-sm-24 col-xs-24">
@@ -543,7 +553,9 @@
                                                         </div>
 
                                                     </div>
+
                                                 </div>
+                                                }
                                                 <div class="form-title">social media</div>
                                                 <div class="social-field-bar">
                                                     <div class="field-box">
@@ -581,6 +593,8 @@
                                             </div>
                                         </div>
                                         <div class="pro-sett-form account-details col-md-9 col-sm-12 col-xs-24">
+                                            @if (Model.UserTypeId != 1)
+                                            {
                                             <div class="pro-field-bar hidden-sm hidden-xs">
                                                 @*<div class="row">
                                                         <div class="col col-sm-24 col-xs-24">
@@ -609,6 +623,7 @@
 
                                                 </div>
                                             </div>
+                                            }
                                             <div class="sidebar-widget">
                                                 <div class="sidebar-w-inner options">
                                                     <h2>236 Points</h2>
@@ -624,6 +639,8 @@
                                                     <h4>Manage Alerts</h4>
                                                     <span><a href="#">Notification settings</a></span>
                                                 </div>
+                                                @if (Model.UserTypeId != 1)
+                                                {
                                                 <div class="sidebar-w-inner options">
                                                     <h4>Spot Finder Manager</h4>
                                                     <span>List or unlist your business from the Spot Finder.</span>
@@ -645,6 +662,7 @@
                                                         Please allow our system up to 24 hours for your business to show back in our Spot Finder. If don’t see your business listed please <a href="#">contact</a> support.
                                                     </div>
                                                 </div>
+                                                }
                                             </div>
                                             <div class="details-info hidden-lg hidden-md">
                                                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>

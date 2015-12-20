@@ -279,8 +279,10 @@
     <Content Include="ClientFiles\final html\css\mobile.css" />
     <Content Include="ClientFiles\final html\css\notifications-alerts.css" />
     <Content Include="ClientFiles\final html\css\owl.carousel.css" />
+    <Content Include="ClientFiles\final html\css\pass-progress-bar.css" />
     <Content Include="ClientFiles\final html\css\quill.base.css" />
     <Content Include="ClientFiles\final html\css\quill.snow.css" />
+    <Content Include="ClientFiles\final html\css\reg-form-logo-avatar.css" />
     <Content Include="ClientFiles\final html\css\select2.css" />
     <Content Include="ClientFiles\final html\css\slick-theme.css" />
     <Content Include="ClientFiles\final html\css\slick.css" />
@@ -736,6 +738,7 @@
     <Content Include="Views\Shared\_FooterPartial.cshtml" />
     <Content Include="Views\Shared\_HeaderPartial.cshtml" />
     <Content Include="Views\Account\UserProfile.cshtml" />
+    <Content Include="Views\Account\ProfileSettings.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

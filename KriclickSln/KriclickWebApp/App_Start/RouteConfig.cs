@@ -18,7 +18,7 @@ namespace KriclickWebApp
             routes.MapRoute(
                 name: "BusinessProfileSettings",
                 url: "Settings",
-                defaults: new { controller = "account", action = "BusinessProfileSettings", id = UrlParameter.Optional }
+                defaults: new { controller = "account", action = "ProfileSettings", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(
