@@ -1,6 +1,10 @@
 ﻿@model Kriclick.Common.Models.UserProfileViewModel
+@using Microsoft.AspNet.Identity;
+@using Microsoft.AspNet.Identity.EntityFramework;
 @{
     ViewBag.Title = "PersonalProfile";
+    string LoginUserID = User.Identity.GetUserId();
+    var currentuserid = Model.UserId;
 }
 <style>
     .MaxImageHeight {
@@ -75,8 +79,12 @@
                             </p>
                             @if (Request.IsAuthenticated)
                             {
-                                <button type="button" class="follow-btn">follow</button>
+                                if (LoginUserID != currentuserid)
+                                { 
+                                    <button type="button" class="follow-btn">follow</button>
+                                }
                             }
+
                         </div>
                     </div>
                 </div>
@@ -454,15 +462,15 @@
         </div>
     </div>
     @*@section scripts
-    {*@
-        <script>
-            $(document).ready(function () {
-                var profileHeaderURL = $('#ProfileHeaderURL').val();
-                //alert(profileHeaderURL);
-                if (profileHeaderURL != '') {
-                    $('#benner-panel').css({ "background": "url(" + profileHeaderURL + ") no-repeat scroll center center / cover", });
-                }
-            });
-        </script>
+        {*@
+    <script>
+        $(document).ready(function () {
+            var profileHeaderURL = $('#ProfileHeaderURL').val();
+            //alert(profileHeaderURL);
+            if (profileHeaderURL != '') {
+                $('#benner-panel').css({ "background": "url(" + profileHeaderURL + ") no-repeat scroll center center / cover", });
+            }
+        });
+    </script>
     @*}*@
 </div><!-- End Body Panel -->

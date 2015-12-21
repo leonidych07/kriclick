@@ -350,7 +350,7 @@ namespace KriclickWebApp.Controllers
 
         public string GetUserIdFromRoute()
         {
-            string userID = string.Empty; 
+            string userID = string.Empty;
             string UserName = string.Empty;
 
             if (ControllerContext.RouteData.Values["username"] == null)
@@ -376,8 +376,7 @@ namespace KriclickWebApp.Controllers
         [AllowAnonymous]
         public ActionResult UserProfile()
         {
-            string userID = GetUserIdFromRoute();            
-
+            string userID = GetUserIdFromRoute();
             UserProfileViewModel Result = new UserProfileViewModel();
             UserRegistrationBLL userBll = new UserRegistrationBLL();
 
@@ -386,7 +385,6 @@ namespace KriclickWebApp.Controllers
                 Result.UserId = Guid.Empty.ToString();
                 return View(Result);
             }
-
             Result = userBll.GetUserProfileById(userID);
             Result.ProfileHeaderURL = (!string.IsNullOrEmpty(Result.ProfileHeaderURL)) ? Request.Url.GetLeftPart(UriPartial.Authority) + Request.ApplicationPath + "Uploads/UserProfileHeaderImages/" + Result.ProfileHeaderURL : string.Empty;
             Result.LogoURL = (!string.IsNullOrEmpty(Result.LogoURL)) ? Request.Url.GetLeftPart(UriPartial.Authority) + Request.ApplicationPath + "Uploads/" + Result.LogoURL : string.Empty;
@@ -398,7 +396,7 @@ namespace KriclickWebApp.Controllers
         public ActionResult PersonalProfile(string Username = "")
         {
             //UserProfileViewModel Result = new UserProfileViewModel();
-            
+
             //string userID = (string.IsNullOrEmpty(Username)) ? User.Identity.GetUserId() : GetUserIdFromRoute();
             //UserRegistrationBLL userBll = new UserRegistrationBLL();
             //Result = userBll.GetUserProfileById(userID);
@@ -417,7 +415,7 @@ namespace KriclickWebApp.Controllers
         public ActionResult BusinessProfile(string Username = "")
         {
             //UserProfileViewModel Result = new UserProfileViewModel();
-           
+
             //string userID = (string.IsNullOrEmpty(Username)) ? User.Identity.GetUserId() : GetUserIdFromRoute();
             //UserRegistrationBLL userBll = new UserRegistrationBLL();
             //Result = userBll.GetUserProfileById(userID);

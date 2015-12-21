@@ -6,11 +6,71 @@
 @section scripts{
     @*<script src="~/Scripts/passwordStrengthMeter.js"></script>*@
     <script src="~/Scripts/jquery.maskedinput.js"></script>
+    <script src="~/Scripts/jquery-ui.js"></script>
+    <link href="~/Content/jquery-ui.css" rel="stylesheet" />
+    @*<script type="text/javascript">
+        $(document).ready(function () {
+            var userid = $('input[name=UserId]').val();
 
+            $('#personallogourl').change(function () {
+                var xhr = new XMLHttpRequest();
+
+                var data = new FormData();
+
+                var files = $("#personallogourl").get(0).files;
+                // Add the uploaded image content to the form data collection
+                if (files.length > 0) {
+                    data.append("UploadedImage", files[0]);
+                    data.append("UserID", userid);
+                }
+                xhr.upload.addEventListener("progress", function (evt) {
+                    if (evt.lengthComputable) {
+                        var progress = Math.round(evt.loaded * 100 / evt.total);
+                        $("#progressbar").progressbar("value", progress);
+                    }
+                }, false);
+                xhr.open("POST", "/webapi/SiteFileUpload/UploadUserProfile");
+                xhr.send(data);
+                $("#progressbar").progressbar({
+                    max: 100,
+                    change: function (evt, ui) {
+                        $("#progresslabel").text($("#progressbar").progressbar("value") + "%");
+                    },
+                    complete: function (evt, ui) {
+                        $("#progresslabel").text("File upload successful!");
+                    }
+                });
+                evt.preventDefault();
+            });
+            //    var ajaxRequest = $.ajax({
+            //        type: "POST",
+            //        url: "/webapi/SiteFileUpload/UploadUserProfile",
+            //        contentType: false,
+            //        processData: false,
+            //        data: data,
+            //        success: function (data) {
+            //        },
+            //        error: function () {
+            //        }
+            //    });
+
+            //    ajaxRequest.done(function (xhr, textStatus) {
+            //        //alert(textStatus);
+            //    });
+            //}).on(function (e, data) {
+            //    var progress = parseInt(data.loaded / data.total * 100, 10);
+            //    $('.progress .progress-bar').css('width', progress + '%');
+            //});
+            //.on('fileuploadprogressall', function (e, data) {
+
+            //            });
+        });
+
+    </script>*@
     <script>
         $(document).ready(function () {
 
-            $("#businessPhoneNo").mask("(999) 999-9999").blur(function () { $(this).valid();});
+            $("#businessPhoneNo").mask("(999) 999-9999").blur(function () { $(this).valid(); });
             $("#personalPhoneNo").mask("(999) 999-9999").blur(function () { $(this).valid(); });
 
             $("#brand-new").click(function () {
@@ -24,6 +84,19 @@
         });
     </script>
     <style>
+        .progressbar {
+            width: 300px;
+            height: 21px;
+        }
+
+        .progressbarlabel {
+            width: 300px;
+            height: 21px;
+            position: absolute;
+            text-align: center;
+            font-size: small;
+        }
+
         .ValidationFontSize {
             font-size: 12px !important;
             color: #d50000 !important;
@@ -41,14 +114,14 @@
         .open > .dropdown-menu {
             height: 150px !important;
         }
-        
+
         .imagePosition {
             margin-top: -73px;
             min-width: 73px;
             z-index: 10000;
             position: relative;
         }
-        
+
         .form-group {
             margin-bottom: 0px;
         }
@@ -348,16 +421,16 @@
                         </div>
                     </div>
                     @*<div class="col col-md-24 col-sm-24 col-xs-24">
-        <span class="cr-box-title">Full Name</span>
-        @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @placeholder = "Full Name" } })
-        @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger ValidationFontSize" })
-    </div>*@
+                            <span class="cr-box-title">Full Name</span>
+                            @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @placeholder = "Full Name" } })
+                            @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger ValidationFontSize" })
+                        </div>*@
                     <div class="col col-md-24 col-sm-24 col-xs-24">
                         <span class="cr-box-title">First Name</span>
                         @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @placeholder = "First Name" } })
                         @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger ValidationFontSize note-mess2" })
                     </div>
-                    <div class=col col-md-24 col-sm-24 col-xs-24">
+                    <div class="col col-md-24 col-sm-24 col-xs-24">
                         <span class="cr-box-title">Last Name</span>
                         @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @placeholder = "Last Name" } })
                         @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger ValidationFontSize note-mess2" })
@@ -382,8 +455,8 @@
                                 @Html.ValidationMessageFor(model => model.BusinessProfileViewModel.CompanyName, "", new { @class = "text-danger ValidationFontSize note-mess2" })
                             </div>
                             @*<div class="note-mess col col-md-24 col-sm-24 col-xs-24">
-                                The following format is not accepted.
-                            </div>*@
+                                    The following format is not accepted.
+                                </div>*@
                         </div>
                     </div>
                     <div class="col col-md-24 col-sm-24 col-xs-24">
@@ -460,16 +533,16 @@
                             </div>
                         </div>
                         @*<div class="row">
-        <div class="pass-prog-bar col col-md-12 col-sm-12 col-xs-24">
-            <span class="password-progress-bar">
-                <img src="~/ClientFiles/final%20html/images/password-progress-bar.png" alt="">
-                <span>Weak</span>
-            </span>
-        </div>
-        <div class="col col-md-12 col-sm-12 col-xs-24">
-            <div class="note-mess2">Password does not match</div>
-        </div>
-    </div>*@
+                                <div class="pass-prog-bar col col-md-12 col-sm-12 col-xs-24">
+                                    <span class="password-progress-bar">
+                                        <img src="~/ClientFiles/final%20html/images/password-progress-bar.png" alt="">
+                                        <span>Weak</span>
+                                    </span>
+                                </div>
+                                <div class="col col-md-12 col-sm-12 col-xs-24">
+                                    <div class="note-mess2">Password does not match</div>
+                                </div>
+                            </div>*@
                     </div>
                     <div class="col col-md-24 col-sm-24 col-xs-24">
                         <div class="check-note" id="SpotCheckbox">
@@ -518,6 +591,9 @@
                                     @*<input type="file" name="pic" class="attachment-box" value="Attach your resume" accept="image/*">*@
                                 </div>
                             </div>
+                            @*<div class="progress" id="progressbar">
+                                <div id="progresslabel" class="progressbarlabel"></div>
+                            </div>*@
                             <div class="col col-md-18 col-sm-18 col-xs-15">
                                 <span class="cr-box-title">First Name</span>
                                 @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @placeholder = "First Name" } })
@@ -529,8 +605,8 @@
                                 @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger ValidationFontSize note-mess2" })
                             </div>
                             @*<div class="note-mess col col-md-24 col-sm-24 col-xs-24">
-                                The following format is not accepted.
-                            </div>*@
+                                    The following format is not accepted.
+                                </div>*@
                         </div>
                     </div>
                     <div class="col col-md-24 col-sm-24 col-xs-24">
@@ -570,16 +646,16 @@
                             </div>
                         </div>
                         @*<div class="row">
-        <div class="pass-prog-bar col col-md-12 col-sm-12 col-xs-24">
-            <span class="password-progress-bar">
-                <img src="/ClientFiles/final html/images/password-progress-bar.png" alt="">
-                <span>Weak</span>
-            </span>
-        </div>
-        <div class="col col-md-12 col-sm-12 col-xs-24">
-            <div class="note-mess2">Password does not match</div>
-        </div>
-    </div>*@
+                                <div class="pass-prog-bar col col-md-12 col-sm-12 col-xs-24">
+                                    <span class="password-progress-bar">
+                                        <img src="/ClientFiles/final html/images/password-progress-bar.png" alt="">
+                                        <span>Weak</span>
+                                    </span>
+                                </div>
+                                <div class="col col-md-12 col-sm-12 col-xs-24">
+                                    <div class="note-mess2">Password does not match</div>
+                                </div>
+                            </div>*@
                     </div>
                     <div class="col col-md-24 col-sm-24 col-xs-24">
                         <div class="row">

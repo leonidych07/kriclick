@@ -1,6 +1,10 @@
 ﻿@model Kriclick.Common.Models.UserProfileViewModel
+@using Microsoft.AspNet.Identity;
+@using Microsoft.AspNet.Identity.EntityFramework;
 @{
     ViewBag.Title = "BusinessProfile";
+    string LoginUserID = User.Identity.GetUserId();
+    var currentuserid = Model.UserId;
 }
 <style>
     .MaxImageHeight {
@@ -73,7 +77,10 @@
                             </p>
                             @if (Request.IsAuthenticated)
                             {
-                                <button type="button" class="follow-btn">follow</button>
+                                if (LoginUserID != currentuserid)
+                                { 
+                                    <button type="button" class="follow-btn">follow</button>
+                                }
                             }
                         </div>
                     </div>
@@ -103,7 +110,7 @@
                                 <span class="phone block"><i class="fa fa-phone"></i>@Html.DisplayFor(model => model.PhoneNo)    </span>
                                 @if (!string.IsNullOrEmpty(Model.BusinessProfileViewModel.Website))
                                 {
-                                    <span class="web-site block"><i class="fa fa-globe"></i><a href=@Model.BusinessProfileViewModel.Website> @Html.DisplayFor(model => model.BusinessProfileViewModel.Website)  </a>  </span>
+                                    <span class="web-site block"><i class="fa fa-globe"></i><a target="_blank" href=@Model.BusinessProfileViewModel.Website> @Html.DisplayFor(model => model.BusinessProfileViewModel.Website)  </a>  </span>
                                 }
                             </div>
                             <div class="customer-social-holder">
