@@ -4,7 +4,10 @@
 @{
     ViewBag.Title = "BusinessProfile";
     string LoginUserID = User.Identity.GetUserId();
-    var currentuserid = Model.UserId;
+    if (Model.UserId != null)
+    {
+        var currentuserid = Model.UserId;
+    }
 }
 <style>
     .MaxImageHeight {
