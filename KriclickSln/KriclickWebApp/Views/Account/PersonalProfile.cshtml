@@ -17,6 +17,13 @@
     }
 </style>
 <script src="~/Scripts/jquery-2.1.4.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#CoverPhotoUpdate').click(function () {
+            $('#fileUpload').click();
+        });
+    });
+</script>
 <script type="text/javascript">
 
     function fileupload() {
@@ -53,14 +60,16 @@
 
 <div id="benner-panel" class="business-benner-panel personal">
     <div class="update-cover-photo">
-        <a class="camera-btn" href="#"><i class="fa fa-camera"></i><span>Update Cover Photo</span></a>
+        <a class="camera-btn" href="#"><i class="fa fa-camera"></i><span id="CoverPhotoUpdate">Update Cover Photo</span></a>
     </div>
     <!--Start Benner Panel-->
     <div class="overlay">
         <div class="wrapper">
             @if (Request.IsAuthenticated)
             {
-                <span>Upload your banner:</span><input type="file" id="fileUpload" onchange="fileupload();" />
+                <div style="display:none">
+                    <span>Upload your banner:</span><input type="file" id="fileUpload" onchange="fileupload();" />
+                </div>
             }
             <div class="display-table">
                 <div class="table-cell">
@@ -80,7 +89,7 @@
                             @if (Request.IsAuthenticated)
                             {
                                 if (LoginUserID != currentuserid)
-                                { 
+                                {
                                     <button type="button" class="follow-btn">follow</button>
                                 }
                             }
