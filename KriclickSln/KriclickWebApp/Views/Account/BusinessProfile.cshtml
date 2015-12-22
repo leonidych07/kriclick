@@ -5,10 +5,14 @@
     ViewBag.Title = "BusinessProfile";
     string LoginUserID = User.Identity.GetUserId();
     var currentuserid = "";
-    if (Model.UserId != null)
+    try
     {
-        currentuserid = Model.UserId;
+        if (Model.UserId != null)
+        {
+            currentuserid = Model.UserId;
+        }
     }
+    catch { }
 }
 <style>
     .MaxImageHeight {
@@ -64,7 +68,7 @@
 <div id="benner-panel" class="business-benner-panel">
     @if (Request.IsAuthenticated)
     {
-        if (LoginUserID != currentuserid)
+        if (LoginUserID == currentuserid)
         {
             <div class="update-cover-photo">
                 <a class="camera-btn" href="javascript:void(0);"><i class="fa fa-camera"></i><span id="CoverPhotoUpdate">Update Cover Photo</span></a>
