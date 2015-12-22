@@ -24,6 +24,7 @@ namespace KriclickWebApp.Controllers
         }
 
         public UserManager<ApplicationUser> UserManager { get; private set; }
+
         public ActionResult Index()
         {
             if (User.Identity.IsAuthenticated)
@@ -52,6 +53,21 @@ namespace KriclickWebApp.Controllers
         {
             ViewBag.Message = "Your contact page.";
 
+            return View();
+        }
+
+        public ActionResult Feedback()
+        {
+            return View();
+        }
+
+        public ActionResult HowItWorks()
+        {
+            return View();
+        }
+
+        public ActionResult Help()
+        {
             return View();
         }
     }
