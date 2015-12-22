@@ -4,9 +4,10 @@
 @{
     ViewBag.Title = "BusinessProfile";
     string LoginUserID = User.Identity.GetUserId();
+    var currentuserid = "";
     if (Model.UserId != null)
     {
-        var currentuserid = Model.UserId;
+         currentuserid = Model.UserId;
     }
 }
 <style>
@@ -62,7 +63,7 @@
 
 <div id="benner-panel" class="business-benner-panel">
     <div class="update-cover-photo">
-        <a class="camera-btn" href="#"><i class="fa fa-camera"></i><span id="CoverPhotoUpdate">Update Cover Photo</span></a>
+        <a class="camera-btn" href="javascript:void(0);"><i class="fa fa-camera"></i><span id="CoverPhotoUpdate">Update Cover Photo</span></a>
     </div>
     <!--Start Benner Panel-->
     <div class="overlay">
