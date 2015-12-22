@@ -7,7 +7,7 @@
     var currentuserid = "";
     if (Model.UserId != null)
     {
-         currentuserid = Model.UserId;
+        currentuserid = Model.UserId;
     }
 }
 <style>
@@ -62,9 +62,15 @@
 </script>
 
 <div id="benner-panel" class="business-benner-panel">
-    <div class="update-cover-photo">
-        <a class="camera-btn" href="javascript:void(0);"><i class="fa fa-camera"></i><span id="CoverPhotoUpdate">Update Cover Photo</span></a>
-    </div>
+    @if (Request.IsAuthenticated)
+    {
+        if (LoginUserID != currentuserid)
+        {
+            <div class="update-cover-photo">
+                <a class="camera-btn" href="javascript:void(0);"><i class="fa fa-camera"></i><span id="CoverPhotoUpdate">Update Cover Photo</span></a>
+            </div>
+        }
+    }
     <!--Start Benner Panel-->
     <div class="overlay">
         <div class="wrapper">
